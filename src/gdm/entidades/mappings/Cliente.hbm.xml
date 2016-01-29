@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="gdm.entidades.clases.Cliente" table="clientes">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+  
+  <property name="nombre" type="string" column="nombre" length="300"/>
+  
+  <property name="telefono" type="string" column="telefono" length="30"/>
+  <property name="celular" type="string" column="celular" length="30"/>  
+  <property name="correo" type="string" column="correo" length="80"/>
+<many-to-one name="direccion" column="idDireccion" 
+            class="gdm.entidades.clases.Direccion" cascade="save-update" />
+  </class> 
+</hibernate-mapping>

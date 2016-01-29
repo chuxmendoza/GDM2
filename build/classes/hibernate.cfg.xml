@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration SYSTEM
+"http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name ="hibernate.dialect">
+                org.hibernate.dialect.MySQLDialect
+        </property>
+        <property name ="hibernate.connection.driver_class">
+                com.mysql.jdbc.Driver
+        </property> 
+        <property name ="hibernate.connection.url">
+                jdbc:mysql://localhost:3306/gdmbd
+        </property> 
+        <property name ="hibernate.connection.username">
+                root
+        </property> 
+        <property name ="hibernate.connection.password">
+                root
+        </property> 
+        <mapping resource= "gdm/entidades/mappings/Usuario.hbm.xml" />
+        <mapping resource= "gdm/entidades/mappings/Escuela.hbm.xml" />
+        <mapping resource= "gdm/entidades/mappings/Especialidad.hbm.xml" />
+        <mapping resource= "gdm/entidades/mappings/Cliente.hbm.xml" />
+        <mapping resource= "gdm/entidades/mappings/Direccion.hbm.xml" />
+        <mapping resource= "gdm/entidades/mappings/Anticipo.hbm.xml" />
+        <mapping resource= "gdm/entidades/mappings/Agradecimiento.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/Egreso.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/Metal.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/Contrato.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/FotoPanoramica.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/Misa.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/Baile.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/Modelo.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/ContratoCliente.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/Anillo.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>	

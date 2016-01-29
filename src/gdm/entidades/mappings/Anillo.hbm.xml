@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="gdm.entidades.clases.Anillo" table="anillos">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+
+  <property name="g" type="double" column="g" /> 
+  <property name="k" type="double" column="k" /> 
+ <many-to-one name="metal" column="idMetal" 
+            class="gdm.entidades.clases.Metal" lazy="false"/>
+  
+    </class>
+</hibernate-mapping>

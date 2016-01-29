@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+  <class name="gdm.entidades.clases.ContratoCliente" table="contratoscliente">
+    <id name="id" type="java.lang.Integer">
+      <column name="id"/>
+      <generator class="identity"/>
+    </id>
+    
+ <many-to-one name="cliente" column="idCliente" 
+            class="gdm.entidades.clases.Cliente" lazy="false"/>
+            
+  <property name="folio" type="int" column="folio" />
+  <many-to-one name="modelo" column="idModelo" 
+            class="gdm.entidades.clases.Modelo" lazy="false"/>
+  <property name="reconocimiento" type="org.hibernate.type.NumericBooleanType" column="reconocimiento" />
+  <property name="titulo" type="org.hibernate.type.NumericBooleanType" column="titulo" />
+  <property name="dirigido" type="string" column="dirigido" length="100"/>
+  <many-to-one name="agradecimiento" column="idAgradecimiento" 
+            class="gdm.entidades.clases.Agradecimiento" lazy="false"/>
+  <property name="mensaje" type="string" column="mensaje" length="500"/>
+  <property name="fotoMisa" type="org.hibernate.type.NumericBooleanType" column="fotoMisa" />
+  <property name="fotoPanoramica" type="org.hibernate.type.NumericBooleanType" column="fotoPanoramica" />
+  <property name="fotoPersonalizada" type="org.hibernate.type.NumericBooleanType" column="fotoPersonalizada" />
+  <property name="fotoEstudio" type="org.hibernate.type.NumericBooleanType" column="fotoEstudio" />
+  <many-to-one name="anillo" column="idAnillo" cascade="save-update"
+            class="gdm.entidades.clases.Anillo" lazy="false"/>
+  <property name="rentaToga" type="org.hibernate.type.NumericBooleanType" column="rentaToga" />
+  <property name="misa" type="org.hibernate.type.NumericBooleanType" column="misa" />
+  <property name="baile" type="org.hibernate.type.NumericBooleanType" column="baile" />
+  <property name="mesaExtra" type="int" column="mesaExtra" />
+  <property name="fotosExtra" type="int" column="fotosExtra" />
+  <property name="triptico" type="org.hibernate.type.NumericBooleanType" column="triptico" />
+  <property name="precio" type="double" column="precio" />
+  <property name="fechaEntregaPaquete"  type="date"/>
+  <property name="fechaEntregaDatos" type="date"/> 
+  <property name="fechaLimitePago" type="date"/>
+  <property name="contratoImagen" type="string" column="contratoImagen" length="100"/>
+  <property name="fechaContrato"  type="date"/> 
+  <property name="comentarios" type="string" column="comentarios" length="100"/>
+  <property name="liquidado" type="org.hibernate.type.NumericBooleanType" column="liquidado"/>
+  <!--
+  <list name="anticipos" cascade="all-delete-orphan">
+         <key column="idContratoCliente"/>
+         <list-index column="idx"/>
+         <one-to-many class="gdm.entidades.clases.Anticipo" />
+  </list> 
+  -->
+  </class>
+</hibernate-mapping>
