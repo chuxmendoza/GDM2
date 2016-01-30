@@ -297,18 +297,18 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
          this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             if(tblContratos.getSelectedRow()!= -1)
             {    
-                JDialogAgregarAnticipo frame = new JDialogAgregarAnticipo(null, true);
-                //frame.idContratoCliente =  Integer.parseInt(tblContratos.getValueAt(tblContratos.getSelectedRow(), 0).toString());
-                //frame.total =  Double.parseDouble(tblContratos.getValueAt(tblContratos.getSelectedRow(), 17).toString());
-                frame.idContratoCliente = 2;
-                frame.total = 3500;
+                JPanelAnticipo frame = new JPanelAnticipo(null, true);
+                frame.idContratoCliente =  Integer.parseInt(tblContratos.getValueAt(tblContratos.getSelectedRow(), 0).toString());
+                frame.total =  Double.parseDouble(tblContratos.getValueAt(tblContratos.getSelectedRow(), 22).toString());
+                //frame.idContratoCliente = 2;
+                //frame.total = 3500;
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             }  
         }
         catch(Exception ex)
         {
-            
+            System.out.println(ex.getMessage());
         }finally
         {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
@@ -401,8 +401,9 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
             
            
                                            
-            mod.addRow(new Object[] {id,folio,nombre, modelo ,triptico,reconocimiento,titulo ,agradecimiento,dirigido,fotoPanoramica,fotoPersonalizada,fotoEstudio,
-            fotoMisa,anillo,k,g,rentaToga,misa,baile,mesaExtra,fotosExtra,fechaContrato,"$ "+precio,Comentarios,
+            mod.addRow(new Object[] {id,folio,nombre, modelo ,triptico,reconocimiento,titulo ,agradecimiento,
+                dirigido,fotoPanoramica,fotoPersonalizada,fotoEstudio,
+            fotoMisa,anillo,k,g,rentaToga,misa,baile,mesaExtra,fotosExtra,fechaContrato,""+precio,Comentarios,
             fechaEntregaPaquete,fechaEntregaDatos,fechaLimitePago});
         }
         
