@@ -49,7 +49,7 @@ public class AnticipoNegocio {
              tx = session.beginTransaction();
              Anticipo entidad = new Anticipo();            
              entidad.setNombre(nombre);
-             entidad.setConcepto(celular);
+             entidad.setCelular(celular);
              entidad.setTelefono(telefono);
              entidad.setCantidad(cantidad);
              entidad.setConcepto(concepto);
@@ -89,7 +89,7 @@ public class AnticipoNegocio {
              tx = session.beginTransaction();
              Anticipo entidad = Obtener(id);             
               entidad.setNombre(nombre);
-             entidad.setConcepto(celular);
+             entidad.setCelular(celular);
              entidad.setTelefono(telefono);
              entidad.setCantidad(cantidad);
              entidad.setConcepto(concepto);

@@ -39,12 +39,10 @@
   <property name="fechaContrato"  type="date"/> 
   <property name="comentarios" type="string" column="comentarios" length="100"/>
   <property name="liquidado" type="org.hibernate.type.NumericBooleanType" column="liquidado"/>
-  <!--
   <list name="anticipos" cascade="all-delete-orphan">
          <key column="idContratoCliente"/>
          <list-index column="idx"/>
          <one-to-many class="gdm.entidades.clases.Anticipo" />
   </list> 
-  -->
   </class>
 </hibernate-mapping>
