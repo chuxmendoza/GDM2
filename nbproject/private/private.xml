@@ -12,16 +12,10 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/gdm/entidades/clases/Metal.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/negocio/Clases/ContratoClienteNegocio.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/negocio/Clases/EscuelaNegocio.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/gdm/JDialogAgregarContratoCliente.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/gdm/JDialogAgregarContrato.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/gdm/JPanelCliente.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/gdm/JDialogContratoCliente.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/negocio/Clases/ContratoNegocio.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/negocio/Clases/EspecialidadNegocio.java</file>
-            <file>file:/C:/Users/Chuy/Desktop/GDM/src/gdm/entidades/mappings/Contrato.hbm.xml</file>
+            <file>file:/C:/Users/Chuy/Desktop/GDM2/src/gdm/FrmMenu.java</file>
+            <file>file:/C:/Users/Chuy/Desktop/GDM2/src/gdm/FrmMain.java</file>
+            <file>file:/C:/Users/Chuy/Desktop/GDM2/src/gdm/JDialogAgregarAnticipo.java</file>
+            <file>file:/C:/Users/Chuy/Desktop/GDM2/src/gdm/JDialogAgregarContrato.java</file>
         </group>
     </open-files>
 </project-private>
