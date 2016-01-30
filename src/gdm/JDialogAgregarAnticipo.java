@@ -268,22 +268,6 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
         // TODO add your handling code here:
         try
         {
-<<<<<<< HEAD
-            int id = a.getId();
-            String nombre = a.getNombre();
-            String concepto = a.getConcepto();
-            double cantidad = a.getCantidad();
-            double resto = total -= a.getCantidad();
-            String fecha = a.getFecha().toString();
-            String celular = a.getCelular();
-            String telefono = a.getTelefono();
-            mod.addRow(new Object[] {id, nombre, concepto, cantidad, resto, fecha, celular, telefono});
-        } 
-        tblContratosC.setModel(mod);
-    }   
-    
-    
-=======
                 String nombre = txtNombre.getText().trim();
                 String celular = txtCelular.getText().trim();
                 String telefono = txtTelefono.getText().trim();
@@ -397,7 +381,6 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
         rutaArchivo = null;
         nombreArchivo = null;
     }//GEN-LAST:event_btnRetirarImagenActionPerformed
->>>>>>> d6864c735aadc73a6e1a6bb1db2c46d8b7b963aa
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
