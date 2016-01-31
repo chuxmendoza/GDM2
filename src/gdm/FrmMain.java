@@ -5,16 +5,16 @@
  */
 package gdm;
 
+import static gdm.Program.logger;
+import gdm.entidades.clases.Perfil;
+import gdm.entidades.clases.Usuario;
 import java.awt.Cursor;
-import java.awt.event.KeyEvent;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
+import java.awt.event.KeyEvent; 
 import java.util.ResourceBundle;
-import javax.swing.JOptionPane;
-import negocio.Clases.AnticipoNegocio;
-import negocio.Clases.ClienteNegocio;
+import javax.swing.JOptionPane; 
 import negocio.Clases.UsuarioNegocio;
+import org.apache.log4j.Logger;
+import org.apache.log4j.PropertyConfigurator;
 
 /**
  *
@@ -186,20 +186,26 @@ public class FrmMain extends javax.swing.JFrame {
   
         setCursor(Cursor.WAIT_CURSOR);
         btnLogin.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-        if(UsuarioNegocio.Login(txtLogin.getText(),txtPass.getText())){ 
+        Usuario usuario = UsuarioNegocio.Login(txtLogin.getText(),txtPass.getText());
+        if(usuario != null)
+        {
+            Program.idUsuario = usuario.getId();
+            Program.perfil = usuario.getPerfil();
+            Program.nombreUsuario = usuario.getNombre();
             FrmMenu menu = new FrmMenu();
             menu.setVisible(true);
-            menu.setLocationRelativeTo(null);
-         
-            this.dispose();
-
-        }else{
-
+            menu.setLocationRelativeTo(null); 
+            this.dispose(); 
+        }
+        else
+        {
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("LoginIncorrecto")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAdvertencia"), JOptionPane.INFORMATION_MESSAGE);
-             }                
-       }catch(Exception e){
-           
+        }                
+       }
+       catch(Exception ex)
+       {  
+            Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
            
@@ -252,8 +258,7 @@ if(evt.getKeyCode() == KeyEvent.VK_ENTER){
             java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-       
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
@@ -279,7 +284,5 @@ if(evt.getKeyCode() == KeyEvent.VK_ENTER){
         if(evt.getKeyCode() == KeyEvent.VK_V && evt.isControlDown())
             evt.consume();
           }
-
     
-   
 }

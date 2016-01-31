@@ -7,6 +7,8 @@ package gdm;
 
 import gdm.entidades.clases.Anticipo;
 import gdm.entidades.clases.ContratoCliente;
+import gdm.entidades.clases.Perfil;
+import gdm.entidades.clases.Usuario;
 import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +17,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.Clases.ContratoClienteNegocio;
+import org.apache.log4j.Logger;
 
 /**
  *
@@ -363,7 +366,8 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void cargarContratos() {
-      
+      try
+      {
        DefaultTableModel mod = (DefaultTableModel)tblContratos.getModel();
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
@@ -407,7 +411,12 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
             fechaEntregaPaquete,fechaEntregaDatos,fechaLimitePago});
         }
         
-        tblContratos.setModel(mod);
+        tblContratos.setModel(mod);  
+      }
+      catch(Exception ex)
+      {
+          Program.logger.error(this, ex);
+      }
     }   
     
 

@@ -22,31 +22,25 @@ import org.hibernate.criterion.Projections;
  */
 public class UsuarioNegocio {
        
-    public static boolean Login(String login, String pass)
+    public static Usuario Login(String login, String pass)
     {
-        boolean realizado = false;
-        Integer id = 0;
-        try
-        {  
-            Session session = HibernateUtils.getSession();
-                    
-            Criteria crit=session.createCriteria(Usuario.class);
-            
-            crit.add(Expression.eq("login", login));
-            crit.add(Expression.eq("pass", pass));
-            
-            crit.setProjection(Projections.projectionList()
-                    .add(Projections.property("id")));
-            
-          id = (Integer) crit.uniqueResult();
-          if (id  != null)
-              realizado = true;
-        }
-        catch(Exception ex)
-        {
-            throw ex;
-        }
-        return realizado; 
+        Usuario usuario = new Usuario();
+      try 
+      {        
+          Session session = HibernateUtils.getSession();
+          Criteria crit=session.createCriteria(Usuario.class);
+          crit.add(Expression.eq("login", login));
+          //crit.Add(Expression.Eq("Contrasena", contrasena));
+          usuario = (Usuario)crit.uniqueResult();
+          if (usuario != null)
+            if (!usuario.getPass().equals(pass))
+              usuario = null;
+      }
+      catch(Exception ex) 
+      {
+        throw ex;
+      }
+      return usuario;
     }
     
     public static Usuario Obtener(int id)
