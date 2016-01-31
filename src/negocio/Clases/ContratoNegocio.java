@@ -16,6 +16,7 @@ import gdm.entidades.clases.Especialidad;
 import gdm.entidades.clases.FotoPanoramica; 
 import gdm.entidades.clases.Misa;
 import java.util.Date;
+import org.hibernate.Query;
 
 /**
  *
@@ -256,6 +257,22 @@ public class ContratoNegocio {
              throw ex;
         }
       return realizado;
+    }
+    public static List<ContratoCliente> ListarCC(int id)
+    {  
+        List<ContratoCliente> lista = new ArrayList();
+        try
+        {
+            Session session = HibernateUtils.getSession();
+            String hql = "SELECT CC.contratoCliente FROM Contrato AS CC WHERE CC.id = :id";
+            Query query = session.createQuery(hql).setParameter("id", id);
+            lista = (List<ContratoCliente>)query.list();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return lista; 
     }
       
     

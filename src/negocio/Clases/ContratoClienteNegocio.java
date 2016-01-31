@@ -204,7 +204,7 @@ public class ContratoClienteNegocio {
             throw ex;
         }
         return lista; 
-    }
+    }    
      
     public static List<ContratoCliente> Listado()
     {

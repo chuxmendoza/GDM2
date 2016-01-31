@@ -49,7 +49,7 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setTitle("GDM");
+        setTitle("Graduaciones de México");
         setBackground(new java.awt.Color(250, 250, 250));
         setResizable(false);
         addKeyListener(new java.awt.event.KeyAdapter() {

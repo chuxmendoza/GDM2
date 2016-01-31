@@ -182,11 +182,14 @@
               <Image iconType="3" name="/gdm/entidades/imagenes/Agregar1.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
             <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/gdm/entidades/imagenes/Aceptar2.png"/>
+              <Image iconType="3" name="/gdm/entidades/imagenes/Agregar2.png"/>
             </Property>
             <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/gdm/entidades/imagenes/Aceptar3.png"/>
+              <Image iconType="3" name="/gdm/entidades/imagenes/Agregar3.png"/>
             </Property>
           </Properties>
           <Events>
@@ -219,6 +222,15 @@
               <Image iconType="3" name="/gdm/entidades/imagenes/Eliminar1.png"/>
             </Property>
             <Property name="contentAreaFilled" type="boolean" value="false"/>
+            <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">
+              <Color id="Cursor de Mano"/>
+            </Property>
+            <Property name="rolloverIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/gdm/entidades/imagenes/Eliminar2.png"/>
+            </Property>
+            <Property name="selectedIcon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/gdm/entidades/imagenes/Eliminar3.png"/>
+            </Property>
           </Properties>
           <Events>
             <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnAnticiposEliminarActionPerformed"/>
