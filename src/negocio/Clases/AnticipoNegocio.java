@@ -12,6 +12,7 @@ import java.util.Date;
 import java.util.List;
 import negocio.utils.HibernateUtils;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Expression;
@@ -186,6 +187,15 @@ public class AnticipoNegocio {
             throw ex;
         }
         return lista;
+    }
+    
+    public static Boolean ValidarTotalPago(int idCliente, double cantidad, double total)
+    {
+        boolean editar = false;
+        Session session = HibernateUtils.getSession();
+        Criteria crit = session.createCriteria(Anticipo.class);
+        crit.add(Expression.eq("C.id", idCliente)); 
+        return editar;
     }
     
 }

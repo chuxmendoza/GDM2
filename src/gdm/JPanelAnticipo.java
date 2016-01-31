@@ -204,6 +204,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
         // TODO add your handling code here:
         JDialogAgregarAnticipo frame = new JDialogAgregarAnticipo(null, rootPaneCheckingEnabled);
         frame.idContratoCliente = idContratoCliente;
+        frame.total = total;
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         if (frame.DialogResult)
@@ -269,18 +270,17 @@ public class JPanelAnticipo extends javax.swing.JDialog {
     {
         DefaultTableModel mod = (DefaultTableModel)tblContratosC.getModel();
         List<Anticipo> abonos = new ArrayList();
-        while(mod.getRowCount() > 0)
-            mod.removeRow(0);
+        mod.setRowCount(0);
         
         abonos = ContratoClienteNegocio.ListarAbonos(idContratoCliente);
-        
+        double _total = total;
         for(Anticipo a : abonos)
         {
             int id = a.getId();
             String nombre = a.getNombre();
             String concepto = a.getConcepto();
             double cantidad = a.getCantidad();
-            double resto = total -= a.getCantidad();
+            double resto = _total -= a.getCantidad();
             String fecha = a.getFecha().toString();
             String celular = a.getCelular();
             String telefono = a.getTelefono();

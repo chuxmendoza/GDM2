@@ -36,7 +36,8 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
      public boolean editar = false;
      public int id = 0; 
      public int idContratoCliente = 0;
-
+     public double total = 0;
+     public double pagado = 0;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -277,6 +278,7 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
                 
             if(!editar)
             { 
+                validarGuardar();
                 if(AnticipoNegocio.Guardar(idContratoCliente, 
                         nombre, celular, telefono, cantidad, concepto, nombreArchivo, fecha))
                 {
@@ -438,6 +440,7 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
         }
         catch(Exception e)
         {
+            Program.logger.error(this, e);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);      
         }
@@ -446,5 +449,23 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
             this.setCursor(Cursor.getDefaultCursor());     
         }
     }
+    
+    private boolean validarGuardar()
+    {
+        boolean guardar = false;
+        double cantidad = Integer.parseInt(txtCantidad.getText().trim());
+        if ((pagado+cantidad) <= total)
+            guardar = true;
+        return guardar;
+    }
+    
+    private boolean validarEditar()
+    {
+        boolean _editar = false;
+        double cantidad = Integer.parseInt(txtCantidad.getText().trim());
+//        if (AnticipoNegocio.ValidarTotalPago(cantidad, total))
+//            _editar = true;
+        return _editar;
+    }   
+    
 }
-//XD :v .i. /m/
