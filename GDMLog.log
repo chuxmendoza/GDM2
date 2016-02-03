@@ -1441,4 +1441,98 @@ Caused by: org.hibernate.PropertyNotFoundException: Could not locate getter meth
 	at org.hibernate.tuple.entity.AbstractEntityTuplizer.<init>(AbstractEntityTuplizer.java:145)
 	at org.hibernate.tuple.entity.PojoEntityTuplizer.<init>(PojoEntityTuplizer.java:63)
 	... 21 more
-20160201 20:35:57.845 20160201 20:35:57.848 20160201 20:35:57.850 20160201 20:35:58.083 20160201 20:35:58.092 20160201 20:35:58.904 20160201 20:35:58.919 20160201 20:35:58.928 20160201 20:35:58.937 20160201 20:35:58.947 20160201 20:35:58.961 20160201 20:35:58.968 20160201 20:35:58.974 20160201 20:35:58.982 20160201 20:35:58.993 20160201 20:35:59.005 20160201 20:35:59.011 20160201 20:35:59.019 20160201 20:35:59.027 20160201 20:35:59.044 20160201 20:35:59.054 20160201 20:35:59.166 20160201 20:35:59.169 20160201 20:35:59.170 20160201 20:35:59.170 20160201 20:35:59.173 20160201 20:35:59.326 20160201 20:35:59.357 20160201 20:41:51.695 20160201 20:41:51.698 20160201 20:41:51.700 20160201 20:41:51.974 20160201 20:41:52.004 20160201 20:41:53.367 20160201 20:41:53.381 20160201 20:41:53.392 20160201 20:41:53.405 20160201 20:41:53.430 20160201 20:41:53.442 20160201 20:41:53.452 20160201 20:41:53.460 20160201 20:41:53.469 20160201 20:41:53.484 20160201 20:41:53.496 20160201 20:41:53.506 20160201 20:41:53.516 20160201 20:41:53.527 20160201 20:41:53.544 20160201 20:41:53.555 20160201 20:41:53.622 20160201 20:41:53.625 20160201 20:41:53.626 20160201 20:41:53.626 20160201 20:41:53.629 20160201 20:41:53.821 20160201 20:41:53.863 20160201 20:44:04.166 20160201 20:44:04.169 20160201 20:44:04.170 20160201 20:44:04.457 20160201 20:44:04.473 20160201 20:44:05.541 20160201 20:44:05.553 20160201 20:44:05.566 20160201 20:44:05.579 20160201 20:44:05.590 20160201 20:44:05.603 20160201 20:44:05.613 20160201 20:44:05.621 20160201 20:44:05.630 20160201 20:44:05.644 20160201 20:44:05.656 20160201 20:44:05.667 20160201 20:44:05.685 20160201 20:44:05.694 20160201 20:44:05.710 20160201 20:44:05.721 20160201 20:44:05.804 20160201 20:44:05.809 20160201 20:44:05.810 20160201 20:44:05.811 20160201 20:44:05.814 20160201 20:44:06.004 20160201 20:44:06.038 20160201 21:23:35.256 20160201 21:23:35.266 20160201 21:23:35.271 20160201 21:23:35.639 20160201 21:23:35.657 20160201 21:23:37.067 20160201 21:23:37.092 20160201 21:23:37.116 20160201 21:23:37.135 20160201 21:23:37.162 20160201 21:23:37.183 20160201 21:23:37.213 20160201 21:23:37.243 20160201 21:23:37.252 20160201 21:23:37.275 20160201 21:23:37.314 20160201 21:23:37.324 20160201 21:23:37.336 20160201 21:23:37.357 20160201 21:23:37.393 20160201 21:23:37.428 20160201 21:23:37.600 20160201 21:23:37.608 20160201 21:23:37.609 20160201 21:23:37.609 20160201 21:23:37.612 20160201 21:23:37.845 20160201 21:23:37.890 20160201 21:26:29.655 20160201 21:26:29.659 20160201 21:26:29.662 20160201 21:26:30.093 20160201 21:26:30.109 20160201 21:26:31.804 20160201 21:26:31.824 20160201 21:26:31.844 20160201 21:26:31.863 20160201 21:26:31.880 20160201 21:26:31.917 20160201 21:26:31.942 20160201 21:26:31.958 20160201 21:26:31.976 20160201 21:26:31.996 20160201 21:26:32.018 20160201 21:26:32.033 20160201 21:26:32.046 20160201 21:26:32.061 20160201 21:26:32.107 20160201 21:26:32.136 20160201 21:26:32.262 20160201 21:26:32.268 20160201 21:26:32.269 20160201 21:26:32.271 20160201 21:26:32.275 20160201 21:26:32.615 20160201 21:26:32.652 
+20160201 20:35:57.845 20160201 20:35:57.848 20160201 20:35:57.850 20160201 20:35:58.083 20160201 20:35:58.092 20160201 20:35:58.904 20160201 20:35:58.919 20160201 20:35:58.928 20160201 20:35:58.937 20160201 20:35:58.947 20160201 20:35:58.961 20160201 20:35:58.968 20160201 20:35:58.974 20160201 20:35:58.982 20160201 20:35:58.993 20160201 20:35:59.005 20160201 20:35:59.011 20160201 20:35:59.019 20160201 20:35:59.027 20160201 20:35:59.044 20160201 20:35:59.054 20160201 20:35:59.166 20160201 20:35:59.169 20160201 20:35:59.170 20160201 20:35:59.170 20160201 20:35:59.173 20160201 20:35:59.326 20160201 20:35:59.357 20160201 20:41:51.695 20160201 20:41:51.698 20160201 20:41:51.700 20160201 20:41:51.974 20160201 20:41:52.004 20160201 20:41:53.367 20160201 20:41:53.381 20160201 20:41:53.392 20160201 20:41:53.405 20160201 20:41:53.430 20160201 20:41:53.442 20160201 20:41:53.452 20160201 20:41:53.460 20160201 20:41:53.469 20160201 20:41:53.484 20160201 20:41:53.496 20160201 20:41:53.506 20160201 20:41:53.516 20160201 20:41:53.527 20160201 20:41:53.544 20160201 20:41:53.555 20160201 20:41:53.622 20160201 20:41:53.625 20160201 20:41:53.626 20160201 20:41:53.626 20160201 20:41:53.629 20160201 20:41:53.821 20160201 20:41:53.863 20160201 20:44:04.166 20160201 20:44:04.169 20160201 20:44:04.170 20160201 20:44:04.457 20160201 20:44:04.473 20160201 20:44:05.541 20160201 20:44:05.553 20160201 20:44:05.566 20160201 20:44:05.579 20160201 20:44:05.590 20160201 20:44:05.603 20160201 20:44:05.613 20160201 20:44:05.621 20160201 20:44:05.630 20160201 20:44:05.644 20160201 20:44:05.656 20160201 20:44:05.667 20160201 20:44:05.685 20160201 20:44:05.694 20160201 20:44:05.710 20160201 20:44:05.721 20160201 20:44:05.804 20160201 20:44:05.809 20160201 20:44:05.810 20160201 20:44:05.811 20160201 20:44:05.814 20160201 20:44:06.004 20160201 20:44:06.038 20160201 21:23:35.256 20160201 21:23:35.266 20160201 21:23:35.271 20160201 21:23:35.639 20160201 21:23:35.657 20160201 21:23:37.067 20160201 21:23:37.092 20160201 21:23:37.116 20160201 21:23:37.135 20160201 21:23:37.162 20160201 21:23:37.183 20160201 21:23:37.213 20160201 21:23:37.243 20160201 21:23:37.252 20160201 21:23:37.275 20160201 21:23:37.314 20160201 21:23:37.324 20160201 21:23:37.336 20160201 21:23:37.357 20160201 21:23:37.393 20160201 21:23:37.428 20160201 21:23:37.600 20160201 21:23:37.608 20160201 21:23:37.609 20160201 21:23:37.609 20160201 21:23:37.612 20160201 21:23:37.845 20160201 21:23:37.890 20160201 21:26:29.655 20160201 21:26:29.659 20160201 21:26:29.662 20160201 21:26:30.093 20160201 21:26:30.109 20160201 21:26:31.804 20160201 21:26:31.824 20160201 21:26:31.844 20160201 21:26:31.863 20160201 21:26:31.880 20160201 21:26:31.917 20160201 21:26:31.942 20160201 21:26:31.958 20160201 21:26:31.976 20160201 21:26:31.996 20160201 21:26:32.018 20160201 21:26:32.033 20160201 21:26:32.046 20160201 21:26:32.061 20160201 21:26:32.107 20160201 21:26:32.136 20160201 21:26:32.262 20160201 21:26:32.268 20160201 21:26:32.269 20160201 21:26:32.271 20160201 21:26:32.275 20160201 21:26:32.615 20160201 21:26:32.652 20160202 23:02:03.437 20160202 23:02:03.442 20160202 23:02:03.446 20160202 23:02:03.827 20160202 23:02:03.841 20160202 23:02:05.177 20160202 23:02:05.205 20160202 23:02:05.222 20160202 23:02:05.243 20160202 23:02:05.267 20160202 23:02:05.295 20160202 23:02:05.309 20160202 23:02:05.325 20160202 23:02:05.338 20160202 23:02:05.370 20160202 23:02:05.424 20160202 23:02:05.441 20160202 23:02:05.459 20160202 23:02:05.473 20160202 23:02:05.512 20160202 23:02:05.533 20160202 23:02:05.660 20160202 23:02:05.668 20160202 23:02:05.669 20160202 23:02:05.670 20160202 23:02:05.677 20160202 23:02:07.752 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:692)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at negocio.utils.HibernateUtils.createSessionFactory(HibernateUtils.java:24)
+	at gdm.Program.main(Program.java:31)
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:115)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator$1$1.convert(BasicConnectionCreator.java:101)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:106)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:19)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:138)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:110)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:74)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234)
+	... 15 more
+Caused by: java.sql.SQLException: Unable to connect to any hosts due to exception: java.net.SocketException: java.net.ConnectException: Connection refused: connect
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.SocketException
+MESSAGE: java.net.ConnectException: Connection refused: connect
+
+STACKTRACE:
+
+java.net.SocketException: java.net.ConnectException: Connection refused: connect
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:143)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:225)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:1805)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:452)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:411)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:106)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:19)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:138)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:110)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:74)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:692)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at negocio.utils.HibernateUtils.createSessionFactory(HibernateUtils.java:24)
+	at gdm.Program.main(Program.java:31)
+
+
+** END NESTED EXCEPTION **
+
+
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:1875)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:452)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:411)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	... 30 more
+20160202 23:02:47.529 20160202 23:02:47.533 20160202 23:02:47.535 20160202 23:02:47.856 20160202 23:02:47.866 20160202 23:02:49.018 20160202 23:02:49.039 20160202 23:02:49.051 20160202 23:02:49.067 20160202 23:02:49.084 20160202 23:02:49.101 20160202 23:02:49.117 20160202 23:02:49.131 20160202 23:02:49.147 20160202 23:02:49.172 20160202 23:02:49.192 20160202 23:02:49.206 20160202 23:02:49.218 20160202 23:02:49.247 20160202 23:02:49.275 20160202 23:02:49.287 20160202 23:02:49.396 20160202 23:02:49.402 20160202 23:02:49.403 20160202 23:02:49.404 20160202 23:02:49.408 20160202 23:02:49.715 20160202 23:02:49.759 20160202 23:03:21.052 
