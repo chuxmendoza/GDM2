@@ -543,6 +543,11 @@ public boolean editar = false;
         jLabel13.setText("Anillos");
 
         txtKilates.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        txtKilates.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtKilatesKeyTyped(evt);
+            }
+        });
 
         jLabel14.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         jLabel14.setText("Kilates:");
@@ -551,6 +556,11 @@ public boolean editar = false;
         jLabel15.setText("Gramos:");
 
         txtGramos.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        txtGramos.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtGramosKeyTyped(evt);
+            }
+        });
 
         jLabel20.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         jLabel20.setText("Material:");
@@ -682,11 +692,21 @@ public boolean editar = false;
         jLabel35.setText("Precio del paquete: $");
 
         txtPrecio.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        txtPrecio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtPrecioKeyTyped(evt);
+            }
+        });
 
         jLabel17.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         jLabel17.setText("Fecha:");
 
         txtFolio.setFont(new java.awt.Font("Euphemia", 0, 12)); // NOI18N
+        txtFolio.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtFolioKeyTyped(evt);
+            }
+        });
 
         jLabel11.setFont(new java.awt.Font("Euphemia", 0, 12)); // NOI18N
         jLabel11.setText("Folio:");
@@ -1131,13 +1151,11 @@ public boolean editar = false;
             
             int combo = comboDirigido.getSelectedIndex();
             switch(combo){
-                case 1: dirigido = "A mis padres"; break;
-                case 2: dirigido = "A mi familia"; break;
-                case 3: dirigido = txtDirigido.getText(); break;
+                case 0: dirigido = "A mis padres"; break;
+                case 1: dirigido = "A mi familia"; break;
+                case 2: dirigido = txtDirigido.getText(); break;
                     
-            }
-            
-            
+            } 
                         
             int idAgradecimiento = Integer.parseInt(comboAgradecimiento.getSelectedValue().toString());                                        
             for(Agradecimiento a : agradecimientos)
@@ -1169,9 +1187,9 @@ public boolean editar = false;
                   dirigido,rbFotoPanoramica.isSelected(),rbFotoPersonalizada.isSelected(),rbFotoMisa.isSelected(),rbFotoEstudio.isSelected(),anillo,rbRentaToga.isSelected(),
                   rbMisa.isSelected(),rbBaile.isSelected(),Integer.parseInt(spMesaExtra.getValue().toString()), Integer.parseInt(spFotosExtra.getValue().toString()),rbTriptico.isSelected(),
                   Double.parseDouble(txtPrecio.getText()), dateEntregaPaquete.getDate(),dateEntregaDatos.getDate(),dateLimitePago.getDate(), nombreArchivo,
-                  dateFechaContrato.getDate(), txtComentarios.getText().trim())){
-              this.DialogResult = true;
-                        this.dispose();
+                  dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario)){
+                  this.DialogResult = true;
+                  this.dispose();
                
            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoAgregado")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE); 
@@ -1220,8 +1238,8 @@ public boolean editar = false;
             int idCliente = cliente.getId();
             if(idCliente<=0){
                 
-                JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloCliente")
-                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento"), JOptionPane.INFORMATION_MESSAGE);
+                JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
+                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloCliente"), JOptionPane.INFORMATION_MESSAGE);
 
              return;   
             }
@@ -1237,7 +1255,7 @@ public boolean editar = false;
                         this.dispose();
                       JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoEditado")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE); 
-           
+          
                 }else{
                       JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
@@ -1378,6 +1396,38 @@ public boolean editar = false;
 
         }
     }//GEN-LAST:event_btnBuscarClienteActionPerformed
+
+    private void txtPrecioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtPrecioKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();        
+        if(((car < '0') || (car > '9'))&& (car !='.'))evt.consume();{
+    }                                    
+    if (car == '.' && txtPrecio.getText().contains(".")) { evt.consume(); }
+    }//GEN-LAST:event_txtPrecioKeyTyped
+
+    private void txtFolioKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtFolioKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();        
+        if(((car < '0') || (car > '9')))evt.consume();{
+    }                                    
+  
+    }//GEN-LAST:event_txtFolioKeyTyped
+
+    private void txtKilatesKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtKilatesKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();        
+        if(((car < '0') || (car > '9'))&& (car !='.'))evt.consume();{
+    }                                    
+    if (car == '.' && txtKilates.getText().contains(".")) { evt.consume(); }
+    }//GEN-LAST:event_txtKilatesKeyTyped
+
+    private void txtGramosKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtGramosKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();        
+        if(((car < '0') || (car > '9'))&& (car !='.'))evt.consume();{
+    }                                    
+    if (car == '.' && txtGramos.getText().contains(".")) { evt.consume(); }
+    }//GEN-LAST:event_txtGramosKeyTyped
     
     private void cargarCliente(Cliente cliente)
     {
@@ -1506,6 +1556,7 @@ public boolean editar = false;
         if(contrato != null){
             
             if(contrato.getCliente() != null){
+            cliente = contrato.getCliente();
             txtNombre.setText(contrato.getCliente().getNombre());
             txtTelefono.setText(contrato.getCliente().getTelefono());
             txtCelular.setText(contrato.getCliente().getCelular());

@@ -14,5 +14,7 @@
   <property name="fecha"  type="date"/>
   <property name="cantidad" type="double" column="cantidad" />
   <property name="recibo" type="string" column="recibo" length="500"/>
+  <many-to-one name="usuario" column="idUsuario"
+            class="gdm.entidades.clases.Usuario" lazy="false"/>
   </class> 
 </hibernate-mapping>

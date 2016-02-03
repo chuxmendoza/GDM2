@@ -525,7 +525,9 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     baile.setMinutos((int)spMinutoBaile.getValue());
                     
                    
-                    if(ContratoNegocio.Guardar(Integer.parseInt(comboEscuela.getSelectedValue().toString()),Integer.parseInt(comboEspecialidad.getSelectedValue().toString()),txtGeneracion.getText(),jXDatePickeFechaEvento.getDate(),fotoPanoramica,misa,baile,txtComentarios.getText())){
+                    if(ContratoNegocio.Guardar(Integer.parseInt(comboEscuela.getSelectedValue().toString()),
+                            Integer.parseInt(comboEspecialidad.getSelectedValue().toString()),txtGeneracion.getText(),jXDatePickeFechaEvento.getDate(),
+                            fotoPanoramica,misa,baile,txtComentarios.getText(), Program.idUsuario)){
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoAgregado")
                             , "Acceso denegado", JOptionPane.INFORMATION_MESSAGE);
                          this.DialogResult = true;

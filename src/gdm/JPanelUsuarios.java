@@ -51,9 +51,9 @@ public class JPanelUsuarios extends javax.swing.JPanel {
         jLabel2 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(248, 255, 255));
-        setMaximumSize(new java.awt.Dimension(1154, 650));
-        setMinimumSize(new java.awt.Dimension(1154, 650));
-        setPreferredSize(new java.awt.Dimension(1154, 650));
+        setMaximumSize(new java.awt.Dimension(1190, 650));
+        setMinimumSize(new java.awt.Dimension(1190, 650));
+        setPreferredSize(new java.awt.Dimension(1190, 650));
 
         tblUsuarios.getTableHeader().setFont(new java.awt.Font("Euphemia", 0, 18));
         tblUsuarios.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
@@ -73,22 +73,24 @@ public class JPanelUsuarios extends javax.swing.JPanel {
                 return canEdit [columnIndex];
             }
         });
-        tblUsuarios.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tblUsuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         tblUsuarios.setRowHeight(23);
         tblUsuarios.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tblUsuarios);
         tblUsuarios.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         if (tblUsuarios.getColumnModel().getColumnCount() > 0) {
-            tblUsuarios.getColumnModel().getColumn(1).setMinWidth(250);
-            tblUsuarios.getColumnModel().getColumn(1).setPreferredWidth(250);
-            tblUsuarios.getColumnModel().getColumn(1).setMaxWidth(250);
-            tblUsuarios.getColumnModel().getColumn(2).setMinWidth(250);
-            tblUsuarios.getColumnModel().getColumn(2).setPreferredWidth(250);
-            tblUsuarios.getColumnModel().getColumn(2).setMaxWidth(250);
-            tblUsuarios.getColumnModel().getColumn(3).setMinWidth(100);
-            tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(100);
-            tblUsuarios.getColumnModel().getColumn(3).setMaxWidth(100);
+            tblUsuarios.getColumnModel().getColumn(0).setMinWidth(0);
+            tblUsuarios.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblUsuarios.getColumnModel().getColumn(0).setMaxWidth(0);
+            tblUsuarios.getColumnModel().getColumn(1).setMinWidth(320);
+            tblUsuarios.getColumnModel().getColumn(1).setPreferredWidth(320);
+            tblUsuarios.getColumnModel().getColumn(1).setMaxWidth(320);
+            tblUsuarios.getColumnModel().getColumn(2).setMinWidth(270);
+            tblUsuarios.getColumnModel().getColumn(2).setPreferredWidth(270);
+            tblUsuarios.getColumnModel().getColumn(2).setMaxWidth(270);
+            tblUsuarios.getColumnModel().getColumn(3).setMinWidth(220);
+            tblUsuarios.getColumnModel().getColumn(3).setPreferredWidth(220);
+            tblUsuarios.getColumnModel().getColumn(3).setMaxWidth(220);
         }
 
         jLabel1.setFont(new java.awt.Font("Euphemia", 0, 18)); // NOI18N
@@ -138,27 +140,30 @@ public class JPanelUsuarios extends javax.swing.JPanel {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap(133, Short.MAX_VALUE)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton1))
-                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(layout.createSequentialGroup()
-                            .addComponent(btnAgregar)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(167, 167, 167)
-                            .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 884, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(137, Short.MAX_VALUE))
-            .addGroup(layout.createSequentialGroup()
                 .addGap(415, 415, 415)
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(179, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jButton1))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnAgregar)
+                                .addGap(185, 185, 185)
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(167, 167, 167)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(200, 200, 200))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 819, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(192, 192, 192))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -170,9 +175,9 @@ public class JPanelUsuarios extends javax.swing.JPanel {
                     .addComponent(jLabel2)
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 319, Short.MAX_VALUE)
-                .addGap(28, 28, 28)
+                .addGap(33, 33, 33)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(btnAgregar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)

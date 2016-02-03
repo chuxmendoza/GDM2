@@ -30,6 +30,8 @@ public class Contrato {
     private Baile baile;
     private String comentarios;
     private List<ContratoCliente> contratoCliente;
+    private Usuario usuario;
+    private Date fechaAlta;
     
 //<editor-fold defaultstate="collapsed" desc=" Getters and Setters del Contrato ">
      /**
@@ -171,6 +173,33 @@ public class Contrato {
         this.contratoCliente = contratoCliente;
     }
     
+    /**
+     * @return the usuario
+     */
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    
+    /**
+     * @return the fechaAlta
+     */
+    public Date getFechaAlta() {
+        return fechaAlta;
+    }
+
+    /**
+     * @param fechaAlta the fechaAlta to set
+     */
+    public void setFechaAlta(Date fechaAlta) {
+        this.fechaAlta = fechaAlta;
+    }
     //</editor-fold>
  
 } 

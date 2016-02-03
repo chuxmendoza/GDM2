@@ -12,7 +12,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
-import javax.swing.table.DefaultTableModel;
+import javax.swing.table.DefaultTableModel; 
 import negocio.Clases.ContratoNegocio;
 
 /**
@@ -57,6 +57,10 @@ public class JPanelContrato extends javax.swing.JPanel {
         lblUsuario = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
+        setMaximumSize(new java.awt.Dimension(1190, 650));
+        setMinimumSize(new java.awt.Dimension(1190, 650));
+        setPreferredSize(new java.awt.Dimension(1190, 650));
+        setVerifyInputWhenFocusTarget(false);
 
         tblGraduacion.getTableHeader().setFont(new java.awt.Font("Euphemia", 0, 14));
         tblGraduacion.getTableHeader().setBackground(new java.awt.Color(255,255,255));
@@ -82,11 +86,12 @@ public class JPanelContrato extends javax.swing.JPanel {
         });
         tblGraduacion.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
         tblGraduacion.setRowHeight(23);
+        tblGraduacion.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tblGraduacion);
         if (tblGraduacion.getColumnModel().getColumnCount() > 0) {
-            tblGraduacion.getColumnModel().getColumn(0).setMinWidth(80);
-            tblGraduacion.getColumnModel().getColumn(0).setPreferredWidth(80);
-            tblGraduacion.getColumnModel().getColumn(0).setMaxWidth(80);
+            tblGraduacion.getColumnModel().getColumn(0).setMinWidth(0);
+            tblGraduacion.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblGraduacion.getColumnModel().getColumn(0).setMaxWidth(0);
             tblGraduacion.getColumnModel().getColumn(1).setMinWidth(150);
             tblGraduacion.getColumnModel().getColumn(1).setPreferredWidth(150);
             tblGraduacion.getColumnModel().getColumn(1).setMaxWidth(150);
@@ -127,6 +132,7 @@ public class JPanelContrato extends javax.swing.JPanel {
 
         btnVer.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Ver1.png"))); // NOI18N
         btnVer.setContentAreaFilled(false);
+        btnVer.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnVer.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Ver2.png"))); // NOI18N
         btnVer.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Ver3.png"))); // NOI18N
         btnVer.addActionListener(new java.awt.event.ActionListener() {
@@ -161,6 +167,7 @@ public class JPanelContrato extends javax.swing.JPanel {
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Editar1.png"))); // NOI18N
         btnEditar.setContentAreaFilled(false);
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btnEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Editar2.png"))); // NOI18N
         btnEditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Editar3.png"))); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
@@ -220,6 +227,7 @@ public class JPanelContrato extends javax.swing.JPanel {
                                 .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 192, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(jButton1))
+//<<<<<<< HEAD
                             .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1011, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGroup(layout.createSequentialGroup()
@@ -234,6 +242,24 @@ public class JPanelContrato extends javax.swing.JPanel {
                                     .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addComponent(lblUsuario, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 387, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(96, Short.MAX_VALUE))
+//=======
+/*                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(btnVer, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(149, 149, 149)
+                                .addComponent(btnAgregar, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnEditar, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(btnEliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(142, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 57, Short.MAX_VALUE)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1087, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(56, Short.MAX_VALUE))
+>>>>>>> 5dafa46e5888f61a4171c92b6df94838531dc53a*/
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)

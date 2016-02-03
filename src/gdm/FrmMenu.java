@@ -36,10 +36,8 @@ int funcion = 0;
     private JPanelUsuarios jpUsuarios;
     private JPanelCliente jpCliente;
     private JPanelModelo jpModelo;
-   
+    private JDialogAgregarRutas jpRutas;
     
- 
-
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -55,6 +53,7 @@ int funcion = 0;
         jMenuItem2 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
         jMenuItem10 = new javax.swing.JMenuItem();
+        miRutas = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -92,6 +91,14 @@ int funcion = 0;
             }
         });
         jMenu1.add(jMenuItem10);
+
+        miRutas.setText("Rutas");
+        miRutas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miRutasActionPerformed(evt);
+            }
+        });
+        jMenu1.add(miRutas);
 
         jMenuBar1.add(jMenu1);
 
@@ -176,6 +183,22 @@ catch(Exception e){
        
     }//GEN-LAST:event_jMenuItem10ActionPerformed
 
+    private void miRutasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miRutasActionPerformed
+        // TODO add your handling code here:
+        try
+        { 
+            jpRutas = new JDialogAgregarRutas(this, rootPaneCheckingEnabled);
+            jpRutas.setLocationRelativeTo(null);
+            jpRutas.setVisible(true);
+        }
+        catch(Exception e)
+        {
+            Program.logger.error(this, e);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+        } 
+    }//GEN-LAST:event_miRutasActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JMenu jMenu1;
@@ -184,6 +207,7 @@ catch(Exception e){
     private javax.swing.JMenuItem jMenuItem10;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem6;
+    private javax.swing.JMenuItem miRutas;
     // End of variables declaration//GEN-END:variables
 
     private void funcion() {
@@ -197,10 +221,7 @@ catch(Exception e){
                 case 5:
                 this.remove(jpCliente); break;
                 case 6:
-                this.remove(jpModelo);break;
-                
-              
-                
+                this.remove(jpModelo);break; 
        }
 }
 }

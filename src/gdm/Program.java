@@ -5,7 +5,9 @@
  */
 package gdm;
 
+import gdm.entidades.clases.Anticipo;
 import gdm.entidades.clases.Perfil;  
+import negocio.Clases.AnticipoNegocio;
 import negocio.utils.HibernateUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;

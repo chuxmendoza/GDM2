@@ -31,6 +31,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
     
     public int idContratoCliente = 0;
     public double total = 0;
+    public double pagado = 0; 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -104,8 +105,9 @@ public class JPanelAnticipo extends javax.swing.JDialog {
 
         btnAnticiposAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar1.png"))); // NOI18N
         btnAnticiposAgregar.setContentAreaFilled(false);
-        btnAnticiposAgregar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Aceptar2.png"))); // NOI18N
-        btnAnticiposAgregar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Aceptar3.png"))); // NOI18N
+        btnAnticiposAgregar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAnticiposAgregar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar2.png"))); // NOI18N
+        btnAnticiposAgregar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar3.png"))); // NOI18N
         btnAnticiposAgregar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnticiposAgregarActionPerformed(evt);
@@ -125,6 +127,9 @@ public class JPanelAnticipo extends javax.swing.JDialog {
 
         btnAnticiposEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar1.png"))); // NOI18N
         btnAnticiposEliminar.setContentAreaFilled(false);
+        btnAnticiposEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAnticiposEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar2.png"))); // NOI18N
+        btnAnticiposEliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar3.png"))); // NOI18N
         btnAnticiposEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAnticiposEliminarActionPerformed(evt);
@@ -202,9 +207,16 @@ public class JPanelAnticipo extends javax.swing.JDialog {
 
     private void btnAnticiposAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnticiposAgregarActionPerformed
         // TODO add your handling code here:
+        if (ContratoClienteNegocio.Liquidado(idContratoCliente))
+        {
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoClienteLiquidado")
+                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContratoCliente"), JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         JDialogAgregarAnticipo frame = new JDialogAgregarAnticipo(null, rootPaneCheckingEnabled);
         frame.idContratoCliente = idContratoCliente;
         frame.total = total;
+        frame.pagado = pagado;
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         if (frame.DialogResult)
@@ -213,11 +225,20 @@ public class JPanelAnticipo extends javax.swing.JDialog {
 
     private void btnAnticiposEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnticiposEditarActionPerformed
         // TODO add your handling code here:
+        if (ContratoClienteNegocio.Liquidado(idContratoCliente))
+        {
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoClienteLiquidado")
+                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContratoCliente"), JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         if(tblContratosC.getSelectedRow()!= -1)
         {
             JDialogAgregarAnticipo frame = new JDialogAgregarAnticipo(null, rootPaneCheckingEnabled);
             frame.id = Integer.parseInt(tblContratosC.getValueAt(tblContratosC.getSelectedRow(), 0).toString());
+            frame.idContratoCliente = idContratoCliente;
             frame.editar = true;
+            frame.total = total;
+            frame.pagado = pagado;
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
             if (frame.DialogResult)
@@ -246,7 +267,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
                 if(opcion==0)
                 { 
                      int id = Integer.parseInt(tblContratosC.getValueAt(tblContratosC.getSelectedRow(), 0).toString());
-                     if(AnticipoNegocio.Eliminar(id))
+                     if(AnticipoNegocio.Eliminar(id, idContratoCliente))
                      {
                          cargarAbonos();
                      }
@@ -274,8 +295,10 @@ public class JPanelAnticipo extends javax.swing.JDialog {
         
         abonos = ContratoClienteNegocio.ListarAbonos(idContratoCliente);
         double _total = total;
+        double _pagado = 0;
         for(Anticipo a : abonos)
         {
+            _pagado = _pagado + a.getCantidad();
             int id = a.getId();
             String nombre = a.getNombre();
             String concepto = a.getConcepto();
@@ -286,6 +309,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
             String telefono = a.getTelefono();
             mod.addRow(new Object[] {id, nombre, concepto, cantidad, resto, fecha, celular, telefono});
         } 
+        pagado = _pagado;
         tblContratosC.setModel(mod);
     }   
     

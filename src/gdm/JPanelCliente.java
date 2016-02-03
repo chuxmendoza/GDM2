@@ -49,9 +49,9 @@ public class JPanelCliente extends javax.swing.JPanel {
 
         setBackground(new java.awt.Color(250, 250, 250));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(1136, 650));
-        setMinimumSize(new java.awt.Dimension(1136, 650));
-        setPreferredSize(new java.awt.Dimension(1136, 650));
+        setMaximumSize(new java.awt.Dimension(1190, 650));
+        setMinimumSize(new java.awt.Dimension(1190, 650));
+        setPreferredSize(new java.awt.Dimension(1190, 650));
 
         tblClientes.getTableHeader().setFont(new java.awt.Font("Euphemia", 0, 14));
         tblClientes.setFont(new java.awt.Font("Euphemia", 0, 14));
@@ -75,6 +75,7 @@ public class JPanelCliente extends javax.swing.JPanel {
             }
         });
         tblClientes.setRowHeight(23);
+        tblClientes.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jScrollPane1.setViewportView(tblClientes);
         if (tblClientes.getColumnModel().getColumnCount() > 0) {
             tblClientes.getColumnModel().getColumn(0).setMinWidth(0);
@@ -92,9 +93,9 @@ public class JPanelCliente extends javax.swing.JPanel {
             tblClientes.getColumnModel().getColumn(4).setMinWidth(150);
             tblClientes.getColumnModel().getColumn(4).setPreferredWidth(150);
             tblClientes.getColumnModel().getColumn(4).setMaxWidth(150);
-            tblClientes.getColumnModel().getColumn(5).setMinWidth(180);
-            tblClientes.getColumnModel().getColumn(5).setPreferredWidth(180);
-            tblClientes.getColumnModel().getColumn(5).setMaxWidth(180);
+            tblClientes.getColumnModel().getColumn(5).setMinWidth(210);
+            tblClientes.getColumnModel().getColumn(5).setPreferredWidth(210);
+            tblClientes.getColumnModel().getColumn(5).setMaxWidth(210);
         }
 
         btnAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar1.png"))); // NOI18N
@@ -150,21 +151,23 @@ public class JPanelCliente extends javax.swing.JPanel {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnEliminar)
                 .addGap(116, 116, 116))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(523, 523, 523)
-                .addComponent(jLabel1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(121, Short.MAX_VALUE)
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addGap(519, 519, 519))
+            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 380, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jButton1))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1031, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
+                        .addGap(523, 523, 523)
+                        .addComponent(jLabel1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(65, 65, 65)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1060, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -176,9 +179,9 @@ public class JPanelCliente extends javax.swing.JPanel {
                     .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
                     .addComponent(jButton1))
-                .addGap(7, 7, 7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(40, 40, 40)
+                .addGap(41, 41, 41)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnEditar)
                     .addComponent(btnEliminar, javax.swing.GroupLayout.Alignment.TRAILING)

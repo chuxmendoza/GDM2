@@ -15,7 +15,10 @@ import gdm.entidades.clases.Escuela;
 import gdm.entidades.clases.Especialidad;
 import gdm.entidades.clases.FotoPanoramica; 
 import gdm.entidades.clases.Misa;
+import gdm.entidades.clases.Usuario;
+import java.util.Calendar;
 import java.util.Date;
+import org.hibernate.Query;
 
 /**
  *
@@ -25,7 +28,7 @@ public class ContratoNegocio {
     
     
     public static Boolean Guardar(int idEscuela, int idEspecialidad, String generacion, Date fechaEvento, FotoPanoramica fotoPanoramica, Misa misa, 
-            Baile baile, String comentarios)
+            Baile baile, String comentarios, int idUsuario)
     {
         boolean realizado = false;
         Transaction tx = null; 
@@ -41,6 +44,8 @@ public class ContratoNegocio {
              entidad.setMisa(misa);
              entidad.setBaile(baile);
              entidad.setComentarios(comentarios);
+             entidad.setUsuario(new Usuario(idUsuario));
+             entidad.setFechaAlta(Calendar.getInstance().getTime());
              session.save(entidad); 
              tx.commit();
              realizado = true;
@@ -256,6 +261,22 @@ public class ContratoNegocio {
              throw ex;
         }
       return realizado;
+    }
+    public static List<ContratoCliente> ListarCC(int id)
+    {  
+        List<ContratoCliente> lista = new ArrayList();
+        try
+        {
+            Session session = HibernateUtils.getSession();
+            String hql = "SELECT CC.contratoCliente FROM Contrato AS CC WHERE CC.id = :id";
+            Query query = session.createQuery(hql).setParameter("id", id);
+            lista = (List<ContratoCliente>)query.list();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return lista; 
     }
       
     

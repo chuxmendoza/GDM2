@@ -10,5 +10,11 @@
         </id>
        <property name="nombre" type="string" column="nombre" length="80"/> 
       <property name="ciudad" type = "string" column="ciudad" length="100"/>
+      <!--
+      <bag name="especialidades" cascade="all" table="relEscuelaEspecialidad">
+         <key column="idEscuela"/>
+         <many-to-many column="idEspecialidad" class="gdm.entidades.clases.Especialidad"/>
+      </bag>
+      -->
     </class>
 </hibernate-mapping>

@@ -27,11 +27,9 @@
          <key column="idContrato"/>
          <list-index column="idx"/>
          <one-to-many class="gdm.entidades.clases.ContratoCliente"/>
-  </list>
-  <!---
-  <property name="fecha"  type="date"/>
-  <many-to-one name="usuario" column="idUsuario" 
-            class="gdm.entidades.clases.Usuario" />
-  -->
+  </list> 
+  <property name="fechaAlta"  type="date"/> 
+  <many-to-one name="usuario" column="idUsuario"
+            class="gdm.entidades.clases.Usuario" lazy="false"/>
   </class>
 </hibernate-mapping>

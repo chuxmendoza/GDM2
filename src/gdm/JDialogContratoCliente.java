@@ -18,6 +18,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.Clases.ContratoClienteNegocio;
 import org.apache.log4j.Logger;
+import negocio.Clases.ContratoNegocio;
 
 /**
  *
@@ -34,7 +35,7 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
     }
     public int idContrato = 0;
     public int idCliente= 0;
-    private List<ContratoCliente> contratos;
+    private List<ContratoCliente> contratos; 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -68,10 +69,7 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
         tblContratos.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         tblContratos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "id", "Folio", "Nombre completo", "Modelo", "Triptico", "Reconocimiento", "Título", "Agradecimiento", "Dirigido a:", "Foto panorámica", "Foto personalizada", "Foto estudio", "Foto misa", "Material de anillos", "kilates", "Gramos", "Renta de toga", "Misa", "Baile", "Mesa extra", "Fotos extra", "Fecha de contrato", "Precio", "Comentarios", "Entrega del paquete", "Entrega de datos", "Límite de pago"
@@ -169,13 +167,20 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
 
         btnEditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Editar1.png"))); // NOI18N
         btnEditar.setContentAreaFilled(false);
+        btnEditar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEditar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Editar2.png"))); // NOI18N
+        btnEditar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Editar3.png"))); // NOI18N
         btnEditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEditarActionPerformed(evt);
             }
         });
 
-        Abonar.setText("Abonar");
+        Abonar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Abonar1.png"))); // NOI18N
+        Abonar.setContentAreaFilled(false);
+        Abonar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        Abonar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Abonar2.png"))); // NOI18N
+        Abonar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Abonar3.png"))); // NOI18N
         Abonar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 AbonarActionPerformed(evt);
@@ -184,6 +189,9 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
 
         btnEliminar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar1.png"))); // NOI18N
         btnEliminar.setContentAreaFilled(false);
+        btnEliminar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar2.png"))); // NOI18N
+        btnEliminar.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar3.png"))); // NOI18N
         btnEliminar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnEliminarActionPerformed(evt);
@@ -192,8 +200,9 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
 
         jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar1.png"))); // NOI18N
         jButton4.setContentAreaFilled(false);
-        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Aceptar2.png"))); // NOI18N
-        jButton4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Aceptar3.png"))); // NOI18N
+        jButton4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar2.png"))); // NOI18N
+        jButton4.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar3.png"))); // NOI18N
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -209,11 +218,11 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton4)
-                        .addGap(93, 93, 93)
-                        .addComponent(Abonar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(109, 109, 109)
+                        .addComponent(Abonar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(146, 146, 146)
                         .addComponent(btnEditar)
-                        .addGap(265, 265, 265)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEliminar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(44, Short.MAX_VALUE))
@@ -221,18 +230,19 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(110, Short.MAX_VALUE)
+                .addContainerGap(97, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnEditar, javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(btnEliminar)
-                        .addComponent(jButton4))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(Abonar)
-                        .addGap(13, 13, 13)))
-                .addGap(41, 41, 41))
+                        .addGap(54, 54, 54))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnEliminar)
+                            .addComponent(jButton4)
+                            .addComponent(btnEditar))
+                        .addContainerGap())))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -303,8 +313,6 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 JPanelAnticipo frame = new JPanelAnticipo(null, true);
                 frame.idContratoCliente =  Integer.parseInt(tblContratos.getValueAt(tblContratos.getSelectedRow(), 0).toString());
                 frame.total =  Double.parseDouble(tblContratos.getValueAt(tblContratos.getSelectedRow(), 22).toString());
-                //frame.idContratoCliente = 2;
-                //frame.total = 3500;
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             }  
@@ -372,7 +380,7 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
         
-        contratos = ContratoClienteNegocio.Listado();
+        contratos = ContratoNegocio.ListarCC(idContrato);
         for(ContratoCliente contrato : contratos){
             int id = contrato.getId();
             String nombre= contrato.getCliente().getNombre();
@@ -401,10 +409,7 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
             Date fechaLimitePago=contrato.getFechaLimitePago();
             Date fechaContrato= contrato.getFechaContrato();
             String Comentarios = contrato.getComentarios();
-            
-            
-           
-                                           
+                                         
             mod.addRow(new Object[] {id,folio,nombre, modelo ,triptico,reconocimiento,titulo ,agradecimiento,
                 dirigido,fotoPanoramica,fotoPersonalizada,fotoEstudio,
             fotoMisa,anillo,k,g,rentaToga,misa,baile,mesaExtra,fotosExtra,fechaContrato,""+precio,Comentarios,

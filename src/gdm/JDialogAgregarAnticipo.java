@@ -19,6 +19,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import negocio.Clases.AnticipoNegocio; 
 
+
 /**
  *
  * @author Chuy
@@ -106,6 +107,11 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
         lblNombre4.setText("Cantidad:");
 
         txtCantidad.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        txtCantidad.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCantidadKeyTyped(evt);
+            }
+        });
 
         imgFoto.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         imgFoto.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -220,14 +226,13 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
                         .addContainerGap()
                         .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(69, 69, 69)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(dtFecha, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(69, 69, 69)
-                                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(0, 65, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -269,6 +274,7 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
         // TODO add your handling code here:
         try
         {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 String nombre = txtNombre.getText().trim();
                 String celular = txtCelular.getText().trim();
                 String telefono = txtTelefono.getText().trim();
@@ -278,9 +284,14 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
                 
             if(!editar)
             { 
-                validarGuardar();
+                if (!validarGuardar())
+                {
+                    JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AbonoMayorTotal")
+                        , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
                 if(AnticipoNegocio.Guardar(idContratoCliente, 
-                        nombre, celular, telefono, cantidad, concepto, nombreArchivo, fecha))
+                        nombre, celular, telefono, cantidad, concepto, nombreArchivo, fecha, Program.idUsuario))
                 {
                     JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AnticipoAgregado")
                         , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
@@ -296,8 +307,13 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
             }
             else
             {
-                
-                if(AnticipoNegocio.Editar(id, 
+                if (!validarEditar())
+                {
+                    JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AbonoMayorTotal")
+                        , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+                if(AnticipoNegocio.Editar(idContratoCliente, id, 
                         nombre, celular, telefono, cantidad, concepto, nombreArchivo))
                 {
                     JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AnticipoEditado")
@@ -319,7 +335,10 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 , "Acceso denegado", JOptionPane.INFORMATION_MESSAGE); 
         }
-        
+        finally
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        }
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -384,12 +403,15 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
         nombreArchivo = null;
     }//GEN-LAST:event_btnRetirarImagenActionPerformed
 
-
+    private void txtCantidadKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadKeyTyped
+        // TODO add your handling code here:
+        char car = evt.getKeyChar();        
+        if(((car < '0') || (car > '9'))&& (car !='.'))evt.consume();{
+    }//GEN-LAST:event_txtCantidadKeyTyped
+    if (car == '.' && txtCantidad.getText().contains(".")) { evt.consume(); }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
-    private javax.swing.JButton btnAgregarImagen;
-    private javax.swing.JButton btnAgregarImagen1;
-    private javax.swing.JButton btnAgregarImagen2;
     private javax.swing.JButton btnAgregarImagen3;
     private javax.swing.JButton btnRetirarImagen;
     private org.jdesktop.swingx.JXDatePicker dtFecha;
@@ -453,18 +475,40 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
     private boolean validarGuardar()
     {
         boolean guardar = false;
-        double cantidad = Integer.parseInt(txtCantidad.getText().trim());
-        if ((pagado+cantidad) <= total)
-            guardar = true;
+        try
+        {
+            double cantidad = Integer.parseInt(txtCantidad.getText().trim());
+            if ((pagado+cantidad) <= total)
+                guardar = true;
+        }catch(Exception ex)
+        {
+             Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);      
+        }
         return guardar;
     }
     
     private boolean validarEditar()
     {
         boolean _editar = false;
-        double cantidad = Integer.parseInt(txtCantidad.getText().trim());
-//        if (AnticipoNegocio.ValidarTotalPago(cantidad, total))
-//            _editar = true;
+        try
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            double cantidad = Double.parseDouble(txtCantidad.getText().trim());
+            if (AnticipoNegocio.ValidarTotalPago(idContratoCliente, id, cantidad, total))
+                _editar = true;
+        }
+        catch(Exception ex)
+        {
+            Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);      
+        }
+        finally
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        }
         return _editar;
     }   
     

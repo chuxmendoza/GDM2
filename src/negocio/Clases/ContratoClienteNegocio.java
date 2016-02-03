@@ -15,6 +15,7 @@ import org.hibernate.criterion.MatchMode;
 import gdm.entidades.clases.Contrato; 
 import gdm.entidades.clases.ContratoCliente;
 import gdm.entidades.clases.Modelo;
+import gdm.entidades.clases.Usuario;
 import java.util.Date;
 import org.hibernate.Query;
 import org.hibernate.criterion.Projections;
@@ -32,7 +33,7 @@ public class ContratoClienteNegocio {
             int folio, int idModelo, boolean reconocimiento,boolean titulo, int agradecimiento, String mensaje,String dirigido, boolean fotoPanoramica,
             boolean fotoPersonalizada,boolean fotoMisa, boolean fotoEstudio, Anillo anillo, boolean rentaToga, boolean misa, boolean baile, int mesaExtra, int fotosExtra, 
             boolean triptico, double precio, Date fechaEntregaPaquete, Date fechaEntregaDatos, Date fechaLimitePago, String contratoImagen, 
-            Date fechaContrato, String comentarios)
+            Date fechaContrato, String comentarios, int idUsuario)
     {
         boolean realizado = false;
         Transaction tx = null; 
@@ -88,6 +89,7 @@ public class ContratoClienteNegocio {
              {               
                 contrato.getContratoCliente().add(entidad);             
              }
+             entidad.setUsuario(new Usuario(idUsuario));
              session.update(contrato);
              tx.commit();
              realizado = true;
@@ -204,7 +206,7 @@ public class ContratoClienteNegocio {
             throw ex;
         }
         return lista; 
-    }
+    }    
      
     public static List<ContratoCliente> Listado()
     {
@@ -244,6 +246,24 @@ public class ContratoClienteNegocio {
             throw ex;
         }
         return lista;
+    }
+    
+    public static Boolean Liquidado(int idContratoC)
+    {
+        boolean liquidado = false;
+        try
+        {
+            Session session = HibernateUtils.getSession();
+            Criteria crit = session.createCriteria(ContratoCliente.class); 
+            crit.add(Expression.eq("id", idContratoC));   
+            crit.setProjection(Projections.projectionList().add(Projections.property("liquidado")));
+            liquidado = crit.uniqueResult() != null ? (boolean) crit.uniqueResult() : false;
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return liquidado;
     }
      
 }
