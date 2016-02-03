@@ -5,6 +5,7 @@
  */
 package gdm.entidades.clases;
 
+import java.util.List;
 /**
  *
  * @author Chuy
@@ -15,7 +16,7 @@ public class Especialidad {
     
     private int id;
     private String nombre;
-
+    
     //<editor-fold defaultstate="collapsed" desc=" Getters and Setters de la Especialidad ">
 
     /**

@@ -23,7 +23,7 @@
   <property name="fotoPanoramica" type="org.hibernate.type.NumericBooleanType" column="fotoPanoramica" />
   <property name="fotoPersonalizada" type="org.hibernate.type.NumericBooleanType" column="fotoPersonalizada" />
   <property name="fotoEstudio" type="org.hibernate.type.NumericBooleanType" column="fotoEstudio" />
-  <many-to-one name="anillo" column="idAnillo" cascade="save-update"
+  <many-to-one name="anillo" column="idAnillo" cascade="all"
             class="gdm.entidades.clases.Anillo" lazy="false"/>
   <property name="rentaToga" type="org.hibernate.type.NumericBooleanType" column="rentaToga" />
   <property name="misa" type="org.hibernate.type.NumericBooleanType" column="misa" />

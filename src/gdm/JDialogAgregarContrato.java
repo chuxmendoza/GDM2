@@ -537,7 +537,7 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
            
             
              }else{
-                      fotoPanoramica.setFecha(jXDatePickerFoto.getDate());
+                    fotoPanoramica.setFecha(jXDatePickerFoto.getDate());
                     fotoPanoramica.setLugar(txtLugarFoto.getText());
                     fotoPanoramica.setHora(spHoraFoto.getComponentCount());
                     fotoPanoramica.setMinutos(spMinutoFoto.getComponentCount());

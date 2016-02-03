@@ -429,19 +429,34 @@ public class JPanelContrato extends javax.swing.JPanel {
                 mod.removeRow(0);
 
             contratos = ContratoNegocio.Listado();
+            String misa;
+            String baile;
+            String fotoPanoramica;
             for(Contrato entidad : contratos){
                 int id = entidad.getId();
                 String escuela = entidad.getEscuela().getNombre();
                 String ciudad = entidad.getEscuela().getCiudad();
                 String especialidad= entidad.getEspecialidad().getNombre();
                 String generacion = entidad.getGeneracion();
-                String misa = "En "+entidad.getMisa().getLugar()+" el "+entidad.getMisa().getFecha()+" a las "+
-                        entidad.getMisa().getHora()+":"+entidad.getMisa().getMinutos()+" horas";
-                String baile = "En "+entidad.getBaile().getLugar()+" el "+entidad.getBaile().getFecha()+" a las "+
-                        entidad.getBaile().getHora()+":"+entidad.getBaile().getMinutos()+" horas";
-                String fotoPanoramica = "En "+entidad.getFotoPanoramica().getLugar()+" el "+entidad.getFotoPanoramica().getFecha()+" a las "+
+                if(entidad.getMisa().getFecha()==null){
+                    misa = entidad.getMisa().getLugar()+" Sin fecha";
+                }else{
+                  misa = "En "+entidad.getMisa().getLugar()+" el "+entidad.getMisa().getFecha()+" a las "+
+                        entidad.getMisa().getHora()+":"+entidad.getMisa().getMinutos()+" horas";             
+                }
+                if(entidad.getBaile().getFecha()==null){
+                    baile = entidad.getBaile().getLugar()+" Sin fecha";
+                }else{
+                  baile = "En "+entidad.getBaile().getLugar()+" el "+entidad.getBaile().getFecha()+" a las "+
+                        entidad.getBaile().getHora()+":"+entidad.getBaile().getMinutos()+" horas";             
+                }
+                 if(entidad.getFotoPanoramica().getFecha()==null){
+                    fotoPanoramica = entidad.getFotoPanoramica().getLugar()+" Sin fecha";
+                }else{
+                  fotoPanoramica = "En "+entidad.getFotoPanoramica().getLugar()+" el "+entidad.getFotoPanoramica().getFecha()+" a las "+
                         entidad.getFotoPanoramica().getHora()+":"+entidad.getFotoPanoramica().getMinutos()+" horas";
-                String comentarios = entidad.getComentarios();
+                 }
+                   String comentarios = entidad.getComentarios();
                 Date fechaEvento = entidad.getFechaEvento();
                 int  idMisa= entidad.getMisa().getId();
                 int  idFoto= entidad.getFotoPanoramica().getId();

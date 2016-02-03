@@ -376,6 +376,8 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void cargarContratos() {
+      try{
+          
       
        DefaultTableModel mod = (DefaultTableModel)tblContratos.getModel();
         while(mod.getRowCount() > 0)
@@ -421,7 +423,10 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
         }
         
         tblContratos.setModel(mod);
-    }   
+    }catch(Exception e){
+          System.out.println(e);
     
+}
 
+}
 }
