@@ -383,11 +383,14 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
     private javax.swing.JTable tblContratos;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarContratos() {
 
-      try{
           
       
+
+    private void cargarContratos() { 
+      try
+      { 
+
        DefaultTableModel mod = (DefaultTableModel)tblContratos.getModel();
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
@@ -426,6 +429,7 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 dirigido,fotoPanoramica,fotoPersonalizada,fotoEstudio,
             fotoMisa,anillo,k,g,rentaToga,misa,baile,mesaExtra,fotosExtra,fechaContrato,""+precio,Comentarios,
             fechaEntregaPaquete,fechaEntregaDatos,fechaLimitePago});
+
         }
         
 
@@ -440,10 +444,3 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
 }   
 
         
-    
-
-    
-
-
-
-

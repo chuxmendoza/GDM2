@@ -1295,7 +1295,8 @@ public boolean editar = false;
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-        try{
+        try
+        {
             
             if(!editar){        
                 
@@ -1366,7 +1367,7 @@ public boolean editar = false;
                   dirigido,rbFotoPanoramica.isSelected(),rbFotoPersonalizada.isSelected(),rbFotoMisa.isSelected(),rbFotoEstudio.isSelected(),anillo,rbRentaToga.isSelected(),
                   rbMisa.isSelected(),rbBaile.isSelected(),Integer.parseInt(spMesaExtra.getValue().toString()), Integer.parseInt(spFotosExtra.getValue().toString()),rbTriptico.isSelected(),
                   Double.parseDouble(txtPrecio.getText()), dateEntregaPaquete.getDate(),dateEntregaDatos.getDate(),dateLimitePago.getDate(), nombreArchivo,
-                  dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario,anticipos)){
+                  dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario, anticipos)){
                   this.DialogResult = true;
                   this.dispose();
 

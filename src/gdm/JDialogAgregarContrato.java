@@ -517,12 +517,11 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     misa.setFecha(jXDatePickerMisa.getDate());
                     misa.setLugar(txtLugarMisa.getText());
                     misa.setHora((int)spHoraMisa.getValue());
-                    misa.setMinutos(Integer.parseInt(spMinutoMisa.getValue().toString()));
-                    
+                    misa.setMinutos(Integer.parseInt(spMinutoMisa.getValue().toString()));                    
                     baile.setFecha(jXDatePickerBaile.getDate());
                     baile.setLugar(txtLugarBaile.getText());
                     baile.setHora((int)spHoraMisa.getValue());
-                    baile.setMinutos(Integer.parseInt(spMinutoBaile.getValue().toString()));
+                    baile.setMinutos((Integer.parseInt(spMinutoBaile.getValue().toString())));
                     
                    if(!txtLugarFoto.getText().trim().isEmpty()&&jXDatePickeFechaEvento.getDate()!=null&&jXDatePickerFoto.getDate()!=null&&!txtGeneracion.getText().trim().isEmpty()
                            &&comboEscuela.getSelectedIndex()!=-1&&comboEspecialidad.getSelectedIndex()!=-1){
@@ -579,8 +578,9 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                  }
              
 
-        }catch(Exception ex){
-       Program.logger.error(this, ex);
+
+        }catch(Exception e){
+            Program.logger.error(this, e);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
  
@@ -693,9 +693,12 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
             spHoraBaile.setValue(contrato.getBaile().getHora());
             spHoraFoto.setValue(contrato.getFotoPanoramica().getHora());
             spHoraMisa.setValue(contrato.getMisa().getHora());
-            spMinutoBaile.setValue(contrato.getBaile().getMinutos());
-            spMinutoFoto.setValue(contrato.getFotoPanoramica().getMinutos());
-            spMinutoMisa.setValue(contrato.getMisa().getMinutos());
+            String valueMinBaile = contrato.getBaile().getMinutos() < 10 ? "0"+contrato.getBaile().getMinutos() : "" + contrato.getBaile().getMinutos();
+            spMinutoBaile.setValue(valueMinBaile);
+            String valueMinFoto = contrato.getFotoPanoramica().getMinutos() < 10 ? "0" + contrato.getFotoPanoramica().getMinutos() : "" + contrato.getFotoPanoramica().getMinutos();
+            spMinutoFoto.setValue(valueMinFoto);
+            String valueMinMisa = contrato.getMisa().getMinutos() < 10 ? "0"+contrato.getMisa().getMinutos() : "" + contrato.getMisa().getMinutos();
+            spMinutoMisa.setValue(valueMinMisa);
             txtLugarBaile.setText(contrato.getBaile().getLugar());
             txtLugarMisa.setText(contrato.getMisa().getLugar());
             txtLugarFoto.setText(contrato.getFotoPanoramica().getLugar());

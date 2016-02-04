@@ -33,7 +33,7 @@ public class ContratoClienteNegocio {
             int folio, int idModelo, boolean reconocimiento,boolean titulo, int idAgradecimiento, String mensaje,String dirigido, boolean fotoPanoramica,
             boolean fotoPersonalizada,boolean fotoMisa, boolean fotoEstudio, Anillo anillo,  boolean rentaToga, boolean misa, boolean baile, int mesaExtra, int fotosExtra, 
             boolean triptico, double precio, Date fechaEntregaPaquete, Date fechaEntregaDatos, Date fechaLimitePago, String contratoImagen, 
-            Date fechaContrato, String comentarios, int idUsuario,List<Anticipo> anticipos)
+            Date fechaContrato, String comentarios, int idUsuario, List<Anticipo> anticipos)
 
     {
         boolean realizado = false;

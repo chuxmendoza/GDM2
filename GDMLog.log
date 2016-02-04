@@ -1441,6 +1441,7 @@ Caused by: org.hibernate.PropertyNotFoundException: Could not locate getter meth
 	at org.hibernate.tuple.entity.AbstractEntityTuplizer.<init>(AbstractEntityTuplizer.java:145)
 	at org.hibernate.tuple.entity.PojoEntityTuplizer.<init>(PojoEntityTuplizer.java:63)
 	... 21 more
+<<<<<<< HEAD
 20160201 20:35:57.845 20160201 20:35:57.848 20160201 20:35:57.850 20160201 20:35:58.083 20160201 20:35:58.092 20160201 20:35:58.904 20160201 20:35:58.919 20160201 20:35:58.928 20160201 20:35:58.937 20160201 20:35:58.947 20160201 20:35:58.961 20160201 20:35:58.968 20160201 20:35:58.974 20160201 20:35:58.982 20160201 20:35:58.993 20160201 20:35:59.005 20160201 20:35:59.011 20160201 20:35:59.019 20160201 20:35:59.027 20160201 20:35:59.044 20160201 20:35:59.054 20160201 20:35:59.166 20160201 20:35:59.169 20160201 20:35:59.170 20160201 20:35:59.170 20160201 20:35:59.173 20160201 20:35:59.326 20160201 20:35:59.357 20160201 20:41:51.695 20160201 20:41:51.698 20160201 20:41:51.700 20160201 20:41:51.974 20160201 20:41:52.004 20160201 20:41:53.367 20160201 20:41:53.381 20160201 20:41:53.392 20160201 20:41:53.405 20160201 20:41:53.430 20160201 20:41:53.442 20160201 20:41:53.452 20160201 20:41:53.460 20160201 20:41:53.469 20160201 20:41:53.484 20160201 20:41:53.496 20160201 20:41:53.506 20160201 20:41:53.516 20160201 20:41:53.527 20160201 20:41:53.544 20160201 20:41:53.555 20160201 20:41:53.622 20160201 20:41:53.625 20160201 20:41:53.626 20160201 20:41:53.626 20160201 20:41:53.629 20160201 20:41:53.821 20160201 20:41:53.863 20160201 20:44:04.166 20160201 20:44:04.169 20160201 20:44:04.170 20160201 20:44:04.457 20160201 20:44:04.473 20160201 20:44:05.541 20160201 20:44:05.553 20160201 20:44:05.566 20160201 20:44:05.579 20160201 20:44:05.590 20160201 20:44:05.603 20160201 20:44:05.613 20160201 20:44:05.621 20160201 20:44:05.630 20160201 20:44:05.644 20160201 20:44:05.656 20160201 20:44:05.667 20160201 20:44:05.685 20160201 20:44:05.694 20160201 20:44:05.710 20160201 20:44:05.721 20160201 20:44:05.804 20160201 20:44:05.809 20160201 20:44:05.810 20160201 20:44:05.811 20160201 20:44:05.814 20160201 20:44:06.004 20160201 20:44:06.038 20160201 21:23:35.256 20160201 21:23:35.266 20160201 21:23:35.271 20160201 21:23:35.639 20160201 21:23:35.657 20160201 21:23:37.067 20160201 21:23:37.092 20160201 21:23:37.116 20160201 21:23:37.135 20160201 21:23:37.162 20160201 21:23:37.183 20160201 21:23:37.213 20160201 21:23:37.243 20160201 21:23:37.252 20160201 21:23:37.275 20160201 21:23:37.314 20160201 21:23:37.324 20160201 21:23:37.336 20160201 21:23:37.357 20160201 21:23:37.393 20160201 21:23:37.428 20160201 21:23:37.600 20160201 21:23:37.608 20160201 21:23:37.609 20160201 21:23:37.609 20160201 21:23:37.612 20160201 21:23:37.845 20160201 21:23:37.890 20160201 21:26:29.655 20160201 21:26:29.659 20160201 21:26:29.662 20160201 21:26:30.093 20160201 21:26:30.109 20160201 21:26:31.804 20160201 21:26:31.824 20160201 21:26:31.844 20160201 21:26:31.863 20160201 21:26:31.880 20160201 21:26:31.917 20160201 21:26:31.942 20160201 21:26:31.958 20160201 21:26:31.976 20160201 21:26:31.996 20160201 21:26:32.018 20160201 21:26:32.033 20160201 21:26:32.046 20160201 21:26:32.061 20160201 21:26:32.107 20160201 21:26:32.136 20160201 21:26:32.262 20160201 21:26:32.268 20160201 21:26:32.269 20160201 21:26:32.271 20160201 21:26:32.275 20160201 21:26:32.615 20160201 21:26:32.652 20160202 23:37:28.306 20160202 23:37:28.310 20160202 23:37:28.313 20160202 23:37:28.718 20160202 23:37:28.731 20160202 23:37:30.059 20160202 23:37:30.246 org.hibernate.boot.InvalidMappingException: Could not parse mapping document: gdm/entidades/mappings/Escuela.hbm.xml (RESOURCE)
 	at org.hibernate.boot.jaxb.internal.InputStreamXmlSource.doBind(InputStreamXmlSource.java:46)
 	at org.hibernate.boot.jaxb.internal.UrlXmlSource.doBind(UrlXmlSource.java:36)
@@ -1448,11 +1449,26 @@ Caused by: org.hibernate.PropertyNotFoundException: Could not locate getter meth
 	at org.hibernate.boot.MetadataSources.addResource(MetadataSources.java:274)
 	at org.hibernate.boot.cfgxml.spi.MappingReference.apply(MappingReference.java:70)
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:413)
+=======
+20160201 20:35:57.845 20160201 20:35:57.848 20160201 20:35:57.850 20160201 20:35:58.083 20160201 20:35:58.092 20160201 20:35:58.904 20160201 20:35:58.919 20160201 20:35:58.928 20160201 20:35:58.937 20160201 20:35:58.947 20160201 20:35:58.961 20160201 20:35:58.968 20160201 20:35:58.974 20160201 20:35:58.982 20160201 20:35:58.993 20160201 20:35:59.005 20160201 20:35:59.011 20160201 20:35:59.019 20160201 20:35:59.027 20160201 20:35:59.044 20160201 20:35:59.054 20160201 20:35:59.166 20160201 20:35:59.169 20160201 20:35:59.170 20160201 20:35:59.170 20160201 20:35:59.173 20160201 20:35:59.326 20160201 20:35:59.357 20160201 20:41:51.695 20160201 20:41:51.698 20160201 20:41:51.700 20160201 20:41:51.974 20160201 20:41:52.004 20160201 20:41:53.367 20160201 20:41:53.381 20160201 20:41:53.392 20160201 20:41:53.405 20160201 20:41:53.430 20160201 20:41:53.442 20160201 20:41:53.452 20160201 20:41:53.460 20160201 20:41:53.469 20160201 20:41:53.484 20160201 20:41:53.496 20160201 20:41:53.506 20160201 20:41:53.516 20160201 20:41:53.527 20160201 20:41:53.544 20160201 20:41:53.555 20160201 20:41:53.622 20160201 20:41:53.625 20160201 20:41:53.626 20160201 20:41:53.626 20160201 20:41:53.629 20160201 20:41:53.821 20160201 20:41:53.863 20160201 20:44:04.166 20160201 20:44:04.169 20160201 20:44:04.170 20160201 20:44:04.457 20160201 20:44:04.473 20160201 20:44:05.541 20160201 20:44:05.553 20160201 20:44:05.566 20160201 20:44:05.579 20160201 20:44:05.590 20160201 20:44:05.603 20160201 20:44:05.613 20160201 20:44:05.621 20160201 20:44:05.630 20160201 20:44:05.644 20160201 20:44:05.656 20160201 20:44:05.667 20160201 20:44:05.685 20160201 20:44:05.694 20160201 20:44:05.710 20160201 20:44:05.721 20160201 20:44:05.804 20160201 20:44:05.809 20160201 20:44:05.810 20160201 20:44:05.811 20160201 20:44:05.814 20160201 20:44:06.004 20160201 20:44:06.038 20160201 21:23:35.256 20160201 21:23:35.266 20160201 21:23:35.271 20160201 21:23:35.639 20160201 21:23:35.657 20160201 21:23:37.067 20160201 21:23:37.092 20160201 21:23:37.116 20160201 21:23:37.135 20160201 21:23:37.162 20160201 21:23:37.183 20160201 21:23:37.213 20160201 21:23:37.243 20160201 21:23:37.252 20160201 21:23:37.275 20160201 21:23:37.314 20160201 21:23:37.324 20160201 21:23:37.336 20160201 21:23:37.357 20160201 21:23:37.393 20160201 21:23:37.428 20160201 21:23:37.600 20160201 21:23:37.608 20160201 21:23:37.609 20160201 21:23:37.609 20160201 21:23:37.612 20160201 21:23:37.845 20160201 21:23:37.890 20160201 21:26:29.655 20160201 21:26:29.659 20160201 21:26:29.662 20160201 21:26:30.093 20160201 21:26:30.109 20160201 21:26:31.804 20160201 21:26:31.824 20160201 21:26:31.844 20160201 21:26:31.863 20160201 21:26:31.880 20160201 21:26:31.917 20160201 21:26:31.942 20160201 21:26:31.958 20160201 21:26:31.976 20160201 21:26:31.996 20160201 21:26:32.018 20160201 21:26:32.033 20160201 21:26:32.046 20160201 21:26:32.061 20160201 21:26:32.107 20160201 21:26:32.136 20160201 21:26:32.262 20160201 21:26:32.268 20160201 21:26:32.269 20160201 21:26:32.271 20160201 21:26:32.275 20160201 21:26:32.615 20160201 21:26:32.652 20160202 23:02:03.437 20160202 23:02:03.442 20160202 23:02:03.446 20160202 23:02:03.827 20160202 23:02:03.841 20160202 23:02:05.177 20160202 23:02:05.205 20160202 23:02:05.222 20160202 23:02:05.243 20160202 23:02:05.267 20160202 23:02:05.295 20160202 23:02:05.309 20160202 23:02:05.325 20160202 23:02:05.338 20160202 23:02:05.370 20160202 23:02:05.424 20160202 23:02:05.441 20160202 23:02:05.459 20160202 23:02:05.473 20160202 23:02:05.512 20160202 23:02:05.533 20160202 23:02:05.660 20160202 23:02:05.668 20160202 23:02:05.669 20160202 23:02:05.670 20160202 23:02:05.677 20160202 23:02:07.752 org.hibernate.service.spi.ServiceException: Unable to create requested service [org.hibernate.engine.jdbc.env.spi.JdbcEnvironment]
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:244)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+>>>>>>> 72f91c74b7701196b587ac4102276e3479bf16b9
 	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:692)
 	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
 	at negocio.utils.HibernateUtils.createSessionFactory(HibernateUtils.java:24)
 	at gdm.Program.main(Program.java:31)
+<<<<<<< HEAD
 Caused by: org.hibernate.boot.MappingException: Unable to perform unmarshalling at line number 0 and column 0. Message: null : origin(gdm/entidades/mappings/Escuela.hbm.xml)
 	at org.hibernate.boot.jaxb.internal.AbstractBinder.jaxb(AbstractBinder.java:177)
 	at org.hibernate.boot.jaxb.internal.MappingBinder.doBind(MappingBinder.java:61)
@@ -1482,6 +1498,86 @@ Message: El contenido de los elementos debe constar de marcadores o datos de car
 	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal0(UnmarshallerImpl.java:445)
 	... 16 more
 20160202 23:37:50.555 20160202 23:37:50.561 20160202 23:37:50.563 20160202 23:37:50.929 20160202 23:37:50.943 20160202 23:37:52.256 20160202 23:37:52.292 org.hibernate.boot.InvalidMappingException: Could not parse mapping document: gdm/entidades/mappings/Escuela.hbm.xml (RESOURCE)
+=======
+Caused by: org.hibernate.exception.JDBCConnectionException: Error calling Driver#connect
+	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:115)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator$1$1.convert(BasicConnectionCreator.java:101)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:123)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:41)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:106)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:19)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:138)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:110)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:74)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234)
+	... 15 more
+Caused by: java.sql.SQLException: Unable to connect to any hosts due to exception: java.net.SocketException: java.net.ConnectException: Connection refused: connect
+
+** BEGIN NESTED EXCEPTION ** 
+
+java.net.SocketException
+MESSAGE: java.net.ConnectException: Connection refused: connect
+
+STACKTRACE:
+
+java.net.SocketException: java.net.ConnectException: Connection refused: connect
+	at com.mysql.jdbc.StandardSocketFactory.connect(StandardSocketFactory.java:143)
+	at com.mysql.jdbc.MysqlIO.<init>(MysqlIO.java:225)
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:1805)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:452)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:411)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:58)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.addConnections(PooledConnections.java:106)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:40)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections.<init>(PooledConnections.java:19)
+	at org.hibernate.engine.jdbc.connections.internal.PooledConnections$Builder.build(PooledConnections.java:138)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:110)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:74)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:145)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:66)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:35)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:88)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:234)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:208)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:51)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:94)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:217)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:189)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.handleTypes(MetadataBuildingProcess.java:352)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:111)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:83)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:418)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:692)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at negocio.utils.HibernateUtils.createSessionFactory(HibernateUtils.java:24)
+	at gdm.Program.main(Program.java:31)
+
+
+** END NESTED EXCEPTION **
+
+
+	at com.mysql.jdbc.Connection.createNewIO(Connection.java:1875)
+	at com.mysql.jdbc.Connection.<init>(Connection.java:452)
+	at com.mysql.jdbc.NonRegisteringDriver.connect(NonRegisteringDriver.java:411)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:38)
+	... 30 more
+20160202 23:02:47.529 20160202 23:02:47.533 20160202 23:02:47.535 20160202 23:02:47.856 20160202 23:02:47.866 20160202 23:02:49.018 20160202 23:02:49.039 20160202 23:02:49.051 20160202 23:02:49.067 20160202 23:02:49.084 20160202 23:02:49.101 20160202 23:02:49.117 20160202 23:02:49.131 20160202 23:02:49.147 20160202 23:02:49.172 20160202 23:02:49.192 20160202 23:02:49.206 20160202 23:02:49.218 20160202 23:02:49.247 20160202 23:02:49.275 20160202 23:02:49.287 20160202 23:02:49.396 20160202 23:02:49.402 20160202 23:02:49.403 20160202 23:02:49.404 20160202 23:02:49.408 20160202 23:02:49.715 20160202 23:02:49.759 20160202 23:03:21.052 20160202 23:38:15.935 20160202 23:38:15.946 20160202 23:38:15.948 20160202 23:38:16.550 20160202 23:38:16.569 20160202 23:38:18.042 20160202 23:38:18.084 org.hibernate.boot.InvalidMappingException: Could not parse mapping document: gdm/entidades/mappings/Escuela.hbm.xml (RESOURCE)
+>>>>>>> 72f91c74b7701196b587ac4102276e3479bf16b9
 	at org.hibernate.boot.jaxb.internal.InputStreamXmlSource.doBind(InputStreamXmlSource.java:46)
 	at org.hibernate.boot.jaxb.internal.UrlXmlSource.doBind(UrlXmlSource.java:36)
 	at org.hibernate.boot.spi.XmlMappingBinderAccess.bind(XmlMappingBinderAccess.java:59)
@@ -1521,6 +1617,7 @@ Message: El contenido de los elementos debe constar de marcadores o datos de car
 	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.StAXEventConnector.bridge(StAXEventConnector.java:126)
 	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal0(UnmarshallerImpl.java:445)
 	... 16 more
+<<<<<<< HEAD
 20160202 23:39:30.581 20160202 23:39:30.586 20160202 23:39:30.589 20160202 23:39:31.013 20160202 23:39:31.029 20160202 23:39:32.300 20160202 23:39:32.319 20160202 23:39:32.334 20160202 23:39:32.351 20160202 23:39:32.368 20160202 23:39:32.389 20160202 23:39:32.400 20160202 23:39:32.411 20160202 23:39:32.425 20160202 23:39:32.444 20160202 23:39:32.457 20160202 23:39:32.471 20160202 23:39:32.484 20160202 23:39:32.498 20160202 23:39:32.535 20160202 23:39:32.549 20160202 23:39:32.658 20160202 23:39:32.667 20160202 23:39:32.668 20160202 23:39:32.668 20160202 23:39:32.674 20160202 23:39:33.237 20160202 23:39:33.322 20160202 23:39:38.923 20160202 23:39:38.923 20160202 23:40:00.068 20160202 23:40:00.068 20160202 23:47:14.261 20160202 23:47:14.265 20160202 23:47:14.267 20160202 23:47:14.665 20160202 23:47:14.685 20160202 23:47:15.960 20160202 23:47:15.978 20160202 23:47:15.991 20160202 23:47:16.009 20160202 23:47:16.024 20160202 23:47:16.055 20160202 23:47:16.071 20160202 23:47:16.086 20160202 23:47:16.102 20160202 23:47:16.120 20160202 23:47:16.142 20160202 23:47:16.155 20160202 23:47:16.179 20160202 23:47:16.190 20160202 23:47:16.215 20160202 23:47:16.238 20160202 23:47:16.390 20160202 23:47:16.398 20160202 23:47:16.400 20160202 23:47:16.400 20160202 23:47:16.406 20160202 23:47:16.691 20160202 23:47:16.748 20160202 23:47:22.035 20160202 23:47:22.035 20160202 23:47:22.275 20160202 23:47:22.276 20160202 23:49:01.124 20160202 23:49:01.129 20160202 23:49:01.132 20160202 23:49:01.523 20160202 23:49:01.540 20160202 23:49:02.838 20160202 23:49:02.863 20160202 23:49:02.881 20160202 23:49:02.901 20160202 23:49:02.919 20160202 23:49:02.937 20160202 23:49:02.972 20160202 23:49:03.009 20160202 23:49:03.033 20160202 23:49:03.096 20160202 23:49:03.107 20160202 23:49:03.118 20160202 23:49:03.128 20160202 23:49:03.138 20160202 23:49:03.159 20160202 23:49:03.185 20160202 23:49:03.331 20160202 23:49:03.338 20160202 23:49:03.339 20160202 23:49:03.341 20160202 23:49:03.349 20160202 23:49:03.699 20160202 23:49:03.763 20160202 23:49:08.254 20160202 23:49:08.255 20160202 23:49:08.257 org.hibernate.exception.SQLGrammarException: could not extract ResultSet
 	at org.hibernate.exception.internal.SQLStateConversionDelegate.convert(SQLStateConversionDelegate.java:106)
 	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:42)
@@ -3015,6 +3112,9 @@ Caused by: java.sql.SQLException: Unknown column 'this_.fechaAlta' in 'field lis
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
 20160203 22:06:49.074 org.hibernate.ResourceClosedException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@19b30b9a is closed
+=======
+20160202 23:39:49.314 20160202 23:39:49.320 20160202 23:39:49.325 20160202 23:39:49.612 20160202 23:39:49.625 20160202 23:39:50.880 20160202 23:39:50.895 20160202 23:39:50.907 20160202 23:39:50.924 20160202 23:39:50.947 20160202 23:39:50.978 20160202 23:39:51.024 20160202 23:39:51.033 20160202 23:39:51.044 20160202 23:39:51.064 20160202 23:39:51.149 20160202 23:39:51.173 20160202 23:39:51.256 20160202 23:39:51.273 20160202 23:39:51.315 20160202 23:39:51.334 20160202 23:39:51.466 20160202 23:39:51.472 20160202 23:39:51.473 20160202 23:39:51.473 20160202 23:39:51.478 20160202 23:39:51.767 20160202 23:39:51.805 20160202 23:40:03.926 20160203 21:08:21.450 20160203 21:08:21.455 20160203 21:08:21.457 20160203 21:08:21.820 20160203 21:08:21.831 20160203 21:08:22.625 20160203 21:08:22.639 20160203 21:08:22.654 20160203 21:08:22.671 20160203 21:08:22.681 20160203 21:08:22.694 20160203 21:08:22.703 20160203 21:08:22.712 20160203 21:08:22.721 20160203 21:08:22.735 20160203 21:08:22.747 20160203 21:08:22.765 20160203 21:08:22.776 20160203 21:08:22.784 20160203 21:08:22.801 20160203 21:08:22.812 20160203 21:08:22.918 20160203 21:08:22.925 20160203 21:08:22.926 20160203 21:08:22.926 20160203 21:08:22.931 20160203 21:08:23.189 20160203 21:08:23.213 20160203 21:17:42.136 20160203 21:17:42.140 20160203 21:17:42.145 20160203 21:17:42.433 20160203 21:17:42.447 20160203 21:17:43.247 20160203 21:17:43.273 20160203 21:17:43.285 20160203 21:17:43.297 20160203 21:17:43.312 20160203 21:17:43.328 20160203 21:17:43.338 20160203 21:17:43.350 20160203 21:17:43.362 20160203 21:17:43.378 20160203 21:17:43.388 20160203 21:17:43.399 20160203 21:17:43.411 20160203 21:17:43.420 20160203 21:17:43.437 20160203 21:17:43.448 20160203 21:17:43.539 20160203 21:17:43.545 20160203 21:17:43.546 20160203 21:17:43.547 20160203 21:17:43.552 20160203 21:17:43.746 20160203 21:17:43.774 20160203 21:18:19.556 20160203 21:18:19.561 20160203 21:18:19.563 20160203 21:18:19.954 20160203 21:18:19.973 20160203 21:18:21.092 20160203 21:18:21.112 20160203 21:18:21.121 20160203 21:18:21.133 20160203 21:18:21.154 20160203 21:18:21.171 20160203 21:18:21.181 20160203 21:18:21.191 20160203 21:18:21.201 20160203 21:18:21.219 20160203 21:18:21.230 20160203 21:18:21.239 20160203 21:18:21.246 20160203 21:18:21.259 20160203 21:18:21.282 20160203 21:18:21.303 20160203 21:18:21.386 20160203 21:18:21.391 20160203 21:18:21.391 20160203 21:18:21.394 20160203 21:18:21.397 20160203 21:18:21.601 20160203 21:18:21.625 20160203 21:26:32.978 20160203 21:26:32.981 20160203 21:26:32.983 20160203 21:26:33.487 20160203 21:26:33.517 20160203 21:26:34.827 20160203 21:26:34.840 20160203 21:26:34.860 20160203 21:26:34.873 20160203 21:26:34.884 20160203 21:26:34.899 20160203 21:26:34.908 20160203 21:26:34.918 20160203 21:26:34.928 20160203 21:26:34.941 20160203 21:26:34.950 20160203 21:26:34.962 20160203 21:26:34.974 20160203 21:26:34.990 20160203 21:26:35.027 20160203 21:26:35.073 20160203 21:26:35.167 20160203 21:26:35.172 20160203 21:26:35.173 20160203 21:26:35.173 20160203 21:26:35.177 20160203 21:26:35.399 20160203 21:26:35.427 20160203 22:15:27.529 20160203 22:15:27.534 20160203 22:15:27.540 20160203 22:15:27.860 20160203 22:15:27.873 20160203 22:15:28.671 20160203 22:15:28.687 20160203 22:15:28.705 20160203 22:15:28.721 20160203 22:15:28.740 20160203 22:15:28.755 20160203 22:15:28.776 20160203 22:15:28.796 20160203 22:15:28.808 20160203 22:15:28.828 20160203 22:15:28.839 20160203 22:15:28.860 20160203 22:15:28.920 20160203 22:15:28.937 20160203 22:15:28.972 20160203 22:15:28.992 20160203 22:15:29.105 20160203 22:15:29.112 20160203 22:15:29.113 20160203 22:15:29.113 20160203 22:15:29.117 20160203 22:15:29.267 20160203 22:15:29.295 20160203 22:17:27.929 20160203 22:17:27.932 20160203 22:17:27.934 20160203 22:17:28.211 20160203 22:17:28.221 20160203 22:17:29.040 20160203 22:17:29.054 20160203 22:17:29.063 20160203 22:17:29.076 20160203 22:17:29.089 20160203 22:17:29.103 20160203 22:17:29.113 20160203 22:17:29.122 20160203 22:17:29.132 20160203 22:17:29.148 20160203 22:17:29.160 20160203 22:17:29.177 20160203 22:17:29.188 20160203 22:17:29.199 20160203 22:17:29.217 20160203 22:17:29.226 20160203 22:17:29.336 20160203 22:17:29.342 20160203 22:17:29.343 20160203 22:17:29.343 20160203 22:17:29.346 20160203 22:17:29.541 20160203 22:17:29.571 20160203 22:18:05.152 20160203 22:18:05.156 20160203 22:18:05.159 20160203 22:18:05.512 20160203 22:18:05.525 20160203 22:18:06.667 20160203 22:18:06.679 20160203 22:18:06.690 20160203 22:18:06.702 20160203 22:18:06.715 20160203 22:18:06.730 20160203 22:18:06.747 20160203 22:18:06.757 20160203 22:18:06.771 20160203 22:18:06.788 20160203 22:18:06.802 20160203 22:18:06.811 20160203 22:18:06.823 20160203 22:18:06.833 20160203 22:18:06.847 20160203 22:18:06.861 20160203 22:18:06.955 20160203 22:18:06.958 20160203 22:18:06.959 20160203 22:18:06.959 20160203 22:18:06.962 20160203 22:18:07.144 20160203 22:18:07.196 20160203 22:19:02.266 20160203 22:19:02.269 20160203 22:19:02.271 20160203 22:19:02.525 20160203 22:19:02.539 20160203 22:19:03.375 20160203 22:19:03.387 20160203 22:19:03.398 20160203 22:19:03.408 20160203 22:19:03.420 20160203 22:19:03.431 20160203 22:19:03.440 20160203 22:19:03.448 20160203 22:19:03.457 20160203 22:19:03.471 20160203 22:19:03.483 20160203 22:19:03.495 20160203 22:19:03.502 20160203 22:19:03.510 20160203 22:19:03.527 20160203 22:19:03.536 20160203 22:19:03.629 20160203 22:19:03.634 20160203 22:19:03.635 20160203 22:19:03.636 20160203 22:19:03.640 20160203 22:19:03.791 20160203 22:19:03.817 20160203 22:29:22.717 20160203 22:29:22.720 20160203 22:29:22.722 20160203 22:29:23.138 20160203 22:29:23.150 20160203 22:29:24.073 20160203 22:29:24.086 20160203 22:29:24.096 20160203 22:29:24.107 20160203 22:29:24.116 20160203 22:29:24.127 20160203 22:29:24.137 20160203 22:29:24.144 20160203 22:29:24.153 20160203 22:29:24.164 20160203 22:29:24.175 20160203 22:29:24.184 20160203 22:29:24.193 20160203 22:29:24.202 20160203 22:29:24.244 20160203 22:29:24.259 20160203 22:29:24.356 20160203 22:29:24.360 20160203 22:29:24.361 20160203 22:29:24.362 20160203 22:29:24.365 20160203 22:29:24.561 20160203 22:29:24.596 20160203 22:29:35.339 org.hibernate.ResourceClosedException: org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl@564c068b is closed
+>>>>>>> 72f91c74b7701196b587ac4102276e3479bf16b9
 	at org.hibernate.resource.jdbc.internal.AbstractLogicalConnectionImplementor.errorIfClosed(AbstractLogicalConnectionImplementor.java:38)
 	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getPhysicalConnection(LogicalConnectionManagedImpl.java:111)
 	at org.hibernate.resource.jdbc.internal.LogicalConnectionManagedImpl.getConnectionForTransactionManagement(LogicalConnectionManagedImpl.java:230)
@@ -3022,6 +3122,7 @@ Caused by: java.sql.SQLException: Unknown column 'this_.fechaAlta' in 'field lis
 	at org.hibernate.resource.transaction.backend.jdbc.internal.JdbcResourceLocalTransactionCoordinatorImpl$TransactionDriverControlImpl.rollback(JdbcResourceLocalTransactionCoordinatorImpl.java:250)
 	at org.hibernate.engine.transaction.internal.TransactionImpl.rollback(TransactionImpl.java:89)
 	at negocio.Clases.ContratoNegocio.Eliminar(ContratoNegocio.java:115)
+<<<<<<< HEAD
 	at gdm.JPanelContrato.btnEliminarActionPerformed(JPanelContrato.java:418)
 	at gdm.JPanelContrato.access$400(JPanelContrato.java:22)
 	at gdm.JPanelContrato$6.actionPerformed(JPanelContrato.java:186)
@@ -3196,10 +3297,89 @@ Caused by: java.sql.SQLException: Unknown column 'this_.fechaAlta' in 'field lis
 	at java.security.AccessController.doPrivileged(Native Method)
 	at java.security.ProtectionDomain$JavaSecurityAccessImpl.doIntersectionPrivilege(ProtectionDomain.java:76)
 	at java.awt.EventQueue.dispatchEvent(EventQueue.java:728)
+=======
+	at gdm.JPanelContrato.btnEliminarActionPerformed(JPanelContrato.java:433)
+	at gdm.JPanelContrato.access$400(JPanelContrato.java:22)
+	at gdm.JPanelContrato$6.actionPerformed(JPanelContrato.java:191)
+	at javax.swing.AbstractButton.fireActionPerformed(AbstractButton.java:2022)
+	at javax.swing.AbstractButton$Handler.actionPerformed(AbstractButton.java:2346)
+	at javax.swing.DefaultButtonModel.fireActionPerformed(DefaultButtonModel.java:402)
+	at javax.swing.DefaultButtonModel.setPressed(DefaultButtonModel.java:259)
+	at javax.swing.plaf.basic.BasicButtonListener.mouseReleased(BasicButtonListener.java:252)
+	at java.awt.Component.processMouseEvent(Component.java:6525)
+	at javax.swing.JComponent.processMouseEvent(JComponent.java:3324)
+	at java.awt.Component.processEvent(Component.java:6290)
+	at java.awt.Container.processEvent(Container.java:2234)
+	at java.awt.Component.dispatchEventImpl(Component.java:4881)
+	at java.awt.Container.dispatchEventImpl(Container.java:2292)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.LightweightDispatcher.retargetMouseEvent(Container.java:4898)
+	at java.awt.LightweightDispatcher.processMouseEvent(Container.java:4533)
+	at java.awt.LightweightDispatcher.dispatchEvent(Container.java:4462)
+	at java.awt.Container.dispatchEventImpl(Container.java:2278)
+	at java.awt.Window.dispatchEventImpl(Window.java:2750)
+	at java.awt.Component.dispatchEvent(Component.java:4703)
+	at java.awt.EventQueue.dispatchEventImpl(EventQueue.java:751)
+	at java.awt.EventQueue.access$500(EventQueue.java:97)
+	at java.awt.EventQueue$3.run(EventQueue.java:702)
+	at java.awt.EventQueue$3.run(EventQueue.java:696)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:86)
+	at java.awt.EventQueue$4.run(EventQueue.java:724)
+	at java.awt.EventQueue$4.run(EventQueue.java:722)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at java.security.ProtectionDomain$1.doIntersectionPrivilege(ProtectionDomain.java:75)
+	at java.awt.EventQueue.dispatchEvent(EventQueue.java:721)
+>>>>>>> 72f91c74b7701196b587ac4102276e3479bf16b9
 	at java.awt.EventDispatchThread.pumpOneEventForFilters(EventDispatchThread.java:201)
 	at java.awt.EventDispatchThread.pumpEventsForFilter(EventDispatchThread.java:116)
 	at java.awt.EventDispatchThread.pumpEventsForHierarchy(EventDispatchThread.java:105)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:101)
 	at java.awt.EventDispatchThread.pumpEvents(EventDispatchThread.java:93)
 	at java.awt.EventDispatchThread.run(EventDispatchThread.java:82)
+<<<<<<< HEAD
 20160203 22:33:01.896 20160203 22:36:21.821 20160203 22:36:21.821 20160203 22:36:21.821 20160203 22:36:22.216 20160203 22:36:22.232 20160203 22:36:23.784 20160203 22:36:23.815 20160203 22:36:23.831 20160203 22:36:23.862 20160203 22:36:23.878 20160203 22:36:23.909 20160203 22:36:23.924 20160203 22:36:23.956 20160203 22:36:23.971 20160203 22:36:24.002 20160203 22:36:24.034 20160203 22:36:24.061 20160203 22:36:24.063 20160203 22:36:24.079 20160203 22:36:24.110 20160203 22:36:24.126 20160203 22:36:24.297 20160203 22:36:24.313 20160203 22:36:24.313 20160203 22:36:24.313 20160203 22:36:24.313 20160203 22:36:24.787 20160203 22:36:24.850 20160203 22:38:08.137 20160203 22:38:08.137 20160203 22:38:08.137 20160203 22:38:08.599 20160203 22:38:08.599 20160203 22:38:10.024 20160203 22:38:10.055 20160203 22:38:10.070 20160203 22:38:10.086 20160203 22:38:10.117 20160203 22:38:10.133 20160203 22:38:10.168 20160203 22:38:10.181 20160203 22:38:10.182 20160203 22:38:10.213 20160203 22:38:10.229 20160203 22:38:10.229 20160203 22:38:10.260 20160203 22:38:10.276 20160203 22:38:10.307 20160203 22:38:10.322 20160203 22:38:10.416 20160203 22:38:10.416 20160203 22:38:10.416 20160203 22:38:10.416 20160203 22:38:10.416 20160203 22:38:10.650 20160203 22:38:10.681 20160203 22:40:17.824 
+=======
+>>>>>>> 72f91c74b7701196b587ac4102276e3479bf16b9
+20160203 22:56:42.944 20160203 22:56:42.944 20160203 22:56:42.944 20160203 22:56:43.334 20160203 22:56:43.349 20160203 22:56:44.566 20160203 22:56:44.629 org.hibernate.boot.InvalidMappingException: Could not parse mapping document: gdm/entidades/mappings/Escuela.hbm.xml (RESOURCE)
+	at org.hibernate.boot.jaxb.internal.InputStreamXmlSource.doBind(InputStreamXmlSource.java:46)
+	at org.hibernate.boot.jaxb.internal.UrlXmlSource.doBind(UrlXmlSource.java:36)
+	at org.hibernate.boot.spi.XmlMappingBinderAccess.bind(XmlMappingBinderAccess.java:59)
+	at org.hibernate.boot.MetadataSources.addResource(MetadataSources.java:274)
+	at org.hibernate.boot.cfgxml.spi.MappingReference.apply(MappingReference.java:70)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:413)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:87)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:692)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at negocio.utils.HibernateUtils.createSessionFactory(HibernateUtils.java:24)
+	at gdm.Program.main(Program.java:31)
+Caused by: org.hibernate.boot.MappingException: Unable to perform unmarshalling at line number 0 and column 0. Message: null : origin(gdm/entidades/mappings/Escuela.hbm.xml)
+	at org.hibernate.boot.jaxb.internal.AbstractBinder.jaxb(AbstractBinder.java:177)
+	at org.hibernate.boot.jaxb.internal.MappingBinder.doBind(MappingBinder.java:61)
+	at org.hibernate.boot.jaxb.internal.AbstractBinder.doBind(AbstractBinder.java:102)
+	at org.hibernate.boot.jaxb.internal.AbstractBinder.bind(AbstractBinder.java:57)
+	at org.hibernate.boot.jaxb.internal.InputStreamXmlSource.doBind(InputStreamXmlSource.java:43)
+	... 10 more
+Caused by: javax.xml.bind.UnmarshalException
+ - with linked exception:
+[javax.xml.stream.XMLStreamException: ParseError at [row,col]:[13,2]
+Message: El contenido de los elementos debe constar de marcadores o datos de carácter con un formato correcto.]
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallerImpl.handleStreamException(UnmarshallerImpl.java:470)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal0(UnmarshallerImpl.java:448)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal(UnmarshallerImpl.java:420)
+	at org.hibernate.boot.jaxb.internal.AbstractBinder.jaxb(AbstractBinder.java:171)
+	... 14 more
+Caused by: javax.xml.stream.XMLStreamException: ParseError at [row,col]:[13,2]
+Message: El contenido de los elementos debe constar de marcadores o datos de carácter con un formato correcto.
+	at com.sun.org.apache.xerces.internal.impl.XMLStreamReaderImpl.next(XMLStreamReaderImpl.java:601)
+	at com.sun.xml.internal.stream.XMLEventReaderImpl.peek(XMLEventReaderImpl.java:276)
+	at javax.xml.stream.util.EventReaderDelegate.peek(EventReaderDelegate.java:104)
+	at org.hibernate.boot.jaxb.internal.stax.BufferedXMLEventReader.peek(BufferedXMLEventReader.java:96)
+	at javax.xml.stream.util.EventReaderDelegate.peek(EventReaderDelegate.java:104)
+	at org.hibernate.boot.jaxb.internal.stax.HbmEventReader.peek(HbmEventReader.java:47)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.StAXEventConnector.handleCharacters(StAXEventConnector.java:164)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.StAXEventConnector.bridge(StAXEventConnector.java:126)
+	at com.sun.xml.internal.bind.v2.runtime.unmarshaller.UnmarshallerImpl.unmarshal0(UnmarshallerImpl.java:445)
+	... 16 more
+20160203 22:57:24.877 20160203 22:57:24.877 20160203 22:57:24.893 20160203 22:57:25.298 20160203 22:57:25.314 20160203 22:57:26.593 20160203 22:57:26.624 20160203 22:57:26.655 20160203 22:57:26.671 20160203 22:57:26.687 20160203 22:57:26.702 20160203 22:57:26.718 20160203 22:57:26.718 20160203 22:57:26.733 20160203 22:57:26.749 20160203 22:57:26.780 20160203 22:57:26.796 20160203 22:57:26.811 20160203 22:57:26.827 20160203 22:57:26.858 20160203 22:57:26.874 20160203 22:57:26.967 20160203 22:57:26.967 20160203 22:57:26.967 20160203 22:57:26.967 20160203 22:57:26.983 20160203 22:57:27.295 20160203 22:57:27.342 

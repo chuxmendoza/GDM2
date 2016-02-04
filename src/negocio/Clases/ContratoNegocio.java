@@ -170,18 +170,27 @@ public class ContratoNegocio {
         return lista;
     }
     
-    public static List<Contrato> Buscar(String especialidad, String escuela, String generacion, Date fechaEvento)
+    public static List<Contrato> Buscar(String especialidad, String escuela, String generacion, Date dtInicio, Date dtFin)
     {
         List<Contrato> lista = new ArrayList<>();
         try
         {
             Session session = HibernateUtils.getSession();
             Criteria crit = session.createCriteria(Contrato.class);
-            crit.createAlias("especialidad", "e");
-            crit.createAlias("escuela", "es");
-            crit.add(Expression.like("e.nombre", especialidad, MatchMode.ANYWHERE));
-            crit.add(Expression.like("es.nombre", escuela, MatchMode.ANYWHERE));
-            crit.add(Expression.eq("fechaEvento", fechaEvento)); 
+            if (!especialidad.isEmpty())
+            {
+                crit.createAlias("especialidad", "e");
+                crit.add(Expression.like("e.nombre", especialidad, MatchMode.ANYWHERE));
+            }
+            if (!escuela.isEmpty())
+            {
+                crit.createAlias("escuela", "es");
+                crit.add(Expression.like("es.nombre", escuela, MatchMode.ANYWHERE));
+            }
+            if (!generacion.isEmpty())
+                crit.add(Expression.like("generacion", generacion, MatchMode.ANYWHERE));
+            if (dtInicio != null && dtFin != null)
+                crit.add(Expression.between("fechaEvento", dtInicio, dtFin)); 
             lista = (List<Contrato>) crit.list();
         }
         catch(Exception ex)
