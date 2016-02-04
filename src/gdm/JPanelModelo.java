@@ -191,10 +191,11 @@ public class JPanelModelo extends javax.swing.JPanel {
                 cargarModelos();
             }
         }
-        catch(Exception e){
+          catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+    }finally{
             btnAgregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         }
@@ -220,10 +221,11 @@ public class JPanelModelo extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloModelo"), JOptionPane.INFORMATION_MESSAGE);
             }
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+ }finally{
             btnEditar.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -251,10 +253,11 @@ public class JPanelModelo extends javax.swing.JPanel {
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloModelo"), JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+}finally{
             btnEliminar.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -285,10 +288,11 @@ public class JPanelModelo extends javax.swing.JPanel {
             } 
             tblModelos.setModel(mod);
         }
-        catch(Exception ex)
-        {
-            System.out.println("Error: "+ex.getMessage());
-        }
+          catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+  }
         finally
         {
             this.setCursor(Cursor.getDefaultCursor());

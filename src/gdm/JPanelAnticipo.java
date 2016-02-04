@@ -207,6 +207,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
 
     private void btnAnticiposAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnticiposAgregarActionPerformed
         // TODO add your handling code here:
+        try{
         if (ContratoClienteNegocio.Liquidado(idContratoCliente))
         {
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoClienteLiquidado")
@@ -221,10 +222,16 @@ public class JPanelAnticipo extends javax.swing.JDialog {
         frame.setVisible(true);
         if (frame.DialogResult)
             cargarAbonos();
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+        }
     }//GEN-LAST:event_btnAnticiposAgregarActionPerformed
 
     private void btnAnticiposEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnticiposEditarActionPerformed
         // TODO add your handling code here:
+        try{
         if (ContratoClienteNegocio.Liquidado(idContratoCliente))
         {
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoClienteLiquidado")
@@ -248,6 +255,11 @@ public class JPanelAnticipo extends javax.swing.JDialog {
         {
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
                 , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
+        }
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
         }
 
     }//GEN-LAST:event_btnAnticiposEditarActionPerformed
@@ -279,16 +291,17 @@ public class JPanelAnticipo extends javax.swing.JDialog {
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+       }finally{
             this.setCursor(Cursor.getDefaultCursor());
         }    
     }//GEN-LAST:event_btnAnticiposEliminarActionPerformed
     
     private void cargarAbonos() 
-    {
+    {   try{
         DefaultTableModel mod = (DefaultTableModel)tblContratosC.getModel();
         List<Anticipo> abonos = new ArrayList();
         mod.setRowCount(0);
@@ -311,7 +324,11 @@ public class JPanelAnticipo extends javax.swing.JDialog {
         } 
         pagado = _pagado;
         tblContratosC.setModel(mod);
-    }   
+    }     catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ }}
     
     
     /**

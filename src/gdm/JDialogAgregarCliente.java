@@ -335,10 +335,11 @@ public class JDialogAgregarCliente extends javax.swing.JDialog {
             }
             }
 
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -391,11 +392,11 @@ public class JDialogAgregarCliente extends javax.swing.JDialog {
             txtTelefono.setText(cliente.getTelefono());
             
         }
-     }catch(Exception e){
+     }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-          
-     }
+  }
         finally{
           this.setCursor(Cursor.getDefaultCursor());     
         }   

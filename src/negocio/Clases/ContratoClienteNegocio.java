@@ -34,6 +34,7 @@ public class ContratoClienteNegocio {
             boolean fotoPersonalizada,boolean fotoMisa, boolean fotoEstudio, Anillo anillo,  boolean rentaToga, boolean misa, boolean baile, int mesaExtra, int fotosExtra, 
             boolean triptico, double precio, Date fechaEntregaPaquete, Date fechaEntregaDatos, Date fechaLimitePago, String contratoImagen, 
             Date fechaContrato, String comentarios, int idUsuario, List<Anticipo> anticipos)
+
     {
         boolean realizado = false;
         Transaction tx = null; 

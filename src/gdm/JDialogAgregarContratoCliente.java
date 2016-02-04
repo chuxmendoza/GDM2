@@ -1248,8 +1248,11 @@ public boolean editar = false;
            //Asigna la lista de valores a el combo
            comboMaterial.setDataSource(MetalNegocio.Listado());
            comboMaterial.setSelectedIndex(-1);
-        }catch(Exception e){
-            
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+    
         }
         
     }//GEN-LAST:event_jPanel1PropertyChange
@@ -1277,8 +1280,11 @@ public boolean editar = false;
                 }
             }
         }
-        catch(Exception ex)
-        {
+       catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
             
         }
         finally 
@@ -1364,6 +1370,7 @@ public boolean editar = false;
                   dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario, anticipos)){
                   this.DialogResult = true;
                   this.dispose();
+
                
            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoAgregado")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE); 
@@ -1438,9 +1445,11 @@ public boolean editar = false;
                 
             }
                 
-        }catch(Exception e){
-            System.out.println(e);
-        }
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+     }
              
             
         
@@ -1481,9 +1490,11 @@ public boolean editar = false;
                 nombreArchivo = file.getName();
             }
         }
-        catch (Exception ex)
-        {
-
+       catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
         finally
         {
@@ -1516,10 +1527,11 @@ public boolean editar = false;
                 
             }
         }
-        catch(Exception ex)
-        {
-            System.out.println(ex);
-        }
+        catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+     }
         finally
         {
             this.setCursor(Cursor.getDefaultCursor());
@@ -1539,7 +1551,8 @@ public boolean editar = false;
                 cargarCliente(ClienteNegocio.Obtener(cliente.id));
             }
         }
-        catch(Exception e){
+        catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
         }finally{
@@ -1562,10 +1575,11 @@ public boolean editar = false;
                 cargarCliente(cliente.cliente);
             }
         }
-        catch(Exception e){
+        catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+    }finally{
             this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
         }
@@ -1643,8 +1657,11 @@ public boolean editar = false;
                 txtAgra.setText(nombreArchivoAgradecimiento);
                 }
         }
-        catch (Exception ex)
-        {
+        catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
 
         }
         finally
@@ -1714,8 +1731,11 @@ public boolean editar = false;
                 nombreArchivoA = file.getName();
             }
         }
-        catch (Exception ex)
-        {
+        catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
 
         }
         finally
@@ -1751,8 +1771,11 @@ public boolean editar = false;
             txtCelular.setText(cliente.getCelular());
             txtCorreo.setText(cliente.getCorreo());
             txtDireccion.setText(cliente.getDireccion().toString());
-        }catch(Exception ex)
-        {
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
             
         }
         finally
@@ -1922,10 +1945,11 @@ public boolean editar = false;
             
             
         }
-     }catch(Exception e){
+     }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-          
+        
      }
         finally{
           this.setCursor(Cursor.getDefaultCursor());     

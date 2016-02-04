@@ -186,10 +186,11 @@ public class JDialogAgregarMetal extends javax.swing.JDialog {
                         , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloMetal"), JOptionPane.INFORMATION_MESSAGE);
                 }
             } 
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -219,9 +220,11 @@ public class JDialogAgregarMetal extends javax.swing.JDialog {
             txtNombre.setText(entidad.getNombre()); 
         }
       }
-      catch(Exception e)
-      {
-           
+     catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+       
       }
       finally
       {

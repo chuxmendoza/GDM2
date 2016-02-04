@@ -8,6 +8,8 @@ package gdm;
 import gdm.entidades.clases.Especialidad;
 import java.awt.Cursor;
 import java.util.List;
+import java.util.ResourceBundle;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.Clases.EscuelaNegocio;
 import negocio.Clases.EspecialidadNegocio;
@@ -165,10 +167,11 @@ public class JDialogBuscarEspecialidad extends javax.swing.JDialog {
             especialidad = EspecialidadNegocio.Obtener(id);
             this.DialogResult=true;            
             this.dispose();
-          }}catch(Exception e){
-              System.out.println(e);
-              
-          }
+          }}catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+} 
     }//GEN-LAST:event_btnAgregarCarreraActionPerformed
 
     /**
@@ -222,6 +225,7 @@ public class JDialogBuscarEspecialidad extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void cargarEspecialidades() {
+        try{
       DefaultTableModel mod = (DefaultTableModel)tblEspecialidad.getModel();
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
@@ -236,8 +240,12 @@ public class JDialogBuscarEspecialidad extends javax.swing.JDialog {
         }
         
         tblEspecialidad.setModel(mod);
-    }   
-
+      
+    }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+} } 
     
     }
 

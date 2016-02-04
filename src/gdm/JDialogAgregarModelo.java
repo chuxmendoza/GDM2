@@ -241,10 +241,11 @@ public class JDialogAgregarModelo extends javax.swing.JDialog {
                         , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloModelo"), JOptionPane.INFORMATION_MESSAGE);
                 }
             } 
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
         finally
         {
@@ -294,9 +295,11 @@ public class JDialogAgregarModelo extends javax.swing.JDialog {
                 nombreArchivo = file.getName();
             }   
         }
-        catch (Exception ex)
-        {
-        
+        catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
         finally
         {
@@ -345,8 +348,11 @@ public class JDialogAgregarModelo extends javax.swing.JDialog {
             }
         }
       }
-      catch(Exception e)
-      {
+     catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
            
       }
       finally

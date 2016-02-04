@@ -103,7 +103,7 @@ public class ContratoNegocio {
         try
         (Session session = HibernateUtils.getSession()) {    
              tx = session.beginTransaction();           
-             session.delete(entidad);  
+             session.delete(entidad); 
              tx.commit();
              realizado = true;
         }

@@ -210,10 +210,11 @@ public class JPanelCliente extends javax.swing.JPanel {
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloUsuario"), JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+  }finally{
             btnEliminar.setCursor(Cursor.getDefaultCursor());
         }       
                                
@@ -231,10 +232,11 @@ public class JPanelCliente extends javax.swing.JPanel {
                 cargarClientes();
             }
         }
-        catch(Exception e){
+          catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+      }finally{
             btnAgregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         }
@@ -261,10 +263,11 @@ public class JPanelCliente extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloEscuela"), JOptionPane.INFORMATION_MESSAGE);
             }
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+  }finally{
             btnEditar.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -283,6 +286,7 @@ public class JPanelCliente extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void cargarClientes() {
+        try{
           DefaultTableModel mod = (DefaultTableModel)tblClientes.getModel();
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
@@ -301,7 +305,11 @@ public class JPanelCliente extends javax.swing.JPanel {
         }
         
         tblClientes.setModel(mod);
-    }   
+    }      catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+}}
 
        
     }

@@ -209,10 +209,11 @@ public class JPanelUsuarios extends javax.swing.JPanel {
                JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloUsuario"), JOptionPane.INFORMATION_MESSAGE);
           }
-       }catch(Exception e){
-             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);                       
-       }finally{
+       }   catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+   }finally{
           btnEditar.setCursor(Cursor.getDefaultCursor());
       }
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -230,9 +231,10 @@ public class JPanelUsuarios extends javax.swing.JPanel {
             cargarUsuarios();
         }
       } 
-         catch(Exception e){
-               JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);      
+           catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
        }finally{
            btnAgregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
             
@@ -261,10 +263,11 @@ public class JPanelUsuarios extends javax.swing.JPanel {
           }
           
   
-       }catch(Exception e){             
-               JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);      
-             }finally{
+       }   catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+            }finally{
           btnEliminar.setCursor(Cursor.getDefaultCursor());
       }
     }//GEN-LAST:event_btnEliminarActionPerformed
@@ -283,6 +286,7 @@ public class JPanelUsuarios extends javax.swing.JPanel {
     // End of variables declaration//GEN-END:variables
 
     private void cargarUsuarios() {
+        try{
             DefaultTableModel mod = (DefaultTableModel)tblUsuarios.getModel();
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
@@ -298,7 +302,11 @@ public class JPanelUsuarios extends javax.swing.JPanel {
         }
         
         tblUsuarios.setModel(mod);
-    }   
+    }     catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ }}
     }
 
     
