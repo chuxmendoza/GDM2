@@ -176,7 +176,7 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-                   
+                   try{
        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         
           if(tblClientes.getSelectedRow()!= -1)
@@ -186,7 +186,11 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
             this.DialogResult=true;
             this.dispose();
           }
-            
+                   }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+                   }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
@@ -201,10 +205,11 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
                 cargarClientes();
             }
         }
-        catch(Exception e){
+        catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+     }finally{
             btnAgregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         }
@@ -228,10 +233,11 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
             } 
             tblClientes.setModel(mod);
         }
-        catch(Exception ex)
-        {
-            System.out.println("Error: "+ex.getMessage());
-        }
+       catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+   }
         finally
         {
             this.setCursor(Cursor.getDefaultCursor());
@@ -253,6 +259,8 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void cargarClientes() {
+        
+        try{
           DefaultTableModel mod = (DefaultTableModel)tblClientes.getModel();
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
@@ -271,8 +279,12 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
         }
         
         tblClientes.setModel(mod);
-    }   
-
+    }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+}   
+}
     
     }
 

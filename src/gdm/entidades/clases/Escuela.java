@@ -5,6 +5,8 @@
  */
 package gdm.entidades.clases;
 
+import java.util.List;
+
 /**
  *
  * @author Chuy
@@ -16,6 +18,7 @@ public class Escuela {
     private int id;
     private String nombre;
     private String ciudad;
+    private List<Especialidad> especialidades;
 
     //<editor-fold defaultstate="collapsed" desc=" Getters and Setters de la Escuela ">
 
@@ -60,5 +63,19 @@ public class Escuela {
      */
     public void setCiudad(String ciudad) {
         this.ciudad = ciudad;
+    }
+    
+    /**
+     * @return the especialidades
+     */
+    public List<Especialidad> getEspecialidades() {
+        return especialidades;
+    }
+
+    /**
+     * @param especialidades the especialidades to set
+     */
+    public void setEspecialidades(List<Especialidad> especialidades) {
+        this.especialidades = especialidades;
     }
 }

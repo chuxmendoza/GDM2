@@ -10,7 +10,12 @@ package gdm.entidades.clases;
  * @author Chuy
  */
 public class Anillo {
-    
+    public Anillo(){
+        
+    }
+    public Anillo(int id){
+        this.id = id;
+    }
     private int id;
     private Metal metal;
     private double g;

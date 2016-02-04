@@ -310,10 +310,11 @@ public class JPanelContrato extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
             }
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+}finally{
             btnEditar.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_btnEditarActionPerformed
@@ -334,8 +335,11 @@ public class JPanelContrato extends javax.swing.JPanel {
         
             }  
         }
-        catch(Exception ex)
-        {
+           catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+
             
         }finally
         {
@@ -355,10 +359,11 @@ public class JPanelContrato extends javax.swing.JPanel {
                 cargarContrato();
             }
         }
-        catch(Exception e){
+           catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+   }finally{
             btnAgregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
 
         }
@@ -386,10 +391,11 @@ public class JPanelContrato extends javax.swing.JPanel {
                 JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
             }
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+  }finally{
             this.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_jButton7ActionPerformed
@@ -419,10 +425,11 @@ public class JPanelContrato extends javax.swing.JPanel {
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+   }finally{
             btnEliminar.setCursor(Cursor.getDefaultCursor());
         }       
                            
@@ -455,19 +462,34 @@ public class JPanelContrato extends javax.swing.JPanel {
                 mod.removeRow(0);
 
             contratos = ContratoNegocio.Listado();
+            String misa;
+            String baile;
+            String fotoPanoramica;
             for(Contrato entidad : contratos){
                 int id = entidad.getId();
                 String escuela = entidad.getEscuela().getNombre();
                 String ciudad = entidad.getEscuela().getCiudad();
                 String especialidad= entidad.getEspecialidad().getNombre();
                 String generacion = entidad.getGeneracion();
-                String misa = "En "+entidad.getMisa().getLugar()+" el "+entidad.getMisa().getFecha()+" a las "+
-                        entidad.getMisa().getHora()+":"+entidad.getMisa().getMinutos()+" horas";
-                String baile = "En "+entidad.getBaile().getLugar()+" el "+entidad.getBaile().getFecha()+" a las "+
-                        entidad.getBaile().getHora()+":"+entidad.getBaile().getMinutos()+" horas";
-                String fotoPanoramica = "En "+entidad.getFotoPanoramica().getLugar()+" el "+entidad.getFotoPanoramica().getFecha()+" a las "+
+                if(entidad.getMisa().getFecha()==null){
+                    misa = entidad.getMisa().getLugar()+" Sin fecha";
+                }else{
+                  misa = "En "+entidad.getMisa().getLugar()+" el "+entidad.getMisa().getFecha()+" a las "+
+                        entidad.getMisa().getHora()+":"+entidad.getMisa().getMinutos()+" horas";             
+                }
+                if(entidad.getBaile().getFecha()==null){
+                    baile = entidad.getBaile().getLugar()+" Sin fecha";
+                }else{
+                  baile = "En "+entidad.getBaile().getLugar()+" el "+entidad.getBaile().getFecha()+" a las "+
+                        entidad.getBaile().getHora()+":"+entidad.getBaile().getMinutos()+" horas";             
+                }
+                 if(entidad.getFotoPanoramica().getFecha()==null){
+                    fotoPanoramica = entidad.getFotoPanoramica().getLugar()+" Sin fecha";
+                }else{
+                  fotoPanoramica = "En "+entidad.getFotoPanoramica().getLugar()+" el "+entidad.getFotoPanoramica().getFecha()+" a las "+
                         entidad.getFotoPanoramica().getHora()+":"+entidad.getFotoPanoramica().getMinutos()+" horas";
-                String comentarios = entidad.getComentarios();
+                 }
+                   String comentarios = entidad.getComentarios();
                 Date fechaEvento = entidad.getFechaEvento();
                 int  idMisa= entidad.getMisa().getId();
                 int  idFoto= entidad.getFotoPanoramica().getId();
@@ -478,7 +500,10 @@ public class JPanelContrato extends javax.swing.JPanel {
         }
         catch(Exception ex)
         {
-            System.out.println("Error: "+ex.getMessage());
+            Program.logger.error(this,ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+           ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+   
         }
         finally
         {

@@ -265,9 +265,16 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here: 
+        try{
         JDialogAgregarContratoCliente cc = new JDialogAgregarContratoCliente(null, rootPaneCheckingEnabled);
         cc.idContrato = idContrato;
         cc.setVisible(true);
+        }
+          catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+          }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -294,10 +301,11 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
             }
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+   }finally{
             this.setCursor(Cursor.getDefaultCursor());
         }
         
@@ -317,10 +325,11 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 frame.setVisible(true);
             }  
         }
-        catch(Exception ex)
-        {
-            System.out.println(ex.getMessage());
-        }finally
+          catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+          }finally
         {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         }
@@ -352,10 +361,11 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloUsuario"), JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+    }finally{
             btnEliminar.setCursor(Cursor.getDefaultCursor());
         }  
         
@@ -374,8 +384,10 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
     // End of variables declaration//GEN-END:variables
 
     private void cargarContratos() {
-      try
-      {
+
+      try{
+          
+      
        DefaultTableModel mod = (DefaultTableModel)tblContratos.getModel();
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
@@ -416,13 +428,22 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
             fechaEntregaPaquete,fechaEntregaDatos,fechaLimitePago});
         }
         
+
         tblContratos.setModel(mod);  
       }
-      catch(Exception ex)
-      {
-          Program.logger.error(this, ex);
-      }
-    }   
+       catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+   }
+    }
+}   
+
+        
     
 
-}
+    
+
+
+
+

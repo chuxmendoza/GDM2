@@ -254,10 +254,11 @@ public class JDialogAgregarUsuario extends javax.swing.JDialog {
             }
             
             }
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }finally{
              btnAceptar.setCursor(Cursor.getDefaultCursor());
         }
@@ -302,9 +303,11 @@ public class JDialogAgregarUsuario extends javax.swing.JDialog {
             txtPass2.setText(usuario.getPass());
           
         }
-     }catch(Exception e){
-           
-     }
+     }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+  }
         finally{
           this.setCursor(Cursor.getDefaultCursor());     
         }

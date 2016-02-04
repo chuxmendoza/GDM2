@@ -182,7 +182,7 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
         jLabel10.setText(":");
 
         spMinutoFoto.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        spMinutoFoto.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        spMinutoFoto.setModel(new javax.swing.SpinnerListModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
 
         txtLugarFoto.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
 
@@ -258,7 +258,7 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
         jLabel13.setText(":");
 
         spMinutoMisa.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        spMinutoMisa.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        spMinutoMisa.setModel(new javax.swing.SpinnerListModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -334,7 +334,7 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
         jLabel15.setText(":");
 
         spMinutoBaile.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        spMinutoBaile.setModel(new javax.swing.SpinnerNumberModel(0, 0, 59, 1));
+        spMinutoBaile.setModel(new javax.swing.SpinnerListModel(new String[] {"00", "01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59"}));
         spMinutoBaile.setToolTipText("");
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
@@ -511,20 +511,21 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     fotoPanoramica.setFecha(jXDatePickerFoto.getDate());
                     fotoPanoramica.setLugar(txtLugarFoto.getText());
                     fotoPanoramica.setHora((int)spHoraFoto.getValue());
-                    fotoPanoramica.setMinutos((int)spMinutoFoto.getValue());
+                    fotoPanoramica.setMinutos(Integer.parseInt(spMinutoFoto.getValue().toString()));
                     
                     
                     misa.setFecha(jXDatePickerMisa.getDate());
                     misa.setLugar(txtLugarMisa.getText());
                     misa.setHora((int)spHoraMisa.getValue());
-                    misa.setMinutos((int)spMinutoMisa.getValue());
+                    misa.setMinutos(Integer.parseInt(spMinutoMisa.getValue().toString()));
                     
                     baile.setFecha(jXDatePickerBaile.getDate());
                     baile.setLugar(txtLugarBaile.getText());
                     baile.setHora((int)spHoraMisa.getValue());
-                    baile.setMinutos((int)spMinutoBaile.getValue());
+                    baile.setMinutos(Integer.parseInt(spMinutoBaile.getValue().toString()));
                     
-                   
+                   if(!txtLugarFoto.getText().trim().isEmpty()&&jXDatePickeFechaEvento.getDate()!=null&&jXDatePickerFoto.getDate()!=null&&!txtGeneracion.getText().trim().isEmpty()
+                           &&comboEscuela.getSelectedIndex()!=-1&&comboEspecialidad.getSelectedIndex()!=-1){
                     if(ContratoNegocio.Guardar(Integer.parseInt(comboEscuela.getSelectedValue().toString()),
                             Integer.parseInt(comboEspecialidad.getSelectedValue().toString()),txtGeneracion.getText(),jXDatePickeFechaEvento.getDate(),
                             fotoPanoramica,misa,baile,txtComentarios.getText(), Program.idUsuario)){
@@ -535,11 +536,15 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     }else{
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-                    }           
+                    } }else{
+                          JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoVacio")
+                            , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
+                 
+                   }          
            
             
              }else{
-                      fotoPanoramica.setFecha(jXDatePickerFoto.getDate());
+                    fotoPanoramica.setFecha(jXDatePickerFoto.getDate());
                     fotoPanoramica.setLugar(txtLugarFoto.getText());
                     fotoPanoramica.setHora(spHoraFoto.getComponentCount());
                     fotoPanoramica.setMinutos(spMinutoFoto.getComponentCount());
@@ -555,7 +560,8 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     baile.setMinutos(spMinutoBaile.getComponentCount());
 
               
-
+ if(!txtLugarFoto.getText().trim().isEmpty()&&jXDatePickeFechaEvento.getDate()!=null&&jXDatePickerFoto.getDate()!=null&&!txtGeneracion.getText().trim().isEmpty()
+                           &&comboEscuela.getSelectedIndex()!=-1&&comboEspecialidad.getSelectedIndex()!=-1){
                     if(ContratoNegocio.Editar(id,Integer.parseInt(comboEscuela.getSelectedValue().toString()),Integer.parseInt(comboEspecialidad.getSelectedValue().toString()),txtGeneracion.getText(),jXDatePickeFechaEvento.getDate(),fotoPanoramica,misa,baile,txtComentarios.getText())){
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoEditado")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
@@ -564,15 +570,20 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     }else{
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                             , "TituloError", JOptionPane.INFORMATION_MESSAGE);
-                    }
+                    }}else{
+                          JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoVacio")
+                            , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
+                 
+                   } 
       
                  }
              
 
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , "Acceso denegado", JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
         
         
@@ -589,9 +600,11 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
            comboEscuela.setDataSource(EscuelaNegocio.ListadoCombo());
            comboEscuela.setSelectedIndex(-1);
             
-        }catch(Exception e){
-            
-        }
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+  }
             try{
             //Asigna el nombre del atributo  que tendra el valor del combo seleccionado.
            comboEspecialidad.setValueMember("id");
@@ -601,8 +614,11 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
            comboEspecialidad.setDataSource(EspecialidadNegocio.Listado());
            comboEspecialidad.setSelectedIndex(-1);
             
-        }catch(Exception e){
-                System.out.println(e);
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
                if(editar){
             cargarEdicion();
@@ -688,11 +704,11 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
        
             
         }
-     }catch(Exception e){
+     }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-          
-     }
+    }
         finally{
           this.setCursor(Cursor.getDefaultCursor());     
         }   

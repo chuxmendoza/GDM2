@@ -104,8 +104,6 @@ public class ContratoNegocio {
         (Session session = HibernateUtils.getSession()) {    
              tx = session.beginTransaction();           
              session.delete(entidad); 
-             
-           
              tx.commit();
              realizado = true;
         }

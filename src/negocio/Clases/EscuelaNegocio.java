@@ -7,10 +7,12 @@ package negocio.Clases;
 
 import gdm.entidades.clases.Escuela;
 import gdm.entidades.clases.EscuelaCombo;
+import gdm.entidades.clases.Especialidad;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.utils.HibernateUtils;
 import org.hibernate.Criteria;
+import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 import org.hibernate.criterion.Expression;
@@ -37,10 +39,11 @@ public class EscuelaNegocio {
         }
         return entidad; 
     }
-      public static Boolean Guardar(String nombre, String ciudad)
+      public static Boolean Guardar( List<Especialidad> especialidades,String nombre, String ciudad)
     {
         boolean realizado = false;
         Transaction tx = null; 
+       
         Session session = null;
         try
         {
@@ -48,7 +51,8 @@ public class EscuelaNegocio {
              tx = session.beginTransaction();
              Escuela entidad = new Escuela();            
              entidad.setNombre(nombre);
-             entidad.setCiudad(ciudad);
+             entidad.setCiudad(ciudad); 
+             entidad.setEspecialidades(especialidades);
              session.save(entidad); 
              tx.commit();
              realizado = true;
@@ -65,7 +69,7 @@ public class EscuelaNegocio {
         }
       return realizado;
     }
-       public static Boolean Editar(int id,String nombre,String ciudad)
+       public static Boolean Editar(int id,String nombre,String ciudad,List<Especialidad> especialidades)
     {
         boolean realizado = false;
         Transaction tx = null; 
@@ -77,6 +81,7 @@ public class EscuelaNegocio {
              Escuela entidad = Obtener(id);             
              entidad.setNombre(nombre);   
              entidad.setCiudad(ciudad);
+             entidad.setEspecialidades(especialidades);
              session.update(entidad); 
              tx.commit();
              realizado = true;
@@ -194,4 +199,21 @@ public class EscuelaNegocio {
         return lista;
     }
     
+     
+     public static List<Especialidad> ListarEspecialidades(int id)
+    {  
+        List<Especialidad> lista = new ArrayList();
+        try
+        {
+            Session session = HibernateUtils.getSession();
+            String hql = "SELECT CC.especialidades FROM Escuela AS CC WHERE CC.id = :id";
+            Query query = session.createQuery(hql).setParameter("id", id);
+            lista = (List<Especialidad>)query.list();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return lista; 
+    }    
 }
