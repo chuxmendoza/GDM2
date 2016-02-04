@@ -158,7 +158,7 @@ public class JDialogAgregarAgradecimiento extends javax.swing.JDialog {
         // TODO add your handling code here: 
         try
         {
-            btnAceptar.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             if(!editar)
             {
                 if(!txtClave.getText().trim().isEmpty() && !txtMensaje.getText().trim().isEmpty())
@@ -210,6 +210,10 @@ public class JDialogAgregarAgradecimiento extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
 
+        }
+        finally
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 

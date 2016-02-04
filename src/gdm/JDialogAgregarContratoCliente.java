@@ -1146,7 +1146,7 @@ public boolean editar = false;
                         .addGap(32, 32, 32)
                         .addComponent(imgFotoA, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnSeleccionar)
                             .addComponent(btnRemoverA))))
                 .addContainerGap(23, Short.MAX_VALUE))
@@ -1289,7 +1289,8 @@ public boolean editar = false;
 
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
-        try{
+        try
+        {
             
             if(!editar){        
                 
@@ -1328,9 +1329,7 @@ public boolean editar = false;
                 case 1: dirigido = "A mi familia"; break;
                 case 2: dirigido = txtDirigido.getText(); break;
                     
-            }
-            
-            
+            } 
                         
             int idAgradecimiento = Integer.parseInt(comboAgradecimiento.getSelectedValue().toString());   
                        for(Agradecimiento a : agradecimientos)
@@ -1362,9 +1361,9 @@ public boolean editar = false;
                   dirigido,rbFotoPanoramica.isSelected(),rbFotoPersonalizada.isSelected(),rbFotoMisa.isSelected(),rbFotoEstudio.isSelected(),anillo,rbRentaToga.isSelected(),
                   rbMisa.isSelected(),rbBaile.isSelected(),Integer.parseInt(spMesaExtra.getValue().toString()), Integer.parseInt(spFotosExtra.getValue().toString()),rbTriptico.isSelected(),
                   Double.parseDouble(txtPrecio.getText()), dateEntregaPaquete.getDate(),dateEntregaDatos.getDate(),dateLimitePago.getDate(), nombreArchivo,
-                  dateFechaContrato.getDate(), txtComentarios.getText().trim(),anticipos)){
-              this.DialogResult = true;
-                        this.dispose();
+                  dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario, anticipos)){
+                  this.DialogResult = true;
+                  this.dispose();
                
            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoAgregado")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE); 

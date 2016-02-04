@@ -31,6 +31,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
     
     public int idContratoCliente = 0;
     public double total = 0;
+    public double pagado = 0; 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -206,8 +207,16 @@ public class JPanelAnticipo extends javax.swing.JDialog {
 
     private void btnAnticiposAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnticiposAgregarActionPerformed
         // TODO add your handling code here:
+        if (ContratoClienteNegocio.Liquidado(idContratoCliente))
+        {
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoClienteLiquidado")
+                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContratoCliente"), JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         JDialogAgregarAnticipo frame = new JDialogAgregarAnticipo(null, rootPaneCheckingEnabled);
         frame.idContratoCliente = idContratoCliente;
+        frame.total = total;
+        frame.pagado = pagado;
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
         if (frame.DialogResult)
@@ -216,11 +225,20 @@ public class JPanelAnticipo extends javax.swing.JDialog {
 
     private void btnAnticiposEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAnticiposEditarActionPerformed
         // TODO add your handling code here:
+        if (ContratoClienteNegocio.Liquidado(idContratoCliente))
+        {
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoClienteLiquidado")
+                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContratoCliente"), JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
         if(tblContratosC.getSelectedRow()!= -1)
         {
             JDialogAgregarAnticipo frame = new JDialogAgregarAnticipo(null, rootPaneCheckingEnabled);
             frame.id = Integer.parseInt(tblContratosC.getValueAt(tblContratosC.getSelectedRow(), 0).toString());
+            frame.idContratoCliente = idContratoCliente;
             frame.editar = true;
+            frame.total = total;
+            frame.pagado = pagado;
             frame.setLocationRelativeTo(null);
             frame.setVisible(true);
             if (frame.DialogResult)
@@ -249,7 +267,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
                 if(opcion==0)
                 { 
                      int id = Integer.parseInt(tblContratosC.getValueAt(tblContratosC.getSelectedRow(), 0).toString());
-                     if(AnticipoNegocio.Eliminar(id))
+                     if(AnticipoNegocio.Eliminar(id, idContratoCliente))
                      {
                          cargarAbonos();
                      }
@@ -273,23 +291,25 @@ public class JPanelAnticipo extends javax.swing.JDialog {
     {
         DefaultTableModel mod = (DefaultTableModel)tblContratosC.getModel();
         List<Anticipo> abonos = new ArrayList();
-        while(mod.getRowCount() > 0)
-            mod.removeRow(0);
+        mod.setRowCount(0);
         
         abonos = ContratoClienteNegocio.ListarAbonos(idContratoCliente);
-        
+        double _total = total;
+        double _pagado = 0;
         for(Anticipo a : abonos)
         {
+            _pagado = _pagado + a.getCantidad();
             int id = a.getId();
             String nombre = a.getNombre();
             String concepto = a.getConcepto();
             double cantidad = a.getCantidad();
-            double resto = total -= a.getCantidad();
+            double resto = _total -= a.getCantidad();
             String fecha = a.getFecha().toString();
             String celular = a.getCelular();
             String telefono = a.getTelefono();
             mod.addRow(new Object[] {id, nombre, concepto, cantidad, resto, fecha, celular, telefono});
         } 
+        pagado = _pagado;
         tblContratosC.setModel(mod);
     }   
     

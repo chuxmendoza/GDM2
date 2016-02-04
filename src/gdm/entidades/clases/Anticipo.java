@@ -20,6 +20,7 @@ public class Anticipo {
     private Date fecha;
     private double cantidad;
     private String recibo;
+    private Usuario usuario;
     
     //<editor-fold defaultstate="collapsed" desc=" Getters and Setters del Anticipo ">
        /**
@@ -132,6 +133,20 @@ public class Anticipo {
      */
     public void setRecibo(String recibo) {
         this.recibo = recibo;
+    }
+    
+    /**
+     * @return the usuario
+     */
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
  
     //</editor-fold>

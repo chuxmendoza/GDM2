@@ -15,18 +15,18 @@ import org.hibernate.cfg.Configuration;
  * @author luis
  */
 public class HibernateUtils {
-   private static final SessionFactory sessionFactory;
+   private static SessionFactory sessionFactory = null;
    private static Session session;
-    static {
+    
+   public static void createSessionFactory(){
         try {
             // Create the SessionFactory from hibernate.cfg.xml
-            sessionFactory = new Configuration().configure(new File("src/hibernate.cfg.xml"))
-                    .buildSessionFactory();
+            sessionFactory = new Configuration().configure(new File("src/hibernate.cfg.xml")).buildSessionFactory();
             session = sessionFactory.openSession();
-        } catch (Throwable ex) {
+        } catch (Exception ex) {
             // Make sure you log the exception, as it might be swallowed
-            System.err.println("Initial SessionFactory creation failed." + ex);
-            throw new ExceptionInInitializerError(ex);
+            //System.err.println("Initial SessionFactory creation failed." + ex);
+            throw ex;
         }
     }
 

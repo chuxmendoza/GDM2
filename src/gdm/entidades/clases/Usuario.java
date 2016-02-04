@@ -10,12 +10,14 @@ package gdm.entidades.clases;
  * @author Chuy
  */
 public class Usuario {
+    public Usuario(){}
+    public Usuario(int id){ this.id = id; }
+    
     private int id;
     private String login;
     private String pass;
     private String nombre;
     private Perfil perfil;
-
     
     //<editor-fold defaultstate="collapsed" desc=" Getters and Setters del usuario ">
     /**

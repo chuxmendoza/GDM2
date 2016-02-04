@@ -13,6 +13,6 @@
      <bag name="especialidades" cascade="all" table="relEscuelaEspecialidad">
          <key column="idEscuela"/>
          <many-to-many column="idEspecialidad" class="gdm.entidades.clases.Especialidad"/>
-      </bag>
+      </bag> 
     </class>
 </hibernate-mapping>

@@ -40,9 +40,9 @@ public class ContratoCliente {
     private String contratoImagen; 
     private List<Anticipo> anticipos;
     private Date fechaContrato;
-
     private String comentarios;
     private boolean liquidado;
+    private Usuario usuario;
 
     //<editor-fold defaultstate="collapsed" desc=" Getters and Setters de ContratoCliente ">
     /**
@@ -393,8 +393,7 @@ public class ContratoCliente {
     public void setLiquidado(boolean liquidado) {
         this.liquidado = liquidado;
     }
-    //</editor-fold>
-
+    
     /**
      * @return the cliente
      */
@@ -450,5 +449,19 @@ public class ContratoCliente {
     public void setFotoPersonalizada(boolean fotoPersonalizada) {
         this.fotoPersonalizada = fotoPersonalizada;
     }
- 
+
+    /**
+     * @return the usuario
+     */
+    public Usuario getUsuario() {
+        return usuario;
+    }
+
+    /**
+     * @param usuario the usuario to set
+     */
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
+    }
+    //</editor-fold>
 }

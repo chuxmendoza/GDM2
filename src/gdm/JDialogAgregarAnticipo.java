@@ -37,7 +37,8 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
      public boolean editar = false;
      public int id = 0; 
      public int idContratoCliente = 0;
-
+     public double total = 0;
+     public double pagado = 0;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -273,6 +274,7 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
         // TODO add your handling code here:
         try
         {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
                 String nombre = txtNombre.getText().trim();
                 String celular = txtCelular.getText().trim();
                 String telefono = txtTelefono.getText().trim();
@@ -282,8 +284,14 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
                 
             if(!editar)
             { 
+                if (!validarGuardar())
+                {
+                    JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AbonoMayorTotal")
+                        , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
                 if(AnticipoNegocio.Guardar(idContratoCliente, 
-                        nombre, celular, telefono, cantidad, concepto, nombreArchivo, fecha))
+                        nombre, celular, telefono, cantidad, concepto, nombreArchivo, fecha, Program.idUsuario))
                 {
                     JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AnticipoAgregado")
                         , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
@@ -299,8 +307,13 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
             }
             else
             {
-                
-                if(AnticipoNegocio.Editar(id, 
+                if (!validarEditar())
+                {
+                    JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AbonoMayorTotal")
+                        , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
+                    return;
+                }
+                if(AnticipoNegocio.Editar(idContratoCliente, id, 
                         nombre, celular, telefono, cantidad, concepto, nombreArchivo))
                 {
                     JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AnticipoEditado")
@@ -322,7 +335,10 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 , "Acceso denegado", JOptionPane.INFORMATION_MESSAGE); 
         }
-        
+        finally
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        }
         
     }//GEN-LAST:event_btnAgregarActionPerformed
 
@@ -446,6 +462,7 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
         }
         catch(Exception e)
         {
+            Program.logger.error(this, e);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);      
         }
@@ -454,5 +471,45 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
             this.setCursor(Cursor.getDefaultCursor());     
         }
     }
+    
+    private boolean validarGuardar()
+    {
+        boolean guardar = false;
+        try
+        {
+            double cantidad = Integer.parseInt(txtCantidad.getText().trim());
+            if ((pagado+cantidad) <= total)
+                guardar = true;
+        }catch(Exception ex)
+        {
+             Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);      
+        }
+        return guardar;
+    }
+    
+    private boolean validarEditar()
+    {
+        boolean _editar = false;
+        try
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            double cantidad = Double.parseDouble(txtCantidad.getText().trim());
+            if (AnticipoNegocio.ValidarTotalPago(idContratoCliente, id, cantidad, total))
+                _editar = true;
+        }
+        catch(Exception ex)
+        {
+            Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);      
+        }
+        finally
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+        }
+        return _editar;
+    }   
+    
 }
-//XD :v .i. /m/

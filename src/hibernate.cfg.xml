@@ -34,5 +34,6 @@
         <mapping resource= "gdm/entidades/mappings/Modelo.hbm.xml"/>
         <mapping resource= "gdm/entidades/mappings/ContratoCliente.hbm.xml"/>
         <mapping resource= "gdm/entidades/mappings/Anillo.hbm.xml"/>
+        <mapping resource= "gdm/entidades/mappings/Directorio.hbm.xml"/>
     </session-factory>
 </hibernate-configuration>	

@@ -7,6 +7,8 @@ package gdm;
 
 import gdm.entidades.clases.Anticipo;
 import gdm.entidades.clases.ContratoCliente;
+import gdm.entidades.clases.Perfil;
+import gdm.entidades.clases.Usuario;
 import java.awt.Cursor;
 import java.util.ArrayList;
 import java.util.Date;
@@ -15,6 +17,7 @@ import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.Clases.ContratoClienteNegocio;
+import org.apache.log4j.Logger;
 import negocio.Clases.ContratoNegocio;
 
 /**
@@ -32,7 +35,7 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
     }
     public int idContrato = 0;
     public int idCliente= 0;
-    private List<ContratoCliente> contratos;
+    private List<ContratoCliente> contratos; 
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -66,10 +69,7 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
         tblContratos.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         tblContratos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null},
-                {null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null}
+
             },
             new String [] {
                 "id", "Folio", "Nombre completo", "Modelo", "Triptico", "Reconocimiento", "Título", "Agradecimiento", "Dirigido a:", "Foto panorámica", "Foto personalizada", "Foto estudio", "Foto misa", "Material de anillos", "kilates", "Gramos", "Renta de toga", "Misa", "Baile", "Mesa extra", "Fotos extra", "Fecha de contrato", "Precio", "Comentarios", "Entrega del paquete", "Entrega de datos", "Límite de pago"
@@ -313,8 +313,6 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 JPanelAnticipo frame = new JPanelAnticipo(null, true);
                 frame.idContratoCliente =  Integer.parseInt(tblContratos.getValueAt(tblContratos.getSelectedRow(), 0).toString());
                 frame.total =  Double.parseDouble(tblContratos.getValueAt(tblContratos.getSelectedRow(), 22).toString());
-                //frame.idContratoCliente = 2;
-                //frame.total = 3500;
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
             }  
@@ -375,10 +373,9 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
     private javax.swing.JTable tblContratos;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarContratos() {
-      try{
-          
-      
+    private void cargarContratos() { 
+      try
+      { 
        DefaultTableModel mod = (DefaultTableModel)tblContratos.getModel();
         while(mod.getRowCount() > 0)
             mod.removeRow(0);
@@ -412,21 +409,17 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
             Date fechaLimitePago=contrato.getFechaLimitePago();
             Date fechaContrato= contrato.getFechaContrato();
             String Comentarios = contrato.getComentarios();
-            
-            
-           
-                                           
+                                         
             mod.addRow(new Object[] {id,folio,nombre, modelo ,triptico,reconocimiento,titulo ,agradecimiento,
                 dirigido,fotoPanoramica,fotoPersonalizada,fotoEstudio,
             fotoMisa,anillo,k,g,rentaToga,misa,baile,mesaExtra,fotosExtra,fechaContrato,""+precio,Comentarios,
             fechaEntregaPaquete,fechaEntregaDatos,fechaLimitePago});
-        }
-        
-        tblContratos.setModel(mod);
-    }catch(Exception e){
-          System.out.println(e);
-    
-}
-
-}
+        } 
+        tblContratos.setModel(mod);  
+      }
+      catch(Exception ex)
+      {
+          Program.logger.error(this, ex);
+      }
+    }
 }

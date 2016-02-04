@@ -15,6 +15,8 @@ import gdm.entidades.clases.Escuela;
 import gdm.entidades.clases.Especialidad;
 import gdm.entidades.clases.FotoPanoramica; 
 import gdm.entidades.clases.Misa;
+import gdm.entidades.clases.Usuario;
+import java.util.Calendar;
 import java.util.Date;
 import org.hibernate.Query;
 
@@ -26,7 +28,7 @@ public class ContratoNegocio {
     
     
     public static Boolean Guardar(int idEscuela, int idEspecialidad, String generacion, Date fechaEvento, FotoPanoramica fotoPanoramica, Misa misa, 
-            Baile baile, String comentarios)
+            Baile baile, String comentarios, int idUsuario)
     {
         boolean realizado = false;
         Transaction tx = null; 
@@ -42,6 +44,8 @@ public class ContratoNegocio {
              entidad.setMisa(misa);
              entidad.setBaile(baile);
              entidad.setComentarios(comentarios);
+             entidad.setUsuario(new Usuario(idUsuario));
+             entidad.setFechaAlta(Calendar.getInstance().getTime());
              session.save(entidad); 
              tx.commit();
              realizado = true;
@@ -99,9 +103,7 @@ public class ContratoNegocio {
         try
         (Session session = HibernateUtils.getSession()) {    
              tx = session.beginTransaction();           
-             session.delete(entidad); 
-             
-           
+             session.delete(entidad);  
              tx.commit();
              realizado = true;
         }
@@ -168,18 +170,27 @@ public class ContratoNegocio {
         return lista;
     }
     
-    public static List<Contrato> Buscar(String especialidad, String escuela, String generacion, Date fechaEvento)
+    public static List<Contrato> Buscar(String especialidad, String escuela, String generacion, Date dtInicio, Date dtFin)
     {
         List<Contrato> lista = new ArrayList<>();
         try
         {
             Session session = HibernateUtils.getSession();
             Criteria crit = session.createCriteria(Contrato.class);
-            crit.createAlias("especialidad", "e");
-            crit.createAlias("escuela", "es");
-            crit.add(Expression.like("e.nombre", especialidad, MatchMode.ANYWHERE));
-            crit.add(Expression.like("es.nombre", escuela, MatchMode.ANYWHERE));
-            crit.add(Expression.eq("fechaEvento", fechaEvento)); 
+            if (!especialidad.isEmpty())
+            {
+                crit.createAlias("especialidad", "e");
+                crit.add(Expression.like("e.nombre", especialidad, MatchMode.ANYWHERE));
+            }
+            if (!escuela.isEmpty())
+            {
+                crit.createAlias("escuela", "es");
+                crit.add(Expression.like("es.nombre", escuela, MatchMode.ANYWHERE));
+            }
+            if (!generacion.isEmpty())
+                crit.add(Expression.like("generacion", generacion, MatchMode.ANYWHERE));
+            if (dtInicio != null && dtFin != null)
+                crit.add(Expression.between("fechaEvento", dtInicio, dtFin)); 
             lista = (List<Contrato>) crit.list();
         }
         catch(Exception ex)
