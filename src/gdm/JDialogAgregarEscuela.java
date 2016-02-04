@@ -6,17 +6,23 @@
 package gdm;
 
 import gdm.entidades.clases.Escuela;
+import gdm.entidades.clases.Especialidad;
 import java.awt.Cursor;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 import negocio.Clases.EscuelaNegocio;
+import negocio.Clases.EspecialidadNegocio;
 
 /**
  *
  * @author Chuy
  */
 public class JDialogAgregarEscuela extends javax.swing.JDialog {
-
+Especialidad especialidad = new Especialidad();
+private List<Especialidad> especialidades= new ArrayList();  
     /**
      * Creates new form JDialogAgregarEscuela
      */
@@ -25,10 +31,12 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
     public JDialogAgregarEscuela(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-         this.setLocationRelativeTo(null);
+        this.setLocationRelativeTo(null);
+          
     }
      public boolean editar = false;
     public int id = 0;
+    public int idEspecialidad;
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -45,6 +53,12 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
         btnAceptar = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         txtCiudad = new javax.swing.JTextField();
+        jPanelCarreras = new javax.swing.JPanel();
+        btnAgregarCarrera = new javax.swing.JButton();
+        btnEliminarCarrera = new javax.swing.JButton();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblEspecialidad = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -86,35 +100,138 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
 
         txtCiudad.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
 
+        jPanelCarreras.setBackground(new java.awt.Color(204, 204, 255));
+        jPanelCarreras.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        jPanelCarreras.setMaximumSize(new java.awt.Dimension(750, 550));
+        jPanelCarreras.setMinimumSize(new java.awt.Dimension(750, 550));
+
+        btnAgregarCarrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar1.png"))); // NOI18N
+        btnAgregarCarrera.setBorder(null);
+        btnAgregarCarrera.setBorderPainted(false);
+        btnAgregarCarrera.setContentAreaFilled(false);
+        btnAgregarCarrera.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnAgregarCarrera.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar2.png"))); // NOI18N
+        btnAgregarCarrera.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar3.png"))); // NOI18N
+        btnAgregarCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarCarreraActionPerformed(evt);
+            }
+        });
+
+        btnEliminarCarrera.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar1.png"))); // NOI18N
+        btnEliminarCarrera.setContentAreaFilled(false);
+        btnEliminarCarrera.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnEliminarCarrera.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar2.png"))); // NOI18N
+        btnEliminarCarrera.setSelectedIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Eliminar3.png"))); // NOI18N
+        btnEliminarCarrera.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarCarreraActionPerformed(evt);
+            }
+        });
+
+        tblEspecialidad.getTableHeader().setFont(new java.awt.Font("Euphemia", 0, 18));
+        tblEspecialidad.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        tblEspecialidad.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "", "Nombre"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tblEspecialidad.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_LAST_COLUMN);
+        tblEspecialidad.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tblEspecialidad.setRowHeight(23);
+        tblEspecialidad.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+        jScrollPane2.setViewportView(tblEspecialidad);
+        if (tblEspecialidad.getColumnModel().getColumnCount() > 0) {
+            tblEspecialidad.getColumnModel().getColumn(0).setMinWidth(0);
+            tblEspecialidad.getColumnModel().getColumn(0).setPreferredWidth(0);
+            tblEspecialidad.getColumnModel().getColumn(0).setMaxWidth(0);
+        }
+
+        jLabel2.setFont(new java.awt.Font("Euphemia", 0, 18)); // NOI18N
+        jLabel2.setText("Carrera o Especialidad");
+
+        javax.swing.GroupLayout jPanelCarrerasLayout = new javax.swing.GroupLayout(jPanelCarreras);
+        jPanelCarreras.setLayout(jPanelCarrerasLayout);
+        jPanelCarrerasLayout.setHorizontalGroup(
+            jPanelCarrerasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCarrerasLayout.createSequentialGroup()
+                .addGroup(jPanelCarrerasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanelCarrerasLayout.createSequentialGroup()
+                        .addGap(151, 151, 151)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanelCarrerasLayout.createSequentialGroup()
+                        .addGap(28, 28, 28)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 383, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jPanelCarrerasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanelCarrerasLayout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addComponent(btnAgregarCarrera))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanelCarrerasLayout.createSequentialGroup()
+                                .addGap(41, 41, 41)
+                                .addComponent(btnEliminarCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        jPanelCarrerasLayout.setVerticalGroup(
+            jPanelCarrerasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanelCarrerasLayout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanelCarrerasLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 190, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanelCarrerasLayout.createSequentialGroup()
+                        .addComponent(btnAgregarCarrera, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(75, 75, 75)
+                        .addComponent(btnEliminarCarrera)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(244, 244, 244)
-                        .addComponent(jLabel7))
+                        .addComponent(btnAceptar)
+                        .addGap(33, 33, 33))
                     .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(202, 202, 202)
-                        .addComponent(btnAceptar))
-                    .addGroup(jPanel4Layout.createSequentialGroup()
-                        .addGap(47, 47, 47)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel5))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtEscuela, javax.swing.GroupLayout.DEFAULT_SIZE, 297, Short.MAX_VALUE)
-                            .addComponent(txtCiudad))))
+                        .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(218, 218, 218)
+                                .addComponent(jLabel7))
+                            .addGroup(jPanel4Layout.createSequentialGroup()
+                                .addGap(133, 133, 133)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(txtEscuela)
+                                    .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 297, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(85, 85, 85))
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel4Layout.createSequentialGroup()
+                        .addGap(34, 34, 34)
+                        .addComponent(jPanelCarreras, javax.swing.GroupLayout.PREFERRED_SIZE, 635, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel4Layout.setVerticalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(20, 20, 20)
                 .addComponent(jLabel7)
-                .addGap(43, 43, 43)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
                     .addComponent(txtEscuela, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -122,7 +239,9 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
                 .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(32, 32, 32)
+                .addGap(9, 9, 9)
+                .addComponent(jPanelCarreras, javax.swing.GroupLayout.PREFERRED_SIZE, 266, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(btnAceptar)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -131,19 +250,17 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 539, Short.MAX_VALUE)
+            .addGap(0, 707, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 539, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 707, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGap(0, 0, Short.MAX_VALUE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 376, Short.MAX_VALUE)
+            .addGap(0, 511, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(layout.createSequentialGroup()
-                    .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 376, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                .addComponent(jPanel4, javax.swing.GroupLayout.PREFERRED_SIZE, 511, Short.MAX_VALUE))
         );
 
         pack();
@@ -158,7 +275,7 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
             if(!txtEscuela.getText().trim().isEmpty() ){
 
 
-                    if(EscuelaNegocio.Guardar(txtEscuela.getText(),txtCiudad.getText())){
+                    if(EscuelaNegocio.Guardar(especialidades,txtEscuela.getText(),txtCiudad.getText())){
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("EscuelaAgregada")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloEscuela"), JOptionPane.INFORMATION_MESSAGE);
                          this.DialogResult = true;
@@ -179,7 +296,7 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
                   if(!txtEscuela.getText().trim().isEmpty() ){
 
 
-                    if(EscuelaNegocio.Editar(id,txtEscuela.getText(),txtCiudad.getText())){
+                    if(EscuelaNegocio.Editar(id,txtEscuela.getText(),txtCiudad.getText(),especialidades)){
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("EscuelaEditada")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloEscuela"), JOptionPane.INFORMATION_MESSAGE);
                          this.DialogResult = true;
@@ -212,13 +329,81 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_formWindowOpened
 
+    private void btnAgregarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarCarreraActionPerformed
+        // TODO add your handling code here:
+         try
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            JDialogBuscarEspecialidad especialidad = new JDialogBuscarEspecialidad(null, true);           
+            especialidad.setVisible(true);
+            if(especialidad.DialogResult)
+            {        
+               for(Especialidad e: especialidades){
+                   if(e.getId()== especialidad.especialidad.getId()){
+                       JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("EspecialidadRepetida")
+                    , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloEspecialidad"), JOptionPane.INFORMATION_MESSAGE);
+                      return;
+                   } 
+                  
+               }
+                    
+                
+                especialidades.add(especialidad.especialidad);
+                cargarEspecialidad();
+            }
+        }
+        catch(Exception e){
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+        }finally{
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
+
+        }
+    }//GEN-LAST:event_btnAgregarCarreraActionPerformed
+
+    private void btnEliminarCarreraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCarreraActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            if(tblEspecialidad.getSelectedRow()!= -1){
+
+//                int opcion = JOptionPane.showConfirmDialog(null, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("Eliminar"), ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloEspecialidad"), JOptionPane.YES_NO_OPTION);
+//                if(opcion==0){
+                    int id = Integer.parseInt(tblEspecialidad.getValueAt(tblEspecialidad.getSelectedRow(), 0).toString());
+                      for(Especialidad e: especialidades){
+                          
+                      }
+                    especialidades.remove(especialidad.getId());
+                cargarEspecialidad();
+//                }
+
+            }else{
+                JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
+                    , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloEspecialidad"), JOptionPane.INFORMATION_MESSAGE);
+            }
+
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+        }finally{
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_btnEliminarCarreraActionPerformed
+
  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnAgregarCarrera;
+    private javax.swing.JButton btnEliminarCarrera;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanelCarreras;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblEspecialidad;
     private javax.swing.JTextField txtCiudad;
     private javax.swing.JTextField txtEscuela;
     // End of variables declaration//GEN-END:variables
@@ -229,9 +414,15 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
         this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         Escuela escuela = EscuelaNegocio.Obtener(id);
         if(escuela != null){
-            
+            if(escuela.getEspecialidades()!=null)
+            if(escuela.getEspecialidades().size()>0)
+            {
+                especialidades=escuela.getEspecialidades();
+                cargarEspecialidad();
+            }
             txtEscuela.setText(escuela.getNombre());    
             txtCiudad.setText(escuela.getCiudad());
+            
           
         }
      }catch(Exception e){
@@ -243,4 +434,23 @@ public class JDialogAgregarEscuela extends javax.swing.JDialog {
           this.setCursor(Cursor.getDefaultCursor());     
         }   
     }
-}
+
+    private void cargarEspecialidad() {
+    DefaultTableModel mod = (DefaultTableModel)tblEspecialidad.getModel();
+      
+        mod.setRowCount(0);
+        for(Especialidad es : especialidades){
+            int id = es.getId();
+            String nombre = es.getNombre();
+           
+                 
+            mod.addRow(new Object[] {id, nombre});
+        }
+        
+        tblEspecialidad.setModel(mod);
+    }   
+
+   
+    
+    }
+

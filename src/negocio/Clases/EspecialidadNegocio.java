@@ -1,5 +1,6 @@
 package negocio.Clases;
  
+import gdm.entidades.clases.Escuela;
 import java.util.ArrayList;
 import java.util.List;
 import negocio.utils.HibernateUtils; 
@@ -22,14 +23,14 @@ public class EspecialidadNegocio {
      public static Boolean Guardar(String nombre)
     {
         boolean realizado = false;
-        Transaction tx = null; 
+        Transaction tx = null;          
         Session session = null;
         try
         {
              session = HibernateUtils.getSession();    
-             tx = session.beginTransaction();
+             tx = session.beginTransaction();                         
              Especialidad entidad = new Especialidad();             
-             entidad.setNombre(nombre);            
+             entidad.setNombre(nombre);
              session.save(entidad); 
              tx.commit();
              realizado = true;

@@ -30,10 +30,10 @@ public class ContratoClienteNegocio {
     
     public static Boolean Guardar(int idContrato, 
             int idCliente,
-            int folio, int idModelo, boolean reconocimiento,boolean titulo, int agradecimiento, String mensaje,String dirigido, boolean fotoPanoramica,
-            boolean fotoPersonalizada,boolean fotoMisa, boolean fotoEstudio, Anillo anillo, boolean rentaToga, boolean misa, boolean baile, int mesaExtra, int fotosExtra, 
+            int folio, int idModelo, boolean reconocimiento,boolean titulo, int idAgradecimiento, String mensaje,String dirigido, boolean fotoPanoramica,
+            boolean fotoPersonalizada,boolean fotoMisa, boolean fotoEstudio, Anillo anillo,  boolean rentaToga, boolean misa, boolean baile, int mesaExtra, int fotosExtra, 
             boolean triptico, double precio, Date fechaEntregaPaquete, Date fechaEntregaDatos, Date fechaLimitePago, String contratoImagen, 
-            Date fechaContrato, String comentarios, int idUsuario)
+            Date fechaContrato, String comentarios, int idUsuario, List<Anticipo> anticipos)
     {
         boolean realizado = false;
         Transaction tx = null; 
@@ -47,7 +47,7 @@ public class ContratoClienteNegocio {
              entidad.setModelo(new Modelo(idModelo));
              entidad.setReconocimiento(reconocimiento);
              entidad.setTitulo(titulo);
-             entidad.setAgradecimiento(new Agradecimiento(agradecimiento));
+             entidad.setAgradecimiento(new Agradecimiento(idAgradecimiento));
              entidad.setMensaje(mensaje);
              entidad.setDirigido(dirigido);
              entidad.setFotoPanoramica(fotoPanoramica);
@@ -69,6 +69,8 @@ public class ContratoClienteNegocio {
              //entidad.setAnticipos(anticipos);
              entidad.setFechaContrato(fechaContrato);            
              entidad.setComentarios(comentarios);
+             entidad.setAnticipos(anticipos);
+             
              /*double total = 0;
              boolean liquidado = false;
              for(Anticipo a : anticipos)
