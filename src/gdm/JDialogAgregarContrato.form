@@ -215,6 +215,9 @@
               </Properties>
             </Component>
             <Component class="gdm.presentacion.CustomComboBox" name="comboEscuela">
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="comboEscuelaActionPerformed"/>
+              </Events>
               <AuxValues>
                 <AuxValue name="JavaCodeGenerator_InitCodePre" type="java.lang.String" value="comboEscuela.setFont(new java.awt.Font(&quot;Euphemia&quot;, 0, 14)); // NOI18N"/>
               </AuxValues>

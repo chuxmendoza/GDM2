@@ -120,7 +120,7 @@ public class EgresoNegocio {
     
     public static List<Egreso> Listado()
     {
-        List<Egreso> lista = new ArrayList<Egreso>();
+        List<Egreso> lista = new ArrayList<>();
         try
         {
             Session session = HibernateUtils.getSession();
@@ -136,7 +136,7 @@ public class EgresoNegocio {
     
     public static List<Egreso> Buscar(String nombre)
     {
-        List<Egreso> lista = new ArrayList<Egreso>();
+        List<Egreso> lista = new ArrayList<>();
         try
         {
             Session session = HibernateUtils.getSession();

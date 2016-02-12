@@ -30,8 +30,11 @@ public class Contrato {
     private Baile baile;
     private String comentarios;
     private List<ContratoCliente> contratoCliente;
+    private List<EgresoValor> egresoValor;
     private Usuario usuario;
     private Date fechaAlta;
+    private double ganancia;
+    private boolean finalizado;
     
 //<editor-fold defaultstate="collapsed" desc=" Getters and Setters del Contrato ">
      /**
@@ -200,6 +203,47 @@ public class Contrato {
     public void setFechaAlta(Date fechaAlta) {
         this.fechaAlta = fechaAlta;
     }
+       /**
+     * @return the egresoValor
+     */
+    public List<EgresoValor> getEgresoValor() {
+        return egresoValor;
+    }
+
+    /**
+     * @param egresoValor the egresoValor to set
+     */
+    public void setEgresoValor(List<EgresoValor> egresoValor) {
+        this.egresoValor = egresoValor;
+    }
     //</editor-fold>
- 
+
+    /**
+     * @return the ganancia
+     */
+    public double getGanancia() {
+        return ganancia;
+    }
+
+    /**
+     * @param ganancia the ganancia to set
+     */
+    public void setGanancia(double ganancia) {
+        this.ganancia = ganancia;
+    }
+
+    /**
+     * @return the finalizado
+     */
+    public boolean isFinalizado() {
+        return finalizado;
+    }
+
+    /**
+     * @param finalizado the finalizado to set
+     */
+    public void setFinalizado(boolean finalizado) {
+        this.finalizado = finalizado;
+    }
+
 } 

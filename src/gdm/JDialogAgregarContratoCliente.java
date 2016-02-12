@@ -51,7 +51,7 @@ public boolean editar = false;
     Modelo modelo = new Modelo();
     Agradecimiento agradecimiento = new Agradecimiento();
     List<Agradecimiento> agradecimientos = new ArrayList<Agradecimiento>();
-    List<Anticipo> anticipos = new ArrayList();
+//    List<Anticipo> anticipos = new ArrayList();
     String mensaje = null;
     Anillo anillo = new Anillo();
     Metal metal = new Metal();
@@ -159,24 +159,6 @@ public boolean editar = false;
         jLabel36 = new javax.swing.JLabel();
         btnAgregarImagen = new javax.swing.JButton();
         btnRetirarImagen = new javax.swing.JButton();
-        jPanel8 = new javax.swing.JPanel();
-        jLabel23 = new javax.swing.JLabel();
-        jLabel24 = new javax.swing.JLabel();
-        dtFechaA = new org.jdesktop.swingx.JXDatePicker();
-        jPanel17 = new javax.swing.JPanel();
-        lblNombre = new javax.swing.JLabel();
-        lblNombre1 = new javax.swing.JLabel();
-        lblNombre2 = new javax.swing.JLabel();
-        lblNombre3 = new javax.swing.JLabel();
-        lblNombre4 = new javax.swing.JLabel();
-        txtNombreA = new javax.swing.JTextField();
-        txtTelefonoA = new javax.swing.JTextField();
-        txtCelularA = new javax.swing.JTextField();
-        txtConceptoA = new javax.swing.JTextField();
-        txtCantidadA = new javax.swing.JTextField();
-        imgFotoA = new javax.swing.JLabel();
-        btnSeleccionar = new javax.swing.JButton();
-        btnRemoverA = new javax.swing.JButton();
         btnAceptar = new javax.swing.JButton();
 
         jTextField12.setText("jTextField12");
@@ -1020,171 +1002,6 @@ public boolean editar = false;
 
         jTabbedPane1.addTab("Imagen del Contrato", jPanel14);
 
-        jPanel8.setBackground(new java.awt.Color(255, 255, 255));
-
-        jLabel23.setFont(new java.awt.Font("Euphemia", 0, 18)); // NOI18N
-        jLabel23.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel23.setText("Anticipos");
-
-        jLabel24.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        jLabel24.setText("Fecha:");
-
-        jPanel17.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        lblNombre.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        lblNombre.setText("Nombre:");
-
-        lblNombre1.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        lblNombre1.setText("Telefono:");
-
-        lblNombre2.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        lblNombre2.setText("Celular:");
-
-        lblNombre3.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        lblNombre3.setText("Concepto:");
-
-        lblNombre4.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        lblNombre4.setText("Cantidad:");
-
-        txtNombreA.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-
-        txtTelefonoA.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-
-        txtCelularA.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-
-        txtConceptoA.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-
-        txtCantidadA.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
-        txtCantidadA.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                txtCantidadAKeyTyped(evt);
-            }
-        });
-
-        imgFotoA.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-
-        btnSeleccionar.setText("Seleccionar imagen");
-        btnSeleccionar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSeleccionarActionPerformed(evt);
-            }
-        });
-
-        btnRemoverA.setText("Remover imagen");
-        btnRemoverA.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnRemoverAActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel17Layout = new javax.swing.GroupLayout(jPanel17);
-        jPanel17.setLayout(jPanel17Layout);
-        jPanel17Layout.setHorizontalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(8, 8, 8)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addComponent(lblNombre)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtNombreA, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel17Layout.createSequentialGroup()
-                                .addComponent(lblNombre1)
-                                .addGap(18, 18, 18)
-                                .addComponent(txtTelefonoA, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(lblNombre4)
-                            .addComponent(lblNombre3)
-                            .addComponent(lblNombre2))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtConceptoA, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCantidadA, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtCelularA, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 40, Short.MAX_VALUE)
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(btnSeleccionar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnRemoverA))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addComponent(imgFotoA, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(31, 31, 31))
-        );
-        jPanel17Layout.setVerticalGroup(
-            jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel17Layout.createSequentialGroup()
-                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNombreA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblNombre))
-                        .addGap(19, 19, 19)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(txtCelularA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(jPanel17Layout.createSequentialGroup()
-                                .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(lblNombre1)
-                                    .addComponent(txtTelefonoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(lblNombre2)))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblNombre3)
-                            .addComponent(txtConceptoA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(lblNombre4)
-                            .addComponent(txtCantidadA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(jPanel17Layout.createSequentialGroup()
-                        .addGap(32, 32, 32)
-                        .addComponent(imgFotoA, javax.swing.GroupLayout.PREFERRED_SIZE, 165, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSeleccionar)
-                            .addComponent(btnRemoverA))))
-                .addContainerGap(23, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout jPanel8Layout = new javax.swing.GroupLayout(jPanel8);
-        jPanel8.setLayout(jPanel8Layout);
-        jPanel8Layout.setHorizontalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jLabel23, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                .addContainerGap(29, Short.MAX_VALUE)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jLabel24)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(dtFechaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(128, 128, 128))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel8Layout.createSequentialGroup()
-                        .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(28, 28, 28))))
-        );
-        jPanel8Layout.setVerticalGroup(
-            jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
-                .addComponent(jLabel23)
-                .addGap(34, 34, 34)
-                .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(dtFechaA, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel24))
-                .addGap(37, 37, 37)
-                .addComponent(jPanel17, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(100, Short.MAX_VALUE))
-        );
-
-        jTabbedPane1.addTab("Lista de Anticipos", jPanel8);
-
         btnAceptar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Aceptar1.png"))); // NOI18N
         btnAceptar.setContentAreaFilled(false);
         btnAceptar.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Aceptar2.png"))); // NOI18N
@@ -1240,13 +1057,18 @@ public boolean editar = false;
            comboAgradecimiento.setDataSource(agradecimientos);
            comboAgradecimiento.setSelectedIndex(-1);
            
-           
+           List<Metal> lista = new ArrayList();
+//           Metal metal = new Metal();
+//           metal.setId(0);
+//           metal.setNombre("Ninguno");
+           lista = MetalNegocio.Listado();
+//           lista.add(0,metal);
            //Asigna el nombre del atributo  que tendra el valor del combo seleccionado.                      
            comboMaterial.setValueMember("id");
            //Asigna el nombre del atributo a el valor que mostrara el combo.
            comboMaterial.setDisplayMember("nombre");
            //Asigna la lista de valores a el combo
-           comboMaterial.setDataSource(MetalNegocio.Listado());
+           comboMaterial.setDataSource(lista);
            comboMaterial.setSelectedIndex(-1);
         }catch(Exception ex){
        Program.logger.error(this, ex);
@@ -1300,23 +1122,23 @@ public boolean editar = false;
             
             if(!editar){        
                 
-            Anticipo ant = new Anticipo();
+ //           Anticipo ant = new Anticipo();
                 
-            String nombre = txtNombreA.getText().trim();
-            String celular = txtCelularA.getText().trim();
-            String telefono = txtTelefonoA.getText().trim();
-            double cantidad = Double.parseDouble(txtCantidadA.getText().trim());
-            String concepto = txtConceptoA.getText().trim();
-            Date fecha = dtFechaA.getDate();
+//            String nombre = txtNombreA.getText().trim();
+//            String celular = txtCelularA.getText().trim();
+//            String telefono = txtTelefonoA.getText().trim();
+//            double cantidad = Double.parseDouble(txtCantidadA.getText().trim());
+//            String concepto = txtConceptoA.getText().trim();
+//            Date fecha = dtFechaA.getDate();
                 
-            ant.setNombre(nombre);
-            ant.setCelular(celular);
-            ant.setConcepto(concepto);
-            ant.setTelefono(telefono);
-            ant.setCantidad(cantidad);
-            ant.setRecibo(nombreArchivoA);
-            ant.setFecha(fecha);
-            anticipos.add(ant);
+//            ant.setNombre(nombre);
+//            ant.setCelular(celular);
+//            ant.setConcepto(concepto);
+//            ant.setTelefono(telefono);
+//            ant.setCantidad(cantidad);
+//            ant.setRecibo(nombreArchivoA);
+//            ant.setFecha(fecha);
+//          anticipos.add(ant);
             
             modelo.setId(Integer.parseInt(comboModelo.getSelectedValue().toString()));
             modelo.setImagen(comboModelo.getSelectedValue().toString());
@@ -1367,7 +1189,7 @@ public boolean editar = false;
                   dirigido,rbFotoPanoramica.isSelected(),rbFotoPersonalizada.isSelected(),rbFotoMisa.isSelected(),rbFotoEstudio.isSelected(),anillo,rbRentaToga.isSelected(),
                   rbMisa.isSelected(),rbBaile.isSelected(),Integer.parseInt(spMesaExtra.getValue().toString()), Integer.parseInt(spFotosExtra.getValue().toString()),rbTriptico.isSelected(),
                   Double.parseDouble(txtPrecio.getText()), dateEntregaPaquete.getDate(),dateEntregaDatos.getDate(),dateLimitePago.getDate(), nombreArchivo,
-                  dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario, anticipos)){
+                  dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario)){
                   this.DialogResult = true;
                   this.dispose();
 
@@ -1697,69 +1519,7 @@ public boolean editar = false;
     }//GEN-LAST:event_comboAgradecimientoItemStateChanged
         JFileChooser fcA = null;
         String rutaArchivoA = null;
-        String nombreArchivoA = null;
-    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
-        // TODO add your handling code here:
-         try
-        {
-            if (fcA == null) {
-                fcA = new JFileChooser();
-
-                //Add a custom file filter and disable the default
-                //(Accept All) file filter.
-                fcA.addChoosableFileFilter(new ImageFilter());
-                fcA.setAcceptAllFileFilterUsed(false);
-
-                //Add custom icons for file types.
-                fcA.setFileView(new ImageFileView());
-
-                //Add the preview pane.
-                fcA.setAccessory(new ImagePreview(fcA));
-            }
-
-            //Show it.
-            int returnVal = fc.showDialog(this, "Buscar");
-
-            //Process the results.
-            if (returnVal == JFileChooser.APPROVE_OPTION) {
-                File file = fc.getSelectedFile();
-                //TODO something with the name from the fil using file.getName()
-                ImageIcon icon = new ImageIcon(((new ImageIcon(file.getPath())).getImage())
-                    .getScaledInstance(297, 233, java.awt.Image.SCALE_SMOOTH));
-                imgFotoA.setIcon(icon);
-                rutaArchivoA = file.getPath();
-                nombreArchivoA = file.getName();
-            }
-        }
-        catch(Exception ex){
-       Program.logger.error(this, ex);
-            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
- 
-
-        }
-        finally
-        {
-            //Reset the file chooser for the next time it's shown.
-            fc.setSelectedFile(null);
-        }
-    }//GEN-LAST:event_btnSeleccionarActionPerformed
-
-    private void btnRemoverAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverAActionPerformed
-        // TODO add your handling code here:
-        imgFotoA.setIcon(null);
-        rutaArchivoA = null;
-        nombreArchivoA = null;
-    }//GEN-LAST:event_btnRemoverAActionPerformed
-
-    private void txtCantidadAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadAKeyTyped
-        // TODO add your handling code here:
-           char car = evt.getKeyChar();        
-        if(((car < '0') || (car > '9'))&& (car !='.'))evt.consume();{
-    }                                    
-    if (car == '.' && txtPrecio.getText().contains(".")) { evt.consume(); }
-    }//GEN-LAST:event_txtCantidadAKeyTyped
-    
+        String nombreArchivoA = null;    
     private void cargarCliente(Cliente cliente)
     {
         try
@@ -1792,9 +1552,7 @@ public boolean editar = false;
     private javax.swing.JButton btnBuscarCliente;
     private javax.swing.JButton btnCliente;
     private javax.swing.JButton btnRemover;
-    private javax.swing.JButton btnRemoverA;
     private javax.swing.JButton btnRetirarImagen;
-    private javax.swing.JButton btnSeleccionar;
     private gdm.presentacion.CustomComboBox comboAgradecimiento;
     private javax.swing.JComboBox comboDirigido;
     private gdm.presentacion.CustomComboBox comboMaterial;
@@ -1803,9 +1561,7 @@ public boolean editar = false;
     private org.jdesktop.swingx.JXDatePicker dateEntregaPaquete;
     private org.jdesktop.swingx.JXDatePicker dateFechaContrato;
     private org.jdesktop.swingx.JXDatePicker dateLimitePago;
-    private org.jdesktop.swingx.JXDatePicker dtFechaA;
     private javax.swing.JLabel imgFoto;
-    private javax.swing.JLabel imgFotoA;
     private javax.swing.JLabel imgModelo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -1820,8 +1576,6 @@ public boolean editar = false;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
-    private javax.swing.JLabel jLabel23;
-    private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
     private javax.swing.JLabel jLabel3;
@@ -1845,23 +1599,16 @@ public boolean editar = false;
     private javax.swing.JPanel jPanel13;
     private javax.swing.JPanel jPanel14;
     private javax.swing.JPanel jPanel15;
-    private javax.swing.JPanel jPanel17;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JPanel jPanel7;
-    private javax.swing.JPanel jPanel8;
     private javax.swing.JPanel jPanel9;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTextField jTextField12;
-    private javax.swing.JLabel lblNombre;
-    private javax.swing.JLabel lblNombre1;
-    private javax.swing.JLabel lblNombre2;
-    private javax.swing.JLabel lblNombre3;
-    private javax.swing.JLabel lblNombre4;
     private javax.swing.JRadioButton rbBaile;
     private javax.swing.JRadioButton rbFotoEstudio;
     private javax.swing.JRadioButton rbFotoMisa;
@@ -1875,11 +1622,8 @@ public boolean editar = false;
     private javax.swing.JSpinner spFotosExtra;
     private javax.swing.JSpinner spMesaExtra;
     private javax.swing.JLabel txtAgra;
-    private javax.swing.JTextField txtCantidadA;
     private javax.swing.JTextField txtCelular;
-    private javax.swing.JTextField txtCelularA;
     private javax.swing.JTextArea txtComentarios;
-    private javax.swing.JTextField txtConceptoA;
     private javax.swing.JTextField txtCorreo;
     private javax.swing.JTextField txtDireccion;
     private javax.swing.JTextField txtDirigido;
@@ -1890,10 +1634,8 @@ public boolean editar = false;
     private javax.swing.JTextField txtGramos;
     private javax.swing.JTextField txtKilates;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtNombreA;
     private javax.swing.JTextField txtPrecio;
     private javax.swing.JTextField txtTelefono;
-    private javax.swing.JTextField txtTelefonoA;
     // End of variables declaration//GEN-END:variables
 
     private void cargarEdicion() {

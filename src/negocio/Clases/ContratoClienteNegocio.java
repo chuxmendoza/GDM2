@@ -33,7 +33,7 @@ public class ContratoClienteNegocio {
             int folio, int idModelo, boolean reconocimiento,boolean titulo, int idAgradecimiento, String mensaje,String dirigido, boolean fotoPanoramica,
             boolean fotoPersonalizada,boolean fotoMisa, boolean fotoEstudio, Anillo anillo,  boolean rentaToga, boolean misa, boolean baile, int mesaExtra, int fotosExtra, 
             boolean triptico, double precio, Date fechaEntregaPaquete, Date fechaEntregaDatos, Date fechaLimitePago, String contratoImagen, 
-            Date fechaContrato, String comentarios, int idUsuario, List<Anticipo> anticipos)
+            Date fechaContrato, String comentarios, int idUsuario)
 
     {
         boolean realizado = false;
@@ -70,8 +70,7 @@ public class ContratoClienteNegocio {
              //entidad.setAnticipos(anticipos);
              entidad.setFechaContrato(fechaContrato);            
              entidad.setComentarios(comentarios);
-             entidad.setAnticipos(anticipos);
-             
+                          
              /*double total = 0;
              boolean liquidado = false;
              for(Anticipo a : anticipos)
@@ -227,22 +226,55 @@ public class ContratoClienteNegocio {
         return lista;
     }
     
-    public static List<ContratoCliente> Buscar(int idContrato, String nombre, int folio, boolean liquidado)
+    public static List<ContratoCliente> Buscar(int idContrato, String nombre, int folio, boolean liquidado, boolean validarLiquidado)
     {
         List<ContratoCliente> lista = new ArrayList<>();
         try
         {
             Session session = HibernateUtils.getSession();
-            Criteria crit = session.createCriteria(Contrato.class); 
-            crit.add(Expression.eq("id", idContrato));
-            crit.createAlias("cliente", "c");
-            if (!nombre.isEmpty())
-                crit.add(Expression.like("c.nombre", nombre, MatchMode.ANYWHERE));
-            if (folio > 0)
-                crit.add(Expression.eq("c.folio", folio));
-            crit.add(Expression.eq("c.liquidado", liquidado)); 
-            crit.setResultTransformer(Transformers.aliasToBean(ContratoCliente.class));
-            lista = (List<ContratoCliente>) crit.list();
+          //  Criteria crit = session.createCriteria(ContratoCliente.class); 
+            //crit.add(Expression.eq("idContrato", idContrato));
+            
+            String aliasCliente ="";
+            String condicionCliente="";
+            String condicionFolio ="";
+            String condicionLiquidado="";       
+            String aliasContratoCliente="";
+           
+            if(!nombre.isEmpty() || folio!=-1 || validarLiquidado){
+                aliasContratoCliente =" inner join C.contratoCliente AS CC";
+            }
+            if(!nombre.isEmpty()){
+                aliasCliente=" inner join CC.cliente AS CL";
+                condicionCliente="AND CL.nombre LIKE :nombre";
+            }
+            if(folio>0){
+                condicionFolio= /*!condicionCliente.isEmpty() ? " CC.folio =:folio ":*/" AND CC.folio =:folio" ;
+            }
+            if(validarLiquidado){
+//            condicionLiquidado =condicionFolio.isEmpty()? " CC.liquidado = :liquidado ":" AND CC.liquidado = :liquidado ";
+//           if(condicionCliente.isEmpty() && condicionFolio.isEmpty()){
+//               condicionLiquidado = " CC.liquidado = :liquidado";                     
+//           }else{
+                 condicionLiquidado = " AND CC.liquidado = :liquidado ";          
+//           }
+            }
+            String hql = "SELECT CC FROM Contrato AS C"+aliasContratoCliente+aliasCliente+" WHERE C.id = :id "+condicionCliente+condicionFolio+condicionLiquidado;
+          
+            
+            Query query = session.createQuery(hql);
+            query.setParameter("id", idContrato);
+            if(!nombre.isEmpty()){
+                query.setParameter("nombre","%"+nombre+"%");
+            }
+            if(folio>1){
+                query.setParameter("folio",folio);
+            }
+            if(validarLiquidado){
+                query.setParameter("liquidado", liquidado);
+            }
+            
+            lista = (List<ContratoCliente>) query.list();
         }
         catch(Exception ex)
         {
@@ -268,5 +300,5 @@ public class ContratoClienteNegocio {
         }
         return liquidado;
     }
-     
+         
 }

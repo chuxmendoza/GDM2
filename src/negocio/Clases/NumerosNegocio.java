@@ -36,7 +36,12 @@ private final String[] UNIDADES = {"", "un ", "dos ", "tres ", "cuatro ", "cinco
             //se divide el numero 0000000,00 -> entero y decimal
             String Num[] = numero.split(",");
             //de da formato al numero decimal
-            parte_decimal = Num[1]+"/100 Bs.";
+            if(Integer.parseInt(Num[1])<9){
+                parte_decimal = Integer.parseInt(Num[1])*10+"/100 Bs.";
+            }else{
+                 parte_decimal = Integer.parseInt(Num[1])+"/100 Bs.";
+            }
+           
             //se convierte el numero a literal
             if (Integer.parseInt(Num[0]) == 0) {//si el valor es cero
                 literal = "cero ";

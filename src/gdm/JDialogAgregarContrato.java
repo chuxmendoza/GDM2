@@ -7,6 +7,7 @@ package gdm;
 
 import gdm.entidades.clases.Baile;
 import gdm.entidades.clases.Contrato;
+import gdm.entidades.clases.Escuela;
 import gdm.entidades.clases.FotoPanoramica;
 import gdm.entidades.clases.Misa;
 import java.awt.Cursor;
@@ -117,6 +118,11 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
         jLabel4.setText("Generación:");
 
         comboEscuela.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        comboEscuela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEscuelaActionPerformed(evt);
+            }
+        });
 
         comboEspecialidad.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         comboEspecialidad.setValueMember("<Not Set>");
@@ -605,26 +611,46 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
   }
-            try{
-            //Asigna el nombre del atributo  que tendra el valor del combo seleccionado.
-           comboEspecialidad.setValueMember("id");
-            //Asigna el nombre del atributo a el valor que mostrara el combo.
-           comboEspecialidad.setDisplayMember("nombre");
-           //Asigna la lista de valores a el combo
-           comboEspecialidad.setDataSource(EspecialidadNegocio.Listado());
-           comboEspecialidad.setSelectedIndex(-1);
-            
-        }catch(Exception ex){
-       Program.logger.error(this, ex);
-            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
- 
-        }
+//            try{
+//            //Asigna el nombre del atributo  que tendra el valor del combo seleccionado.
+//           comboEspecialidad.setValueMember("id");
+//            //Asigna el nombre del atributo a el valor que mostrara el combo.
+//           comboEspecialidad.setDisplayMember("nombre");
+//           //Asigna la lista de valores a el combo
+//           comboEspecialidad.setDataSource(EspecialidadNegocio.Listado());
+//           comboEspecialidad.setSelectedIndex(-1);
+//            
+//        }catch(Exception ex){
+//       Program.logger.error(this, ex);
+//            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+//                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+// 
+//        }
                if(editar){
             cargarEdicion();
         } 
             
     }//GEN-LAST:event_formWindowOpened
+
+    private void comboEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEscuelaActionPerformed
+        // TODO add your handling code here:
+    try{
+         int idEscuela =  Integer.parseInt(comboEscuela.getSelectedValue().toString());
+      Escuela escuela= EscuelaNegocio.Obtener(idEscuela);
+         if(escuela!=null){
+        comboEspecialidad.setValueMember("id");
+       comboEspecialidad.setDisplayMember("nombre");
+       comboEspecialidad.setDataSource(escuela.getEspecialidades());
+         }
+    }catch(Exception ex){
+         Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+
+    }
+       
+       
+    }//GEN-LAST:event_comboEscuelaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

@@ -270,7 +270,7 @@ public class JDialogAgregarCliente extends javax.swing.JDialog {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
            try{
-             btnAceptar.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             if(!editar){
             if(!txtNombre.getText().trim().isEmpty()&&!txtCorreo.getText().trim().isEmpty()&&!txtCalle.getText().trim().isEmpty()&&!txtNumero.getText().trim().isEmpty()
                     &&!txtColonia.getText().trim().isEmpty()&&!txtCiudad.getText().trim().isEmpty()){
