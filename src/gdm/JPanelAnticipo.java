@@ -14,6 +14,7 @@ import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import negocio.Clases.AnticipoNegocio;
 import negocio.Clases.ContratoClienteNegocio;
+import negocio.Clases.NumerosNegocio;
 
 /**
  *
@@ -58,16 +59,18 @@ public class JPanelAnticipo extends javax.swing.JDialog {
 
         jPanel8.setBackground(new java.awt.Color(255, 255, 255));
 
+        tblContratosC.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        tblContratosC.getTableHeader().setFont(new java.awt.Font("Euphemia", 0, 18));
         tblContratosC.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
             new String [] {
-                "id", "Nombre", "Concepto", "Cantidad", "Resto", "Fecha", "Celular", "Teléfono"
+                "id", "Nombre", "Concepto", "Cantidad", "Resto", "Fecha", "Celular", "Teléfono", "Cantidad de abono"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                false, false, false, false, false, false, false, false
+                false, false, false, false, false, false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -75,6 +78,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
             }
         });
         tblContratosC.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
+        tblContratosC.setRowHeight(23);
         jScrollPane3.setViewportView(tblContratosC);
         if (tblContratosC.getColumnModel().getColumnCount() > 0) {
             tblContratosC.getColumnModel().getColumn(0).setMinWidth(0);
@@ -101,6 +105,9 @@ public class JPanelAnticipo extends javax.swing.JDialog {
             tblContratosC.getColumnModel().getColumn(7).setMinWidth(150);
             tblContratosC.getColumnModel().getColumn(7).setPreferredWidth(150);
             tblContratosC.getColumnModel().getColumn(7).setMaxWidth(150);
+            tblContratosC.getColumnModel().getColumn(8).setMinWidth(400);
+            tblContratosC.getColumnModel().getColumn(8).setPreferredWidth(400);
+            tblContratosC.getColumnModel().getColumn(8).setMaxWidth(400);
         }
 
         btnAnticiposAgregar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gdm/entidades/imagenes/Agregar1.png"))); // NOI18N
@@ -166,9 +173,9 @@ public class JPanelAnticipo extends javax.swing.JDialog {
             .addGroup(jPanel8Layout.createSequentialGroup()
                 .addGap(60, 60, 60)
                 .addComponent(jLabel1)
-                .addGap(48, 48, 48)
-                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 234, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(87, 87, 87)
+                .addGap(29, 29, 29)
+                .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 289, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(51, 51, 51)
                 .addGroup(jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnAnticiposEditar)
                     .addComponent(btnAnticiposEliminar)
@@ -304,6 +311,7 @@ public class JPanelAnticipo extends javax.swing.JDialog {
     {   try{
         DefaultTableModel mod = (DefaultTableModel)tblContratosC.getModel();
         List<Anticipo> abonos = new ArrayList();
+        NumerosNegocio numeros = new NumerosNegocio();
         mod.setRowCount(0);
         
         abonos = ContratoClienteNegocio.ListarAbonos(idContratoCliente);
@@ -320,7 +328,8 @@ public class JPanelAnticipo extends javax.swing.JDialog {
             String fecha = a.getFecha().toString();
             String celular = a.getCelular();
             String telefono = a.getTelefono();
-            mod.addRow(new Object[] {id, nombre, concepto, cantidad, resto, fecha, celular, telefono});
+            String cantidadLetras= numeros.Convertir(cantidad+"",true);
+            mod.addRow(new Object[] {id, nombre, concepto, cantidad, resto, fecha, celular, telefono,cantidadLetras});
         } 
         pagado = _pagado;
         tblContratosC.setModel(mod);
@@ -331,51 +340,6 @@ public class JPanelAnticipo extends javax.swing.JDialog {
  }}
     
     
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(JPanelAnticipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(JPanelAnticipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(JPanelAnticipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(JPanelAnticipo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                JPanelAnticipo dialog = new JPanelAnticipo(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAnticiposAgregar;
     private javax.swing.JButton btnAnticiposEditar;

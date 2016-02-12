@@ -11,6 +11,7 @@ import org.hibernate.criterion.MatchMode;
 import gdm.entidades.clases.Baile;
 import gdm.entidades.clases.Contrato;
 import gdm.entidades.clases.ContratoCliente;
+import gdm.entidades.clases.EgresoValor;
 import gdm.entidades.clases.Escuela;
 import gdm.entidades.clases.Especialidad;
 import gdm.entidades.clases.FotoPanoramica; 
@@ -46,6 +47,8 @@ public class ContratoNegocio {
              entidad.setComentarios(comentarios);
              entidad.setUsuario(new Usuario(idUsuario));
              entidad.setFechaAlta(Calendar.getInstance().getTime());
+             entidad.setGanancia(0);
+             entidad.setFinalizado(false);
              session.save(entidad); 
              tx.commit();
              realizado = true;
@@ -286,5 +289,39 @@ public class ContratoNegocio {
         return lista; 
     }
       
+        public static List<EgresoValor> ListarEV(int id)
+    {  
+        List<EgresoValor> lista = new ArrayList();
+        try
+        {
+            Session session = HibernateUtils.getSession();
+            String hql = "SELECT EV.egresoValor FROM Contrato AS EV WHERE EV.id = :id";
+            Query query = session.createQuery(hql).setParameter("id", id);
+            lista = (List<EgresoValor>)query.list();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return lista; 
+    }
+        public static Double TotalGanancia(int id){
+            double total;
+            try{
+               Session session = HibernateUtils.getSession();
+               String hql= "SELECT SUM (A.cantidad) FROM Contrato AS CO INNER JOIN CO.contratoCliente AS CC INNER JOIN"
+                       + " CC.anticipos AS A WHERE CO.id = :id";
+               Query query = session.createQuery(hql).setParameter("id", id);
+               if(query.uniqueResult()==null){
+               total = 0;
+               }else{
+               total = Double.parseDouble(query.uniqueResult().toString());
+               }                  
+            
+            }catch(Exception ex){
+                 throw ex;
+            }
+                 return total;
+        }
     
 }

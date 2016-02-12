@@ -13,6 +13,13 @@ public class Egreso {
     private int id;
     private String nombre;
 
+     public Egreso() {
+         }
+
+    public Egreso(int id) {
+        this.id= id;
+         }
+
     
     //<editor-fold defaultstate="collapsed" desc=" Getters and Setters del egreso ">
     /**

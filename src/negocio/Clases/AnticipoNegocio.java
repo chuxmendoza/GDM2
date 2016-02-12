@@ -39,7 +39,7 @@ public class AnticipoNegocio {
         }
         return entidad; 
     }
-    public static Boolean Guardar(int idContratoCliente, String nombre, String celular, String telefono,
+    public static Boolean Guardar(int idContratoCliente,int folio, String nombre, String celular, String telefono,
             double cantidad,String concepto,String recibo, Date fecha, int idUsuario)
     {
         boolean realizado = false;
@@ -50,7 +50,8 @@ public class AnticipoNegocio {
         {
              session = HibernateUtils.getSession();    
              tx = session.beginTransaction();
-             Anticipo entidad = new Anticipo();            
+             Anticipo entidad = new Anticipo();
+             entidad.setFolio(folio);
              entidad.setNombre(nombre);
              entidad.setCelular(celular);
              entidad.setTelefono(telefono);
@@ -89,7 +90,7 @@ public class AnticipoNegocio {
         }
       return realizado;
     }
-       public static Boolean Editar(int idContratoCliente, int id,String nombre, String celular, String telefono,double cantidad,String concepto,String recibo)
+       public static Boolean Editar(int idContratoCliente, int id,int folio,String nombre, String celular, String telefono,double cantidad,String concepto,String recibo)
     {
         boolean realizado = false;
         Transaction tx = null; 
@@ -99,7 +100,8 @@ public class AnticipoNegocio {
             ContratoCliente contratoCliente = ContratoClienteNegocio.Obtener(idContratoCliente);
              session = HibernateUtils.getSession();    
              tx = session.beginTransaction();
-             Anticipo entidad = Obtener(id);             
+             Anticipo entidad = Obtener(id);     
+             entidad.setFolio(folio);
              entidad.setNombre(nombre);
              entidad.setCelular(celular);
              entidad.setTelefono(telefono);

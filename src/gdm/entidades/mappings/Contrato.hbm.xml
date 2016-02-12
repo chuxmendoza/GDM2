@@ -28,8 +28,16 @@
          <list-index column="idx"/>
          <one-to-many class="gdm.entidades.clases.ContratoCliente"/>
   </list> 
+  <list name="egresoValor" cascade="all-delete-orphan">
+         <key column="idContrato"/>
+         <list-index column="idx"/>
+         <one-to-many class="gdm.entidades.clases.EgresoValor"/>
+  </list> 
   <property name="fechaAlta"  type="date"/> 
   <many-to-one name="usuario" column="idUsuario"
             class="gdm.entidades.clases.Usuario" lazy="false"/>
+   <property name="ganancia" type="double" column="ganancia" />
+   <property name="finalizado" type="org.hibernate.type.NumericBooleanType" column="finalizado" />
+ 
   </class>
 </hibernate-mapping>

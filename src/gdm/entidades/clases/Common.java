@@ -16,7 +16,7 @@ import java.nio.file.Files;
  * @author luis
  */
 public class Common {
-    
+       
     public static void copiarArchivo(String rutaOrigen, String rutaDestino) throws IOException 
     {
         try
