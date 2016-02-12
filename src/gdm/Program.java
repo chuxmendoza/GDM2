@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package gdm;
-
-import gdm.entidades.clases.Anticipo;
-import gdm.entidades.clases.Perfil;  
-import negocio.Clases.AnticipoNegocio;
+ 
+import gdm.entidades.clases.Common;
+import gdm.entidades.clases.Perfil;   
 import negocio.utils.HibernateUtils;
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.Logger;
@@ -50,8 +49,7 @@ public final class Program {
             } catch (javax.swing.UnsupportedLookAndFeelException ex) {
                 java.util.logging.Logger.getLogger(FrmMain.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
             }
-            //</editor-fold>
-
+            //</editor-fold> 
             /* Create and display the form */
             java.awt.EventQueue.invokeLater(new Runnable() {
                 public void run() {

@@ -31,6 +31,7 @@ import negocio.Clases.AgradecimientoNegocio;
 import negocio.Clases.ClienteNegocio;
 import negocio.Clases.ContratoClienteNegocio;
 import negocio.Clases.ContratoNegocio;
+import negocio.Clases.DirectorioNegocio;
 import negocio.Clases.MetalNegocio;
 import negocio.Clases.ModeloNegocio;
 
@@ -352,9 +353,9 @@ public boolean editar = false;
 
         jTabbedPane1.addTab("Infotmación delCliente", jPanel2);
 
-        comboModelo.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                comboModeloItemStateChanged(evt);
+        comboModelo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboModeloActionPerformed(evt);
             }
         });
 
@@ -410,9 +411,9 @@ public boolean editar = false;
 
         comboDirigido.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         comboDirigido.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Mis Padres", "Mi Familia", "Otro" }));
-        comboDirigido.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                comboDirigidoItemStateChanged(evt);
+        comboDirigido.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboDirigidoActionPerformed(evt);
             }
         });
 
@@ -426,9 +427,9 @@ public boolean editar = false;
         rbTriptico.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         rbTriptico.setText("Triptico");
 
-        comboAgradecimiento.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                comboAgradecimientoItemStateChanged(evt);
+        comboAgradecimiento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboAgradecimientoActionPerformed(evt);
             }
         });
 
@@ -1070,15 +1071,23 @@ public boolean editar = false;
            //Asigna la lista de valores a el combo
            comboMaterial.setDataSource(lista);
            comboMaterial.setSelectedIndex(-1);
+<<<<<<< HEAD
+        }catch(Exception e){
+            Program.logger.error(this, e);
+            
+=======
         }catch(Exception ex){
        Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
     
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
         }
         
     }//GEN-LAST:event_jPanel1PropertyChange
 
+<<<<<<< HEAD
+=======
     private void comboModeloItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboModeloItemStateChanged
         // TODO add your handling code here:
         try
@@ -1115,11 +1124,19 @@ public boolean editar = false;
         }
     }//GEN-LAST:event_comboModeloItemStateChanged
 
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
         try
-        {
-            
+        { 
+            if (txtFolio.getText().trim().isEmpty() || dateFechaContrato.getDate() == null || txtPrecio.getText().trim().isEmpty()
+                    || dateEntregaDatos.getDate() == null || dateLimitePago.getDate() == null || dateEntregaPaquete.getDate() == null 
+                    || nombreArchivo.isEmpty() || cliente.getId() == 0)
+            {
+                JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("CamposVacios")
+                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloCamposVacios"), JOptionPane.INFORMATION_MESSAGE);
+                return;
+            }
             if(!editar){        
                 
  //           Anticipo ant = new Anticipo();
@@ -1189,7 +1206,13 @@ public boolean editar = false;
                   dirigido,rbFotoPanoramica.isSelected(),rbFotoPersonalizada.isSelected(),rbFotoMisa.isSelected(),rbFotoEstudio.isSelected(),anillo,rbRentaToga.isSelected(),
                   rbMisa.isSelected(),rbBaile.isSelected(),Integer.parseInt(spMesaExtra.getValue().toString()), Integer.parseInt(spFotosExtra.getValue().toString()),rbTriptico.isSelected(),
                   Double.parseDouble(txtPrecio.getText()), dateEntregaPaquete.getDate(),dateEntregaDatos.getDate(),dateLimitePago.getDate(), nombreArchivo,
+<<<<<<< HEAD
+                  dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario, anticipos)){
+                  Common.copiarArchivo(rutaArchivo, DirectorioNegocio.ObtenerRutaContratos()+nombreArchivo);
+                  Common.copiarArchivo(rutaArchivoD, DirectorioNegocio.ObtenerRutaAgradecimientos()+nombreArchivoAgradecimiento);
+=======
                   dateFechaContrato.getDate(), txtComentarios.getText().trim(), Program.idUsuario)){
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
                   this.DialogResult = true;
                   this.dispose();
 
@@ -1247,26 +1270,34 @@ public boolean editar = false;
              return;   
             }
                 //Editar un Contrato Cliente
-                if(ContratoClienteNegocio.Editar(id,
-                  idCliente,
+                if(ContratoClienteNegocio.Editar(id, idCliente, 
                   Integer.parseInt(txtFolio.getText()),modelo.getId(),rbReconocimiento.isSelected() ,rbTitulo.isSelected(),agradecimiento.getId(),txtAgra.getText(),
                   dirigido,rbFotoPanoramica.isSelected(),rbFotoPanoramica.isSelected(),rbFotoMisa.isSelected(),rbFotoEstudio.isSelected(),anillo,rbRentaToga.isSelected(),
                   rbMisa.isSelected(),rbBaile.isSelected(),Integer.parseInt(spMesaExtra.getValue().toString()), Integer.parseInt(spFotosExtra.getValue().toString()),rbTriptico.isSelected(),
                   Double.parseDouble(txtPrecio.getText()), dateEntregaPaquete.getDate(),dateEntregaDatos.getDate(),dateLimitePago.getDate(), nombreArchivo,
                   dateFechaContrato.getDate(), txtComentarios.getText().trim())){
-                      this.DialogResult = true;
-                        this.dispose();
+                  Common.copiarArchivo(rutaArchivo, DirectorioNegocio.ObtenerRutaContratos()+nombreArchivo);
+                  Common.copiarArchivo(rutaArchivoD, DirectorioNegocio.ObtenerRutaAgradecimientos()+nombreArchivoAgradecimiento);
+                  this.DialogResult = true;
+                  this.dispose();
                       JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoEditado")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE); 
           
                 }else{
-                      JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+                    JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                        , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
 
                 }
                 
             }
                 
+<<<<<<< HEAD
+        }
+        catch(Exception e)
+        {
+            Program.logger.error(this, e);
+        } 
+=======
         }catch(Exception ex){
        Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
@@ -1275,10 +1306,11 @@ public boolean editar = false;
              
             
         
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
     }//GEN-LAST:event_btnAceptarActionPerformed
         JFileChooser fc = null;
-        String rutaArchivo = null;
-        String nombreArchivo = null;
+        String rutaArchivo = "";
+        String nombreArchivo = "";
     private void btnAgregarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarImagenActionPerformed
         // TODO add your handling code here:
         try
@@ -1312,11 +1344,17 @@ public boolean editar = false;
                 nombreArchivo = file.getName();
             }
         }
+<<<<<<< HEAD
+        catch (Exception ex)
+        {
+            Program.logger.error(this, ex);
+=======
        catch(Exception ex){
        Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
  
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
         }
         finally
         {
@@ -1328,8 +1366,8 @@ public boolean editar = false;
     private void btnRetirarImagenActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRetirarImagenActionPerformed
         // TODO add your handling code here:
         imgFoto.setIcon(null);
-        rutaArchivo = null;
-        nombreArchivo = null;
+        rutaArchivo = "";
+        nombreArchivo = "";
     }//GEN-LAST:event_btnRetirarImagenActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
@@ -1438,21 +1476,10 @@ public boolean editar = false;
     }                                    
     if (car == '.' && txtGramos.getText().contains(".")) { evt.consume(); }
     }//GEN-LAST:event_txtGramosKeyTyped
-
-    private void comboDirigidoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboDirigidoItemStateChanged
-        // TODO add your handling code here:
-           if(comboDirigido.getSelectedIndex()==2){
-            txtDirigido.setEditable(true);
-            txtDirigido.setEnabled(true);
-        }else{
-             txtDirigido.setEditable(false);
-             txtDirigido.setEnabled(false);
-        }
-    }//GEN-LAST:event_comboDirigidoItemStateChanged
         
         JFileChooser fcD = null;
-        String rutaArchivoD = null;
-        String nombreArchivoAgradecimiento = null;
+        String rutaArchivoD = "";
+        String nombreArchivoAgradecimiento = "";
     private void btnAdjuntarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAdjuntarActionPerformed
         // TODO add your handling code here:
          try
@@ -1497,29 +1524,139 @@ public boolean editar = false;
     private void btnRemoverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverActionPerformed
         // TODO add your handling code here:
          txtAgra.setText(null);
-        rutaArchivoD = null;
-        nombreArchivoAgradecimiento = null;
+        rutaArchivoD = "";
+        nombreArchivoAgradecimiento = "";
         
     }//GEN-LAST:event_btnRemoverActionPerformed
-
-    private void comboAgradecimientoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_comboAgradecimientoItemStateChanged
+        JFileChooser fcA = null;
+<<<<<<< HEAD
+        String rutaArchivoA = "";
+        String nombreArchivoA = "";
+    private void btnSeleccionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeleccionarActionPerformed
         // TODO add your handling code here:
-        if(comboAgradecimiento.getSelectedIndex()==0){
+         try
+        {
+            if (fcA == null) {
+                fcA = new JFileChooser();
+
+                //Add a custom file filter and disable the default
+                //(Accept All) file filter.
+                fcA.addChoosableFileFilter(new ImageFilter());
+                fcA.setAcceptAllFileFilterUsed(false);
+
+                //Add custom icons for file types.
+                fcA.setFileView(new ImageFileView());
+
+                //Add the preview pane.
+                fcA.setAccessory(new ImagePreview(fcA));
+            }
+
+            //Show it.
+            int returnVal = fc.showDialog(this, "Buscar");
+
+            //Process the results.
+            if (returnVal == JFileChooser.APPROVE_OPTION) {
+                File file = fc.getSelectedFile();
+                //TODO something with the name from the fil using file.getName()
+                ImageIcon icon = new ImageIcon(((new ImageIcon(file.getPath())).getImage())
+                    .getScaledInstance(297, 233, java.awt.Image.SCALE_SMOOTH));
+                imgFotoA.setIcon(icon);
+                rutaArchivoA = file.getPath();
+                nombreArchivoA = file.getName();
+            }
+        }
+        catch (Exception ex)
+        {
+
+        }
+        finally
+        {
+            //Reset the file chooser for the next time it's shown.
+            fc.setSelectedFile(null);
+        }
+    }//GEN-LAST:event_btnSeleccionarActionPerformed
+
+    private void btnRemoverAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRemoverAActionPerformed
+        // TODO add your handling code here:
+        imgFotoA.setIcon(null);
+        rutaArchivoA = "";
+        nombreArchivoA = "";
+    }//GEN-LAST:event_btnRemoverAActionPerformed
+
+    private void txtCantidadAKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCantidadAKeyTyped
+        // TODO add your handling code here:
+           char car = evt.getKeyChar();        
+        if(((car < '0') || (car > '9'))&& (car !='.'))evt.consume();{
+    }                                    
+    if (car == '.' && txtPrecio.getText().contains(".")) { evt.consume(); }
+    }//GEN-LAST:event_txtCantidadAKeyTyped
+
+    private void comboAgradecimientoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboAgradecimientoActionPerformed
+        if(comboAgradecimiento.getSelectedIndex()==0)
+        {
             txtAgra.setText(null);
             txtAgra.setEnabled(true);
             btnRemover.setEnabled(true);
             btnAdjuntar.setEnabled(true);
         }
-        else{
+        else
+        {
             txtAgra.setText(null);
             txtAgra.setEnabled(false);
             btnRemover.setEnabled(false);
             btnAdjuntar.setEnabled(false);
         }
-    }//GEN-LAST:event_comboAgradecimientoItemStateChanged
-        JFileChooser fcA = null;
+    }//GEN-LAST:event_comboAgradecimientoActionPerformed
+
+    private void comboDirigidoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboDirigidoActionPerformed
+        if(comboDirigido.getSelectedIndex()==2)
+        {
+            txtDirigido.setEditable(true);
+            txtDirigido.setEnabled(true);
+        }
+        else
+        {
+             txtDirigido.setEditable(false);
+             txtDirigido.setEnabled(false);
+        }
+    }//GEN-LAST:event_comboDirigidoActionPerformed
+
+    private void comboModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboModeloActionPerformed
+        try
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            int idModelo = Integer.parseInt(comboModelo.getSelectedValue().toString());
+            Modelo entidad = ModeloNegocio.Obtener(idModelo);
+            if(entidad != null)
+            { 
+                //txtNombre.setText(entidad.getNombre()); 
+                if (!entidad.getImagen().isEmpty())
+                {
+                    String rutaImagen = DirectorioNegocio.ObtenerRutaModelos();
+                    if (Common.RutaExistente(rutaImagen+entidad.getImagen()))
+                    {
+                        ImageIcon icon = new ImageIcon(((new ImageIcon(rutaImagen+entidad.getImagen())).getImage())
+                            .getScaledInstance(297, 233, java.awt.Image.SCALE_SMOOTH));
+                        imgModelo.setIcon(icon);
+                    //    rutaArchivo = rutaImagen+entidad.getImagen();
+                    }
+                }
+            }
+        }
+        catch(Exception ex)
+        {
+            
+        }
+        finally 
+        {
+            this.setCursor(Cursor.getDefaultCursor());   
+        }
+    }//GEN-LAST:event_comboModeloActionPerformed
+    
+=======
         String rutaArchivoA = null;
         String nombreArchivoA = null;    
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
     private void cargarCliente(Cliente cliente)
     {
         try
@@ -1682,8 +1819,20 @@ public boolean editar = false;
             dateEntregaDatos.setDate(contrato.getFechaEntregaDatos());
             dateEntregaPaquete.setDate(contrato.getFechaEntregaPaquete());
             dateLimitePago.setDate(contrato.getFechaLimitePago());
-            imgFoto.setText(contrato.getContratoImagen());
-            
+            //imgFoto.setText(contrato.getContratoImagen());
+            if (contrato.getContratoImagen() != null)
+                if (!contrato.getContratoImagen().isEmpty())
+                {
+                    String rutaImagen = DirectorioNegocio.ObtenerRutaContratos();
+                    if (Common.RutaExistente(rutaImagen+contrato.getContratoImagen()))
+                    {
+                        ImageIcon icon = new ImageIcon(((new ImageIcon(rutaImagen+contrato.getContratoImagen())).getImage())
+                            .getScaledInstance(297, 233, java.awt.Image.SCALE_SMOOTH));
+                        imgFoto.setIcon(icon);
+                        nombreArchivo = contrato.getContratoImagen();
+                        rutaArchivo = rutaImagen+contrato.getContratoImagen();
+                    }
+                }   
             
             
         }

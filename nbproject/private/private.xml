@@ -20,11 +20,19 @@
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/luis/Desktop/Profotos/GDM/GDM2/src/gdm/JDialogAgregarAgradecimiento.java</file>
+            <file>file:/C:/Users/luis/Desktop/Profotos/GDM/GDM2/src/gdm/JDialogAgregarAnticipo.java</file>
+            <file>file:/C:/Users/luis/Desktop/Profotos/GDM/GDM2/src/gdm/JDialogAgregarContratoCliente.java</file>
+            <file>file:/C:/Users/luis/Desktop/Profotos/GDM/GDM2/src/negocio/Clases/DirectorioNegocio.java</file>
+            <file>file:/C:/Users/luis/Desktop/Profotos/GDM/GDM2/src/gdm/entidades/clases/resource.properties</file>
+=======
             <file>file:/C:/Users/Chuy/Desktop/GDM2/src/gdm/JDialogAgregarContratoCliente.java</file>
             <file>file:/C:/Users/Chuy/Desktop/GDM2/src/gdm/JDialogAgregarInversion.java</file>
             <file>file:/C:/Users/Chuy/Desktop/GDM2/src/gdm/JDialogEgresos.java</file>
             <file>file:/C:/Users/Chuy/Desktop/GDM2/src/gdm/JDialogContratoCliente.java</file>
             <file>file:/C:/Users/Chuy/Desktop/GDM2/src/negocio/Clases/EgresoValorNegocio.java</file>
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
         </group>
     </open-files>
 </project-private>

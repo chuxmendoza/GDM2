@@ -257,15 +257,15 @@ public class JDialogAgregarRutas extends javax.swing.JDialog {
                 //fc.setCurrentDirectory(new java.io.File("."));
                 fc.setDialogTitle("Buscar directorio");
                 fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-                
-                String contratos = txtContrato.getText().trim();
+                 
                 String recibos = txtRecibos.getText().trim();
                 String modelos = txtModelos.getText().trim();
                 String agradecimientos = txtAgradecimientos.getText().trim();
-                if (DirectorioNegocio.Editar(contratos, recibos, modelos, agradecimientos))
+                if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) 
                 {
-                    if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
-                       txtContrato.setText(fc.getSelectedFile().toString());
+                    txtContrato.setText(fc.getSelectedFile().toString());
+                    String contratos = txtContrato.getText().trim();
+                    DirectorioNegocio.Editar(contratos, recibos, modelos, agradecimientos); 
                 }
             }
         }
@@ -294,13 +294,13 @@ public class JDialogAgregarRutas extends javax.swing.JDialog {
                 fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
                 
                 String contratos = txtContrato.getText().trim();
-                String recibos = txtRecibos.getText().trim();
-                String modelos = txtModelos.getText().trim();
+                String modelos = txtModelos.getText().trim(); 
                 String agradecimientos = txtAgradecimientos.getText().trim();
-                if (DirectorioNegocio.Editar(contratos, recibos, modelos, agradecimientos))
+                if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
                 {
-                    if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
-                       txtRecibos.setText(fc.getSelectedFile().toString());
+                    txtRecibos.setText(fc.getSelectedFile().toString()); 
+                    String recibos = txtRecibos.getText().trim();
+                    DirectorioNegocio.Editar(contratos, recibos, modelos, agradecimientos);
                 }
             }
         }
@@ -330,12 +330,12 @@ public class JDialogAgregarRutas extends javax.swing.JDialog {
                 
                 String contratos = txtContrato.getText().trim();
                 String recibos = txtRecibos.getText().trim();
-                String modelos = txtModelos.getText().trim();
                 String agradecimientos = txtAgradecimientos.getText().trim();
-                if (DirectorioNegocio.Editar(contratos, recibos, modelos, agradecimientos))
+                if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
                 {
-                    if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
-                       txtModelos.setText(fc.getSelectedFile().toString());
+                    txtModelos.setText(fc.getSelectedFile().toString());
+                    String modelos = txtModelos.getText().trim();
+                    DirectorioNegocio.Editar(contratos, recibos, modelos, agradecimientos); 
                 }
             }
         }
@@ -366,11 +366,11 @@ public class JDialogAgregarRutas extends javax.swing.JDialog {
                 String contratos = txtContrato.getText().trim();
                 String recibos = txtRecibos.getText().trim();
                 String modelos = txtModelos.getText().trim();
-                String agradecimientos = txtAgradecimientos.getText().trim();
-                if (DirectorioNegocio.Editar(contratos, recibos, modelos, agradecimientos))
+                if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
                 {
-                    if (fc.showOpenDialog(this) == JFileChooser.APPROVE_OPTION)
-                       txtAgradecimientos.setText(fc.getSelectedFile().toString());
+                    txtAgradecimientos.setText(fc.getSelectedFile().toString());
+                    String agradecimientos = txtAgradecimientos.getText().trim();
+                    DirectorioNegocio.Editar(contratos, recibos, modelos, agradecimientos);
                 }
             }
         }

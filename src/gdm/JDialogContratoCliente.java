@@ -313,12 +313,19 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
         JDialogAgregarContratoCliente cc = new JDialogAgregarContratoCliente(null, rootPaneCheckingEnabled);
         cc.idContrato = idContrato;
         cc.setVisible(true);
+<<<<<<< HEAD
+        if (cc.DialogResult)
+        {
+            cargarContratos();
+        }
+=======
         }
           catch(Exception ex){
        Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
           }
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed

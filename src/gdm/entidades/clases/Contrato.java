@@ -217,6 +217,16 @@ public class Contrato {
         this.egresoValor = egresoValor;
     }
     //</editor-fold>
+<<<<<<< HEAD
+    
+    @Override
+    public String toString()
+    {
+        String nombre = especialidad.getNombre() + " - " + escuela.getNombre() + " - " + escuela.getCiudad() + " - " + generacion;
+        return nombre;
+    }
+ 
+=======
 
     /**
      * @return the ganancia
@@ -246,4 +256,5 @@ public class Contrato {
         this.finalizado = finalizado;
     }
 
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
 } 
