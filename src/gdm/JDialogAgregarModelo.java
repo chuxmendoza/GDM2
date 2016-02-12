@@ -16,6 +16,7 @@ import java.util.ResourceBundle;
 import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;  
+import negocio.Clases.DirectorioNegocio;
 import negocio.Clases.ModeloNegocio;
 
 /**
@@ -200,7 +201,7 @@ public class JDialogAgregarModelo extends javax.swing.JDialog {
                     {
                             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ModeloAgregado")
                                 , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloModelo"), JOptionPane.INFORMATION_MESSAGE);
-                            Common.copiarArchivo(rutaArchivo, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("rutaImagenes")+nombreArchivo);
+                            Common.copiarArchivo(rutaArchivo, DirectorioNegocio.ObtenerRutaModelos()+nombreArchivo);
                             this.DialogResult = true;
                             this.dispose();
                     }
@@ -225,7 +226,7 @@ public class JDialogAgregarModelo extends javax.swing.JDialog {
                     {
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ModeloEditado")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloModelo"), JOptionPane.INFORMATION_MESSAGE);
-                        Common.copiarArchivo(rutaArchivo, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("rutaImagenes")+nombreArchivo);
+                        Common.copiarArchivo(rutaArchivo, DirectorioNegocio.ObtenerRutaModelos()+nombreArchivo);
                         this.DialogResult = true;
                         this.dispose(); 
                     }
@@ -334,7 +335,7 @@ public class JDialogAgregarModelo extends javax.swing.JDialog {
             txtNombre.setText(entidad.getNombre()); 
             if (!entidad.getImagen().isEmpty())
             {
-                String rutaImagen = ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("rutaImagenes");
+                String rutaImagen = DirectorioNegocio.ObtenerRutaModelos();
                 if (Common.RutaExistente(rutaImagen+entidad.getImagen()))
                 {
                     ImageIcon icon = new ImageIcon(((new ImageIcon(rutaImagen+entidad.getImagen())).getImage())

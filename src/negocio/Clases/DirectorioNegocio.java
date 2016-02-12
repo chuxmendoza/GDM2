@@ -2,8 +2,10 @@ package negocio.Clases;
   
 import gdm.entidades.clases.Directorio; 
 import negocio.utils.HibernateUtils;  
+import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.Transaction; 
+import org.hibernate.criterion.Projections;
 
 /**
  *
@@ -57,6 +59,77 @@ public class DirectorioNegocio {
       return realizado;
     } 
      
+    public static String ObtenerRutaModelos()
+    {
+        String ruta = null; 
+        try
+        {
+          Session session = HibernateUtils.getSession();
+          Criteria crit = session.createCriteria(Directorio.class);
+          crit.setProjection(Projections.projectionList()
+                .add(Projections.property("modelos")));
+          ruta = (String)crit.setMaxResults(1).uniqueResult();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return ruta+"\\"; 
+    }
+    
+    public static String ObtenerRutaRecibos()
+    {
+        String ruta = null; 
+        try
+        {
+          Session session = HibernateUtils.getSession();
+          Criteria crit = session.createCriteria(Directorio.class);
+          crit.setProjection(Projections.projectionList()
+                .add(Projections.property("recibos")));
+          ruta = (String)crit.setMaxResults(1).uniqueResult();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return ruta+"\\"; 
+    }
+    
+    public static String ObtenerRutaAgradecimientos()
+    {
+        String ruta = null; 
+        try
+        {
+          Session session = HibernateUtils.getSession();
+          Criteria crit = session.createCriteria(Directorio.class);
+          crit.setProjection(Projections.projectionList()
+                .add(Projections.property("agradecimientos")));
+          ruta = (String)crit.setMaxResults(1).uniqueResult();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return ruta+"\\"; 
+    }
+    
+    public static String ObtenerRutaContratos()
+    {
+        String ruta = null; 
+        try
+        {
+          Session session = HibernateUtils.getSession();
+          Criteria crit = session.createCriteria(Directorio.class);
+          crit.setProjection(Projections.projectionList()
+                .add(Projections.property("contratos")));
+          ruta = (String)crit.setMaxResults(1).uniqueResult();
+        }
+        catch(Exception ex)
+        {
+            throw ex;
+        }
+        return ruta+"\\"; 
+    }
 }
 
   

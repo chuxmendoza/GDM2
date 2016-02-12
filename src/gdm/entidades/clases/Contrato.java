@@ -201,5 +201,12 @@ public class Contrato {
         this.fechaAlta = fechaAlta;
     }
     //</editor-fold>
+    
+    @Override
+    public String toString()
+    {
+        String nombre = especialidad.getNombre() + " - " + escuela.getNombre() + " - " + escuela.getCiudad() + " - " + generacion;
+        return nombre;
+    }
  
 } 

@@ -18,6 +18,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 import javax.swing.JOptionPane;
 import negocio.Clases.AnticipoNegocio; 
+import negocio.Clases.DirectorioNegocio;
 
 
 /**
@@ -295,7 +296,7 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
                 {
                     JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AnticipoAgregado")
                         , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
-                    Common.copiarArchivo(rutaArchivo, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("rutaImagenes")+nombreArchivo);
+                    Common.copiarArchivo(rutaArchivo, DirectorioNegocio.ObtenerRutaRecibos()+nombreArchivo);
                     this.DialogResult = true;
                     this.dispose();
                 }
@@ -318,7 +319,7 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
                 {
                     JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("AnticipoEditado")
                         , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloAnticipo"), JOptionPane.INFORMATION_MESSAGE);
-                     Common.copiarArchivo(rutaArchivo, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("rutaImagenes")+nombreArchivo);
+                     Common.copiarArchivo(rutaArchivo, DirectorioNegocio.ObtenerRutaRecibos()+nombreArchivo);
                      this.DialogResult = true;
                      this.dispose();
                 }
@@ -448,7 +449,7 @@ public class JDialogAgregarAnticipo extends javax.swing.JDialog {
                 if (entidad.getRecibo() != null)
                 if (!entidad.getRecibo().isEmpty())
                 {
-                    String rutaImagen = ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("rutaImagenes");
+                    String rutaImagen = DirectorioNegocio.ObtenerRutaRecibos();
                     if (Common.RutaExistente(rutaImagen+entidad.getRecibo()))
                     {
                         ImageIcon icon = new ImageIcon(((new ImageIcon(rutaImagen+entidad.getRecibo())).getImage())

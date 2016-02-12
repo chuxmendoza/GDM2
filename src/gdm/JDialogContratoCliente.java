@@ -268,6 +268,10 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
         JDialogAgregarContratoCliente cc = new JDialogAgregarContratoCliente(null, rootPaneCheckingEnabled);
         cc.idContrato = idContrato;
         cc.setVisible(true);
+        if (cc.DialogResult)
+        {
+            cargarContratos();
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
