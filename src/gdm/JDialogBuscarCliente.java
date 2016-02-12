@@ -98,9 +98,13 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
         });
 
         jLabel1.setFont(new java.awt.Font("Euphemia", 0, 18)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Clientes");
 
+        jLabel2.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         jLabel2.setText("Nombre del  cliente:");
+
+        txtNombre.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
 
         btnBuscar.setText("Buscar");
         btnBuscar.addActionListener(new java.awt.event.ActionListener() {
@@ -114,7 +118,7 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(67, Short.MAX_VALUE)
+                .addContainerGap(71, Short.MAX_VALUE)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel2)
@@ -123,23 +127,16 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBuscar))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1031, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(38, 38, 38))
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(523, 523, 523)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(419, 419, 419)
-                        .addComponent(btnAgregar)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(34, 34, 34))
+            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAgregar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(64, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(18, 18, 18)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2)
@@ -148,7 +145,7 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 346, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addComponent(btnAgregar)
-                .addGap(62, 62, 62))
+                .addGap(45, 45, 45))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -164,7 +161,7 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 672, Short.MAX_VALUE)
+            .addGap(0, 654, Short.MAX_VALUE)
             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(layout.createSequentialGroup()
                     .addGap(0, 0, Short.MAX_VALUE)
@@ -176,7 +173,7 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
     private void btnAgregarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarActionPerformed
         // TODO add your handling code here:
-                   
+                   try{
        this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
         
           if(tblClientes.getSelectedRow()!= -1)
@@ -186,60 +183,32 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
             this.DialogResult=true;
             this.dispose();
           }
-            
+                   }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+                   }
     }//GEN-LAST:event_btnAgregarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
         // TODO add your handling code here:
-        try
+           try
         {
-            btnAgregar.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
-            JDialogAgregarCliente cliente = new JDialogAgregarCliente(null, true);
-            cliente.setVisible(true);
-            if(cliente.DialogResult)
-            {
-                cargarClientes();
-            }
-        }
-        catch(Exception e){
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            buscar();
+        }catch(Exception ex)
+        {
+            Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
-            btnAgregar.setCursor(Cursor.getPredefinedCursor(Cursor.HAND_CURSOR));
-
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-    
-    private void buscarClientes(){ 
-       try
-        {
-            DefaultTableModel mod = (DefaultTableModel)tblClientes.getModel();
-            while(mod.getRowCount() > 0)
-                mod.removeRow(0);
-
-            for(Cliente entidad : ClienteNegocio.Listado()){
-                int id = entidad.getId();
-                String nombre = entidad.getNombre();
-                String telefono = entidad.getTelefono();
-                String celular = entidad.getCelular();
-                String correo = entidad.getCorreo();
-                String direccion = entidad.getDireccion().toString();
-                mod.addRow(new Object[] {id, nombre, direccion, telefono, celular, correo});
-            } 
-            tblClientes.setModel(mod);
-        }
-        catch(Exception ex)
-        {
-            System.out.println("Error: "+ex.getMessage());
         }
         finally
         {
             this.setCursor(Cursor.getDefaultCursor());
-        }
-    } 
-    /**
-     * @param args the command line arguments
-     */
+        }   
+    }//GEN-LAST:event_btnBuscarActionPerformed
+    
+   
    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregar;
@@ -252,12 +221,44 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
     private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
-    private void cargarClientes() {
+     private void cargarClientes() {
+           try
+        { 
+            clientes = ClienteNegocio.Listado();
+            cargarTabla();
+        }
+        catch(Exception ex)
+        {
+            Program.logger.error(this, ex);
+        }
+        finally
+        {
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+       }
+
+    private void buscar() {
+     try
+        { 
+            String nombre =txtNombre.getText().trim();
+            clientes = ClienteNegocio.Buscar(nombre);
+            cargarTabla();
+        }
+        catch(Exception ex)
+        {
+            Program.logger.error(this, ex);
+        }
+        finally
+        {
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    
+    }
+
+    private void cargarTabla() {
+         try{
           DefaultTableModel mod = (DefaultTableModel)tblClientes.getModel();
-        while(mod.getRowCount() > 0)
-            mod.removeRow(0);
-        
-        clientes = ClienteNegocio.Listado();
+        mod.setRowCount(0);     
         for(Cliente cliente : clientes){
             int id = cliente.getId();
             String nombre = cliente.getNombre();
@@ -271,7 +272,13 @@ public class JDialogBuscarCliente extends javax.swing.JDialog {
         }
         
         tblClientes.setModel(mod);
-    }   
+    }      catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+}
+ 
+    }
 
     
     }

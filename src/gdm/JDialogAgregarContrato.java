@@ -7,6 +7,7 @@ package gdm;
 
 import gdm.entidades.clases.Baile;
 import gdm.entidades.clases.Contrato;
+import gdm.entidades.clases.Escuela;
 import gdm.entidades.clases.FotoPanoramica;
 import gdm.entidades.clases.Misa;
 import java.awt.Cursor;
@@ -117,6 +118,11 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
         jLabel4.setText("Generación:");
 
         comboEscuela.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        comboEscuela.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                comboEscuelaActionPerformed(evt);
+            }
+        });
 
         comboEspecialidad.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
         comboEspecialidad.setValueMember("<Not Set>");
@@ -517,14 +523,14 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     misa.setFecha(jXDatePickerMisa.getDate());
                     misa.setLugar(txtLugarMisa.getText());
                     misa.setHora((int)spHoraMisa.getValue());
-                    misa.setMinutos((Integer.parseInt(spMinutoMisa.getValue().toString())));
-                    
+                    misa.setMinutos(Integer.parseInt(spMinutoMisa.getValue().toString()));                    
                     baile.setFecha(jXDatePickerBaile.getDate());
                     baile.setLugar(txtLugarBaile.getText());
                     baile.setHora((int)spHoraMisa.getValue());
                     baile.setMinutos((Integer.parseInt(spMinutoBaile.getValue().toString())));
                     
-                   
+                   if(!txtLugarFoto.getText().trim().isEmpty()&&jXDatePickeFechaEvento.getDate()!=null&&jXDatePickerFoto.getDate()!=null&&!txtGeneracion.getText().trim().isEmpty()
+                           &&comboEscuela.getSelectedIndex()!=-1&&comboEspecialidad.getSelectedIndex()!=-1){
                     if(ContratoNegocio.Guardar(Integer.parseInt(comboEscuela.getSelectedValue().toString()),
                             Integer.parseInt(comboEspecialidad.getSelectedValue().toString()),txtGeneracion.getText(),jXDatePickeFechaEvento.getDate(),
                             fotoPanoramica,misa,baile,txtComentarios.getText(), Program.idUsuario)){
@@ -535,7 +541,11 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     }else{
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-                    }           
+                    } }else{
+                          JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoVacio")
+                            , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
+                 
+                   }          
            
             
              }else{
@@ -555,7 +565,8 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     baile.setMinutos(spMinutoBaile.getComponentCount());
 
               
-
+ if(!txtLugarFoto.getText().trim().isEmpty()&&jXDatePickeFechaEvento.getDate()!=null&&jXDatePickerFoto.getDate()!=null&&!txtGeneracion.getText().trim().isEmpty()
+                           &&comboEscuela.getSelectedIndex()!=-1&&comboEspecialidad.getSelectedIndex()!=-1){
                     if(ContratoNegocio.Editar(id,Integer.parseInt(comboEscuela.getSelectedValue().toString()),Integer.parseInt(comboEspecialidad.getSelectedValue().toString()),txtGeneracion.getText(),jXDatePickeFechaEvento.getDate(),fotoPanoramica,misa,baile,txtComentarios.getText())){
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoEditado")
                             , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
@@ -564,16 +575,21 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
                     }else{
                         JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                             , "TituloError", JOptionPane.INFORMATION_MESSAGE);
-                    }
+                    }}else{
+                          JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ContratoVacio")
+                            , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
+                 
+                   } 
       
                  }
              
 
+
         }catch(Exception e){
             Program.logger.error(this, e);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , "Acceso denegado", JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
         
         
@@ -590,26 +606,51 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
            comboEscuela.setDataSource(EscuelaNegocio.ListadoCombo());
            comboEscuela.setSelectedIndex(-1);
             
-        }catch(Exception e){
-            
-        }
-            try{
-            //Asigna el nombre del atributo  que tendra el valor del combo seleccionado.
-           comboEspecialidad.setValueMember("id");
-            //Asigna el nombre del atributo a el valor que mostrara el combo.
-           comboEspecialidad.setDisplayMember("nombre");
-           //Asigna la lista de valores a el combo
-           comboEspecialidad.setDataSource(EspecialidadNegocio.Listado());
-           comboEspecialidad.setSelectedIndex(-1);
-            
-        }catch(Exception e){
-                System.out.println(e);
-        }
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+  }
+//            try{
+//            //Asigna el nombre del atributo  que tendra el valor del combo seleccionado.
+//           comboEspecialidad.setValueMember("id");
+//            //Asigna el nombre del atributo a el valor que mostrara el combo.
+//           comboEspecialidad.setDisplayMember("nombre");
+//           //Asigna la lista de valores a el combo
+//           comboEspecialidad.setDataSource(EspecialidadNegocio.Listado());
+//           comboEspecialidad.setSelectedIndex(-1);
+//            
+//        }catch(Exception ex){
+//       Program.logger.error(this, ex);
+//            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+//                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+// 
+//        }
                if(editar){
             cargarEdicion();
         } 
             
     }//GEN-LAST:event_formWindowOpened
+
+    private void comboEscuelaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_comboEscuelaActionPerformed
+        // TODO add your handling code here:
+    try{
+         int idEscuela =  Integer.parseInt(comboEscuela.getSelectedValue().toString());
+      Escuela escuela= EscuelaNegocio.Obtener(idEscuela);
+         if(escuela!=null){
+        comboEspecialidad.setValueMember("id");
+       comboEspecialidad.setDisplayMember("nombre");
+       comboEspecialidad.setDataSource(escuela.getEspecialidades());
+         }
+    }catch(Exception ex){
+         Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+
+    }
+       
+       
+    }//GEN-LAST:event_comboEscuelaActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -692,11 +733,11 @@ public class JDialogAgregarContrato extends javax.swing.JDialog {
        
             
         }
-     }catch(Exception e){
+     }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-          
-     }
+    }
         finally{
           this.setCursor(Cursor.getDefaultCursor());     
         }   

@@ -270,7 +270,7 @@ public class JDialogAgregarCliente extends javax.swing.JDialog {
     private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
         // TODO add your handling code here:
            try{
-             btnAceptar.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+             this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
             if(!editar){
             if(!txtNombre.getText().trim().isEmpty()&&!txtCorreo.getText().trim().isEmpty()&&!txtCalle.getText().trim().isEmpty()&&!txtNumero.getText().trim().isEmpty()
                     &&!txtColonia.getText().trim().isEmpty()&&!txtCiudad.getText().trim().isEmpty()){
@@ -335,10 +335,11 @@ public class JDialogAgregarCliente extends javax.swing.JDialog {
             }
             }
 
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -391,11 +392,11 @@ public class JDialogAgregarCliente extends javax.swing.JDialog {
             txtTelefono.setText(cliente.getTelefono());
             
         }
-     }catch(Exception e){
+     }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-          
-     }
+  }
         finally{
           this.setCursor(Cursor.getDefaultCursor());     
         }   

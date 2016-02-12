@@ -52,6 +52,12 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
         Abonar = new javax.swing.JButton();
         btnEliminar = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
+        txtNombre = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        txtFolio = new javax.swing.JTextField();
+        comboLiquidado = new javax.swing.JComboBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         addWindowListener(new java.awt.event.WindowAdapter() {
@@ -209,14 +215,35 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
             }
         });
 
+        jLabel2.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        jLabel2.setText("Nombre:");
+
+        txtNombre.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+
+        btnBuscar.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
+        });
+
+        jLabel3.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        jLabel3.setText("Folio:");
+
+        txtFolio.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+
+        comboLiquidado.setFont(new java.awt.Font("Euphemia", 0, 14)); // NOI18N
+        comboLiquidado.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Buscar por liquidación", "Liquidado", "No Liquidado" }));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(36, 36, 36)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton4)
                         .addGap(109, 109, 109)
                         .addComponent(Abonar, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -224,34 +251,51 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                         .addComponent(btnEditar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnEliminar))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1054, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel2))
+                        .addGap(38, 38, 38)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(30, 30, 30)
+                                .addComponent(comboLiquidado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel3))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(44, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(97, Short.MAX_VALUE)
+                .addContainerGap(81, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnBuscar)
+                    .addComponent(txtFolio, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(comboLiquidado, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 394, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(Abonar)
-                        .addGap(54, 54, 54))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnEliminar)
-                            .addComponent(jButton4)
-                            .addComponent(btnEditar))
-                        .addContainerGap())))
+                    .addComponent(Abonar, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnEliminar)
+                    .addComponent(jButton4)
+                    .addComponent(btnEditar))
+                .addGap(38, 38, 38))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(0, 0, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -265,13 +309,23 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
         // TODO add your handling code here: 
+        try{
         JDialogAgregarContratoCliente cc = new JDialogAgregarContratoCliente(null, rootPaneCheckingEnabled);
         cc.idContrato = idContrato;
         cc.setVisible(true);
+<<<<<<< HEAD
         if (cc.DialogResult)
         {
             cargarContratos();
         }
+=======
+        }
+          catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+          }
+>>>>>>> 35cba5d2aaaef8aaf860c97765cb6c717916a785
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
@@ -298,10 +352,11 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
             }
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+   }finally{
             this.setCursor(Cursor.getDefaultCursor());
         }
         
@@ -319,12 +374,17 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 frame.total =  Double.parseDouble(tblContratos.getValueAt(tblContratos.getSelectedRow(), 22).toString());
                 frame.setLocationRelativeTo(null);
                 frame.setVisible(true);
+            }else{
+                  JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("SeleccionElemento")
+                    , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloContrato"), JOptionPane.INFORMATION_MESSAGE);
+        
             }  
         }
-        catch(Exception ex)
-        {
-            System.out.println(ex.getMessage());
-        }finally
+          catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+          }finally
         {
             this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
         }
@@ -356,55 +416,120 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloUsuario"), JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }catch(Exception e){
+        }   catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+    }finally{
             btnEliminar.setCursor(Cursor.getDefaultCursor());
         }  
         
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        // TODO add your handling code here:
+        try
+        {
+            this.setCursor(Cursor.getPredefinedCursor(Cursor.WAIT_CURSOR));
+            buscar();
+        }catch(Exception ex)
+        {
+            Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+        }
+        finally
+        {
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
     
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Abonar;
+    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminar;
+    private javax.swing.JComboBox comboLiquidado;
     private javax.swing.JButton jButton4;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblContratos;
+    private javax.swing.JTextField txtFolio;
+    private javax.swing.JTextField txtNombre;
     // End of variables declaration//GEN-END:variables
 
+
+          
+      
+
     private void cargarContratos() { 
-      try
-      { 
+         try
+        { 
+ //            contratos = ContratoClienteNegocio.Listado();
+           contratos = ContratoNegocio.ListarCC(idContrato);
+            cargarTabla();
+        }
+        catch(Exception ex)
+        {
+            Program.logger.error(this, ex);
+        }
+        finally
+        {
+            this.setCursor(Cursor.getDefaultCursor());
+        }
+    }
+
+    private void buscar() {
+     try
+        {   
+            
+            int folio= !txtFolio.getText().trim().isEmpty()?Integer.parseInt(txtFolio.getText()):0;
+            String nombre =txtNombre.getText().trim();
+            boolean liquidado = comboLiquidado.getSelectedIndex()==2?false:true;
+            boolean validarLiquidado=comboLiquidado.getSelectedIndex()==0?false:true;
+            
+            
+            contratos = ContratoClienteNegocio.Buscar(idContrato,nombre,folio,liquidado,validarLiquidado);
+            cargarTabla();
+        }
+        catch(Exception ex)
+        {
+            Program.logger.error(this, ex);
+        }
+        finally
+        {
+            this.setCursor(Cursor.getDefaultCursor());
+        }   
+    }
+
+    private void cargarTabla() {
+    try{
        DefaultTableModel mod = (DefaultTableModel)tblContratos.getModel();
-        while(mod.getRowCount() > 0)
-            mod.removeRow(0);
-        
-        contratos = ContratoNegocio.ListarCC(idContrato);
-        for(ContratoCliente contrato : contratos){
+       mod.setRowCount(0);
+            for(ContratoCliente contrato : contratos){
             int id = contrato.getId();
             String nombre= contrato.getCliente().getNombre();
             int folio = contrato.getFolio();
-            boolean triptico= contrato.isTriptico();
+            String triptico= contrato.isTriptico()  ? "Si" : "No";
             String modelo= contrato.getModelo().getNombre();
-            boolean reconocimiento= contrato.isReconocimiento();
-            boolean titulo= contrato.isTitulo();
+            String reconocimiento= contrato.isReconocimiento() ? "Si" : "No";
+            String titulo= contrato.isTitulo() ? "Si" : "No";
             String dirigido= contrato.getDirigido();
             String agradecimiento= contrato.getAgradecimiento().getClave();
-            boolean fotoPanoramica= contrato.getFotoPanoramica();
-            boolean fotoPersonalizada= contrato.isFotoPersonalizada();
-            boolean fotoEstudio= contrato.isFotoEstudio();
-            boolean fotoMisa= contrato.isFotoMisa();
+            String fotoPanoramica= contrato.getFotoPanoramica() ? "Si" : "No";
+            String fotoPersonalizada= contrato.isFotoPersonalizada() ? "Si" : "No";
+            String fotoEstudio= contrato.isFotoEstudio() ? "Si" : "No";
+            String fotoMisa= contrato.isFotoMisa() ? "Si" : "No";
             String anillo= contrato.getAnillo().getMetal().getNombre();
             double k= contrato.getAnillo().getK();
             double g= contrato.getAnillo().getG();
-            boolean rentaToga = contrato.isRentaToga();
-            boolean misa= contrato.isMisa();
-            boolean baile = contrato.isBaile();
+            String rentaToga = contrato.isRentaToga() ? "Si" : "No";
+            String misa= contrato.isMisa() ? "Si" : "No";
+            String baile = contrato.isBaile() ? "Si" : "No";
             int mesaExtra = contrato.getMesaExtra();
             int fotosExtra= contrato.getFotosExtra();
             double precio = contrato.getPrecio();
@@ -418,12 +543,17 @@ public class JDialogContratoCliente extends javax.swing.JDialog {
                 dirigido,fotoPanoramica,fotoPersonalizada,fotoEstudio,
             fotoMisa,anillo,k,g,rentaToga,misa,baile,mesaExtra,fotosExtra,fechaContrato,""+precio,Comentarios,
             fechaEntregaPaquete,fechaEntregaDatos,fechaLimitePago});
-        } 
+
+        }
+        
+
         tblContratos.setModel(mod);  
       }
-      catch(Exception ex)
-      {
-          Program.logger.error(this, ex);
-      }
-    }
-}
+       catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+   } }
+}   
+
+        

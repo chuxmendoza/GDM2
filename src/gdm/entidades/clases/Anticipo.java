@@ -21,6 +21,7 @@ public class Anticipo {
     private double cantidad;
     private String recibo;
     private Usuario usuario;
+    private int folio ;
     
     //<editor-fold defaultstate="collapsed" desc=" Getters and Setters del Anticipo ">
        /**
@@ -148,7 +149,21 @@ public class Anticipo {
     public void setUsuario(Usuario usuario) {
         this.usuario = usuario;
     }
- 
+    /**
+     * @return the folio
+     */
+    public int getFolio() {
+        return folio;
+    }
+
+    /**
+     * @param folio the folio to set
+     */
+    public void setFolio(int folio) {
+        this.folio = folio;
+    }
     //</editor-fold>
+
+ 
     
 }

@@ -189,10 +189,11 @@ public class JDialogAgregarEgreso extends javax.swing.JDialog {
              }
              
 
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , "Acceso denegado", JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
     }//GEN-LAST:event_btnInversionActionPerformed
 
@@ -222,9 +223,11 @@ public class JDialogAgregarEgreso extends javax.swing.JDialog {
             txtEgresoNombre.setText(egreso.getNombre());            
           
         }
-     }catch(Exception e){
-           
-     }
+     }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+  }
         finally{
           this.setCursor(Cursor.getDefaultCursor());     
         }     }

@@ -315,10 +315,11 @@ private List<Especialidad> especialidades= new ArrayList();
             }
             }
 
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
-                , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+ 
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
 
@@ -352,10 +353,11 @@ private List<Especialidad> especialidades= new ArrayList();
                 cargarEspecialidad();
             }
         }
-        catch(Exception e){
+       catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+   }finally{
             this.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
 
         }
@@ -383,10 +385,11 @@ private List<Especialidad> especialidades= new ArrayList();
                     , ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloEspecialidad"), JOptionPane.INFORMATION_MESSAGE);
             }
 
-        }catch(Exception e){
+        }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-        }finally{
+      }finally{
             this.setCursor(Cursor.getDefaultCursor());
         }
     }//GEN-LAST:event_btnEliminarCarreraActionPerformed
@@ -425,10 +428,11 @@ private List<Especialidad> especialidades= new ArrayList();
             
           
         }
-     }catch(Exception e){
+     }catch(Exception ex){
+       Program.logger.error(this, ex);
             JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
                 ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
-          
+         
      }
         finally{
           this.setCursor(Cursor.getDefaultCursor());     
@@ -436,6 +440,7 @@ private List<Especialidad> especialidades= new ArrayList();
     }
 
     private void cargarEspecialidad() {
+        try{
     DefaultTableModel mod = (DefaultTableModel)tblEspecialidad.getModel();
       
         mod.setRowCount(0);
@@ -448,9 +453,13 @@ private List<Especialidad> especialidades= new ArrayList();
         }
         
         tblEspecialidad.setModel(mod);
-    }   
+    }catch(Exception ex){
+       Program.logger.error(this, ex);
+            JOptionPane.showMessageDialog(this, ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("ErrorMensaje")
+                ,  ResourceBundle.getBundle("gdm/entidades/clases/resource").getString("TituloError"), JOptionPane.INFORMATION_MESSAGE);
+}   
 
-   
+    }
     
     }
 
